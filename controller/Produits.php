@@ -6,7 +6,7 @@ class Produits extends Controller
     {
         $this->loadModel("produitsmodel");
         $produits = $this->produitsmodel->getAll();
-        $this->render('articles', compact('produits'));
+        $this->render('produits', compact('produits'));
 
     }
 }
