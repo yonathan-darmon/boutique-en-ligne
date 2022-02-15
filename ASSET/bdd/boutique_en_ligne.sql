@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 11 fév. 2022 à 10:02
+-- Généré le : mar. 15 fév. 2022 à 10:08
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -90,12 +90,29 @@ CREATE TABLE IF NOT EXISTS `comments` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `historique`
+--
+
+DROP TABLE IF EXISTS `historique`;
+CREATE TABLE IF NOT EXISTS `historique` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `moyen_de_paiement` varchar(255) NOT NULL,
+  `id_commande` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `products`
 --
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
@@ -104,8 +121,16 @@ CREATE TABLE IF NOT EXISTS `products` (
   `short_descr` text NOT NULL,
   `long_descr` text NOT NULL,
   `tags` text NOT NULL,
-  `id_categorie` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `id_categorie` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `price`, `stock`, `image`, `mis_avant`, `short_descr`, `long_descr`, `tags`, `id_categorie`) VALUES
+(1, 'Harry', 150, 120, 'C', 0, 'Harry', 'Harry For the win', 'harry', 1);
 
 -- --------------------------------------------------------
 
