@@ -6,7 +6,6 @@ require_once (ROOT.'controller/Controller.php');
 require_once (ROOT.'model/Model.php');
 //on sépare les parametres
 $params = explode('/', $_GET['p']);
-var_dump($params);
 //on verifie les parametres
 
 if (!empty($params[0])) {
