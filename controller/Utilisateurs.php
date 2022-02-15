@@ -1,4 +1,7 @@
 <?php
-class Utilisateurs extends Controller{
+
+
+class Utilisateurs extends Controller
+{
 
 }

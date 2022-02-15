@@ -1,9 +1,12 @@
 <?php
 
+
+
 class Produits extends Controller
 {
     public function __construct()
     {
+
     }
 
     public function index()
