@@ -39,8 +39,14 @@ class Model
 
     public function getOne()
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id);
-        $sth->execute();
+        $sth = $this->_connexion->prepare('SELECT * FROM  '.$this->table.'  WHERE id= ?' );
+        $sth->execute(array($this->id));
         return $sth->fetch();
+    }
+
+    public function insert($col, $value, $truevalue)
+    {
+        $sth = $this->_connexion->prepare('INSERT INTO '.$this->table .'('.$col.') VALUES ('.$value.')' );
+        $sth->execute(array($truevalue));
     }
 }
