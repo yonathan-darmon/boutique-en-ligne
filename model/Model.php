@@ -1,13 +1,15 @@
 <?php
-class Model{
+
+class Model
+{
     //inof de BDD
     private $host = "localhost";
     private $db_name = "boutique_en_ligne";
-    private $login= "root";
+    private $login = "root";
     private $password = "";
 
     //propriété de la connexion
-    protected $_connexion;
+    protected $_connexion = null;
 
     //proprieté des requetes
 
@@ -16,18 +18,20 @@ class Model{
 
     public function getConnection()
     {
-        $this->_connexion= null;
-        try {
-            $this->_connexion = new PDO('mysql: host='.$this->host.';
-            dbname='.$this->db_name, $this->login, $this->password);
-        }catch (PDOException $exception){
-            echo 'Erreur :'. $exception->getMessage();
+        if ($this->_connexion === null) {
+            try {
+                $this->_connexion = new PDO('mysql: host=' . $this->host . ';
+            dbname=' . $this->db_name, $this->login, $this->password);
+            } catch (PDOException $exception) {
+                echo 'Erreur :' . $exception->getMessage();
+            }
         }
+        return$this->_connexion;
     }
 
     public function getALL()
     {
-        $sth= $this->_connexion->prepare('SELECT * FROM ' .$this->table );
+        $sth = $this->_connexion->prepare('SELECT * FROM ' . $this->table);
         $sth->execute();
 
         return $sth->fetchall(PDO::FETCH_ASSOC);
@@ -35,8 +39,8 @@ class Model{
 
     public function getOne()
     {
-        $sth= $this->_connexion->prepare('SELECT * FROM ' .$this->table.' WHERE id=' .$this->id );
+        $sth = $this->_connexion->prepare('SELECT * FROM ' . $this->table . ' WHERE id=' . $this->id);
         $sth->execute();
-        return$sth->fetch();
+        return $sth->fetch();
     }
 }
