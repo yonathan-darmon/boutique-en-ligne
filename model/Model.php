@@ -37,10 +37,10 @@ class Model
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
-    public function getOne()
+    public function getOne($key, $value)
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM  '.$this->table.'  WHERE id= ?' );
-        $sth->execute(array($this->id));
+        $sth = $this->_connexion->prepare('SELECT * FROM  '.$this->table.'  WHERE '.$key.' = ?' );
+        $sth->execute(array($value));
         return $sth->fetch();
     }
 
@@ -49,5 +49,5 @@ class Model
         $sth = $this->_connexion->prepare('INSERT INTO '.$this->table .'('.$col.') VALUES ('.$value.')' );
         $sth->execute(array($truevalue));
     }
-    
+
 }
