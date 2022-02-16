@@ -49,4 +49,5 @@ class Model
         $sth = $this->_connexion->prepare('INSERT INTO '.$this->table .'('.$col.') VALUES ('.$value.')' );
         $sth->execute(array($truevalue));
     }
+    
 }
