@@ -3,35 +3,34 @@
 
 class Connexion extends Controller
 {
-    public function isLoginExist($login)
+
+    public static function index()
     {
-        $model = new utilisateursmodel();
-        $exist = $model->getOne('login', $login);
-        return $exist;
+        $errors = [];
+        if (isset($_POST['connect'])) {
 
-    }
-
-    public function index()
-    {
-        $this->loadModel("utilisateursmodel");
-        $user = $this->utilisateursmodel->getAll();
-        $this->render("connexion",compact('user'));
-
-
-    }
-    public function connect($login, $password)
-    {
-        $user = $this->isLoginExist($login);
-        $model = new utilisateursmodel();
-        $password = $model->getOne('password', $password);
-        if ($user == true && $password == true) {
-            $this->id = $password['id'];
-            $_SESSION['id'] = $password['id'];
-            $_SESSION['login'] = $login;
-        } else {
-            $error1 = "Veuillez verifier votre mot de passe";
-            return $error1;
+            $usermodel = new UtilisateursModel();
+            $user = $usermodel->getOne('login', $_POST['login']);
+            if (!empty($user)) {
+                if ($user['password'] == $_POST['password']) {
+                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['login'] = $user['login'];
+                } else {
+                    array_push($errors, 'Login ou mot de passe incorrect1');
+                }
+            } else {
+                array_push($errors, 'Login ou mot de passe incorrect2');
+            }
         }
+        self::render("connexion", compact("errors"));
+
+
     }
 
+
+//    $user=new Utilisateurs();
+//    $connect=$user->connect($_POST['login'], $_POST['password']);
+//    if(!empty($connect)){
+//        echo $connect;
+//    }
 }

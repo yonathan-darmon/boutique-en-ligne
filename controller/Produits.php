@@ -8,11 +8,11 @@ class Produits extends Controller
 
     }
 
-    public function index()
+    public static function index()
     {
-        $this->loadModel("produitsmodel");
-        $produits = $this->produitsmodel->getAll();
-        $this->render('produits', compact('produits'));
+        $model = new produitsmodel();
+        $produits = $model->getALL();
+        self::render('produits', compact('produits'));
 
     }
 }
