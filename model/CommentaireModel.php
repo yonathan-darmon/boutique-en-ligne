@@ -1,9 +1,10 @@
 <?php
-class ProduitsModel extends Model{
+class CommentaireModel extends Model
+{
     public function __construct()
     {
-        $this->table = "products";
+        $this->table="comments";
         $this->getConnection();
     }
-    
+
 }
