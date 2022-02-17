@@ -1,4 +1,6 @@
 <?php
+session_start();
+spl_autoload_register();
 //constante avec le chemin d'index.php
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
