@@ -13,7 +13,7 @@ class Connexion extends Controller
             $usermodel = new UtilisateursModel();
             $user = $usermodel->getOne('login', $_POST['login']);
             if (!empty($user)) {
-                if ($user['password'] == $_POST['password']) {
+                if ($user['password'] == password_verify($_POST['password'], $user['password'])) {
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['login'] = $user['login'];
                     $success[] = 'Bienvenue ' . $user['login'];
