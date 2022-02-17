@@ -1,7 +1,7 @@
 <?php
 
 
-class Utilisateurs extends Controller
+class Connexion extends Controller
 {
     public function isLoginExist($login)
     {

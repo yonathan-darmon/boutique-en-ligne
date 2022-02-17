@@ -1,5 +1,4 @@
 <?php
-session_start();
 if(isset($_POST['connect'])){
     $user=new Utilisateurs();
     $connect=$user->connect($_POST['login'], $_POST['password']);

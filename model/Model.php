@@ -44,10 +44,5 @@ class Model
         return $sth->fetch();
     }
 
-    public function insert($col, $value, $truevalue)
-    {
-        $sth = $this->_connexion->prepare('INSERT INTO '.$this->table .'('.$col.') VALUES ('.$value.')' );
-        $sth->execute(array($truevalue));
-    }
 
 }

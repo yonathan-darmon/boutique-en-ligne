@@ -1,5 +1,5 @@
 <?php
-class produitsmodel extends Model{
+class ProduitsModel extends Model{
     public function __construct()
     {
         $this->table = "products";
