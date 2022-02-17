@@ -5,5 +5,5 @@ class ProduitsModel extends Model{
         $this->table = "products";
         $this->getConnection();
     }
-    
+
 }
