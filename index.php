@@ -28,3 +28,6 @@ elseif ($params[0]=='connexion'){
 elseif($params[0] == 'contraitement'){
     Connexion::connect();
 }
+elseif($params[0] == 'inscription'){
+    Inscription::Register();
+}

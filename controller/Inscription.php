@@ -1,22 +1,25 @@
 <?php
     class Inscription extends Controller
     {
-        public function Register($login, $password, $email, $adress)
+        public static function Register()
         {
             if(isset($_POST['valider'])){
                 $login = $_POST['login'];
                 $password = $_POST['password'];
                 $email = $_POST['email'];
                 $adress = $_POST['adress'];
-                if(!empty($login) && ($password) && ($email) && ($adress)){
-                    header('Location:./Connexion.php');
+                if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['email']) && !empty($_POST['adress'])){
+                    $hash = password_hash($password, PASSWORD_DEFAULT);
+                    $user = new Utilisateursmodel();
+                    $user->insert($login,$hash,$email,$adress);
+                    var_dump($user);
                 }
                 else{
                     echo "Veuillez remplir les champs";
                 }
-                $sth = $this->_connexion->prepare("INSERT INTO user (login, password, email, adress) VALUES ('$login', '$password', '$email', '$adress')");
-                $sth->execute();
+                
             }
+            self::render("inscription");
         }
     }
 
