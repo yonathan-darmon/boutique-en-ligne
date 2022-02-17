@@ -7,6 +7,7 @@ class Connexion extends Controller
     public static function index()
     {
         $errors = [];
+        $success=[];
         if (isset($_POST['connect'])) {
 
             $usermodel = new UtilisateursModel();
@@ -15,14 +16,16 @@ class Connexion extends Controller
                 if ($user['password'] == $_POST['password']) {
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['login'] = $user['login'];
+                    $success[] = 'Bienvenue ' . $user['login'];
+
                 } else {
-                    array_push($errors, 'Login ou mot de passe incorrect1');
+                    array_push($errors, 'Login ou mot de passe incorrect');
                 }
             } else {
-                array_push($errors, 'Login ou mot de passe incorrect2');
+                array_push($errors, 'Login ou mot de passe incorrect');
             }
         }
-        self::render("connexion", compact("errors"));
+        self::render("connexion", compact("errors","success"));
 
 
     }
