@@ -27,10 +27,4 @@ class Connexion extends Controller
 
     }
 
-
-//    $user=new Utilisateurs();
-//    $connect=$user->connect($_POST['login'], $_POST['password']);
-//    if(!empty($connect)){
-//        echo $connect;
-//    }
 }
