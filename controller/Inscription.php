@@ -3,6 +3,12 @@
     {
         public static function Register()
         {
+            $array = array("bonjour","bonsoir","harry potter");
+            shuffle($array);
+            foreach($array as $array){
+                echo"$array";
+            }
+
             if(isset($_POST['valider'])){
                 $login = $_POST['login'];
                 $password = $_POST['password'];
@@ -33,4 +39,5 @@
         }
     }
 
+    
 ?>
