@@ -2,15 +2,15 @@
 
 ?>
 <form action="#" method="post">
-    <p>login</p>
+    <p>Login</p>
     <input type="text" name="login">
-    <p>password</p>
+    <p>Password</p>
     <input type="password" name="password">
-    <p>vérification du mot de passe</p>
+    <p>Vérification du mot de passe</p>
     <input type="password" name="passwordverify">
-    <p>email</p>
+    <p>Email</p>
     <input type="text" name="email">
-    <p>adresse</p>
+    <p>Adresse</p>
     <input type="text" name="adress">
     <br></br>
     <input type="submit" value="s'inscrire" name="valider">

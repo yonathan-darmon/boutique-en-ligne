@@ -20,7 +20,7 @@
                     var_dump($user);
                     }
                     /*$userverify = $user->getOne('login', $_POST['login']);
-                    if(mysqli_num_rows($userverify)){
+                    if($userverify['login']==$_POST['login']){
                         exit('Ce compte existe déja');
                     }*/
                 }
