@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/*Header*/
+
+header {
+    height: 45vh;
+    background-color: #D7DBAF;
+}
+
+header nav {
+   padding: 2%; 
+}
+
+#container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*Logo*/
+
+.image {
+    margin-top: 0px;
+    margin-right: 25%;
+}
+
+.image img {
+    width: 370px;
+    height: 370px;
+    border-radius: 50%;
+    border: 6px solid whitesmoke;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Menu déroulant */
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.menu,
+.submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu {	
+  margin-right: 25%;		
+  width: 800px;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;	
+}
+
+.menu > li {
+  background: white;
+  float: left;
+  position: relative;
+  transform: skewX(25deg);
+}
+
+.menu a {
+  display: block;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+}		
+
+.menu li:hover {
+  background: #D7DBAF;
+}		
+
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+
+/* Dropdown */
+
+.submenu {
+  position: absolute;
+  width: 200px;
+  left: 50%; margin-left: -100px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+
+.submenu li {
+  background-color: white;
+  position: relative;
+  overflow: hidden;		
+}						
+
+.submenu > li > a {
+  padding: 1em 2em;			
+}
+
+.submenu > li::after {
+  content: '';
+  position: absolute;
+  top: -125%;
+  height: 100%;
+  width: 100%;			
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9);			
+}		
+
+.submenu > li:nth-child(odd){
+  transform: skewX(-25deg) translateX(0);
+}
+
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}				
+
+.submenu > li:nth-child(even){
+  transform: skewX(25deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+
+/* Show dropdown */
+
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;			
+}
+
+.submenu li {
+  transition: .2s ease transform;
+}
+
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}		
+
+.menu > li:hover .submenu li:nth-child(even){
+  transform: skewX(25deg) translateX(15px);			
+}
+
+.menu > li:hover .submenu li:nth-child(odd){
+  transform: skewX(-25deg) translateX(-15px);			
+}
+
+#container i {
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+#container i:hover {
+    color: black;
+}
