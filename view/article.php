@@ -1,7 +1,7 @@
-<?php /*foreach($produit as $value): ?>
-    <p><?=$value['id']?><?=$value['name'];?></p>
+<?php foreach($produit as $value):?>
+    <p><?=$value['name'];?></p>
     <p><?=$value['price'];?>€</p>
-<?php endforeach;*/?>
+<?php endforeach;?>
 
 <form action="#" method="post">
     <input type="submit" value="Ajouter au panier" name="panier">
@@ -9,14 +9,21 @@
 
 <h1>Descriptifs</h1>
 
-<?php /*foreach($produit as $value): ?>
+<?php foreach($produit as $value): ?>
     <p><?=$value['id']?><?=$value['short_descr'];?></p>
     <p><?=$value['long_descr'];?></p>
-<?php endforeach;*/?>
+<?php endforeach;?>
 
 <h1>Commentaires</h1>
 
-<?php /*foreach($comments as $value): ?>
-    <p><?=$value['id']?><?=$value['comment'];?></p>
-    <p>Le<?=$value['date'];?></p>
-<?php endforeach;*/?>
+<?php foreach($comments as $value): ?>
+    <p><?=$value['comment'];?></p>
+    <p>Le <?=$value['date'];?></p>
+<?php endforeach;?>
+
+<h2>Laisser un commentaire</h2>
+<form action="#" method="post">
+    <textarea name="commentaire" placeholder="Laisser un message"></textarea>
+    <br></br>
+    <input type="submit" valuer="Envoyer" name="valider">
+</form>
