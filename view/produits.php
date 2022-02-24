@@ -1,9 +1,9 @@
 <div class="box1">
     <div class="categorie"><a href="./produits/disney">Disney</a></div>
     <div class="categorie"><a href="./produits/harry_potter">Harry Potter</a></div>
-    <div class="categorie"><a href="/produits.php?cat=marvel">Marvel</a></div>
-    <div class="categorie"><a href="produits.php?cat=sw">Star Wars</a></div>
-    <div class="categorie"><a href="produits.php?cat=dc">DC Universe</a></div>
+    <div class="categorie"><a href="./produits/marvel">Marvel</a></div>
+    <div class="categorie"><a href="./produits/sw">Star Wars</a></div>
+    <div class="categorie"><a href="./produits/dc">DC Universe</a></div>
 </div>
 <h1>Liste des produits</h1>
 <?php foreach($produits as $value):?>

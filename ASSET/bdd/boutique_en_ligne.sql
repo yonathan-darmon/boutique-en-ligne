@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 24 fév. 2022 à 14:56
+-- Généré le : jeu. 24 fév. 2022 à 15:26
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -115,7 +115,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
+  `date` timestamp NOT NULL,
   `stock` int(11) NOT NULL,
+  `promo` int(11) NOT NULL,
   `image` text NOT NULL,
   `mis_avant` int(11) NOT NULL,
   `short_descr` text NOT NULL,
@@ -130,9 +132,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- Déchargement des données de la table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `stock`, `image`, `mis_avant`, `short_descr`, `long_descr`, `tags`, `id_categorie`, `id_souscategorie`) VALUES
-(1, 'Harry', 150, 120, 'C', 0, 'Harry', 'Harry For the win', 'harry', 1, 1),
-(2, 'spiderman', 50, 50, '144', 1, 'erkjgiuz', 'uegziuerhziughiuze', 'hgreiugiu', 2, 2);
+INSERT INTO `products` (`id`, `name`, `price`, `date`, `stock`, `promo`, `image`, `mis_avant`, `short_descr`, `long_descr`, `tags`, `id_categorie`, `id_souscategorie`) VALUES
+(1, 'Harry', 150, '2022-02-16 15:25:13', 120, 0, 'C', 0, 'Harry', 'Harry For the win', 'harry', 1, 1),
+(2, 'spiderman', 50, '2022-02-20 15:26:10', 50, 0, '144', 1, 'erkjgiuz', 'uegziuerhziughiuze', 'hgreiugiu', 2, 2);
 
 -- --------------------------------------------------------
 

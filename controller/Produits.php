@@ -11,7 +11,7 @@ class Produits extends Controller
     public static function index()
     {
 
-        $model = new produitsmodel();
+        $model = new Produitsmodel();
         $produits = $model->getALL();
         self::render('produits', compact('produits'));
 
