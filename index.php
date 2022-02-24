@@ -15,9 +15,7 @@ spl_autoload_register(function ($class) {
 //constante avec le chemin d'index.php
 
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
-
 $params = explode('/', $_GET['p']);
-var_dump($params);
 //on verifie les parametres
 
 if ($params[0] == 'produits') {

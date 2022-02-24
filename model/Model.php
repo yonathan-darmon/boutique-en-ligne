@@ -2,7 +2,7 @@
 
 class Model
 {
-    //inof de BDD
+    //info de BDD
     private $host = "localhost";
     private $db_name = "boutique_en_ligne";
     private $login = "root";
