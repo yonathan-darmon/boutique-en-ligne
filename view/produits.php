@@ -1,7 +1,7 @@
 <div class="box1">
-    <div class="categorie"><a href=<?=ROOT."produits/disney"?>>Disney</a></div>
-    <div class="categorie"><a href="./harry_potter">Harry Potter</a></div>
-    <div class="categorie"><a href="produits.php?cat=marvel">Marvel</a></div>
+    <div class="categorie"><a href="./produits/disney">Disney</a></div>
+    <div class="categorie"><a href="./produits/harry_potter">Harry Potter</a></div>
+    <div class="categorie"><a href="/produits.php?cat=marvel">Marvel</a></div>
     <div class="categorie"><a href="produits.php?cat=sw">Star Wars</a></div>
     <div class="categorie"><a href="produits.php?cat=dc">DC Universe</a></div>
 </div>
