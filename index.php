@@ -20,11 +20,6 @@ $params = explode('/', $_GET['p']);
 
 if ($params[0] == 'produits') {
     if (isset($params[1])) {
-        for($i=0; isset($params[$i]); $i++){
-            if($params[$i] == $params[$i+1]){
-                echo "coucou";
-            }
-        }
         if ($params[1] == 'harry_potter') {
             Produits::selectBySc($params[1]);
         } else {
