@@ -20,11 +20,17 @@ $params = explode('/', $_GET['p']);
 //on verifie les parametres
 
 if($params[0] == 'produits'){
-    Produits::index();
+    if(isset($params[1])){
+        if($params[1]== 'harry_potter'){
+            var_dump('vd1');
+            Produits::selectBySc($params[1]);
+        }
+
+    }else{
+        Produits::index();
+
+    }
 }
 elseif ($params[0]=='connexion'){
     Connexion::index();
-}
-elseif($params[0] == 'contraitement'){
-    Connexion::connect();
 }
