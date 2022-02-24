@@ -19,18 +19,18 @@ define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 $params = explode('/', $_GET['p']);
 //on verifie les parametres
 
-if($params[0] == 'produits'){
-    if(isset($params[1])){
-        if($params[1]== 'harry_potter'){
-            var_dump('vd1');
+if ($params[0] == 'produits') {
+    if (isset($params[1])) {
+        if ($params[1] == 'harry_potter') {
             Produits::selectBySc($params[1]);
         }
 
-    }else{
+    } else {
         Produits::index();
 
     }
-}
-elseif ($params[0]=='connexion'){
+} elseif ($params[0] == 'connexion') {
     Connexion::index();
+} else {
+    Accueil::index();
 }
