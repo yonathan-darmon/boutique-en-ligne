@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 15 fév. 2022 à 10:08
+-- Généré le : jeu. 24 fév. 2022 à 14:56
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -122,15 +122,17 @@ CREATE TABLE IF NOT EXISTS `products` (
   `long_descr` text NOT NULL,
   `tags` text NOT NULL,
   `id_categorie` int(11) NOT NULL,
+  `id_souscategorie` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `stock`, `image`, `mis_avant`, `short_descr`, `long_descr`, `tags`, `id_categorie`) VALUES
-(1, 'Harry', 150, 120, 'C', 0, 'Harry', 'Harry For the win', 'harry', 1);
+INSERT INTO `products` (`id`, `name`, `price`, `stock`, `image`, `mis_avant`, `short_descr`, `long_descr`, `tags`, `id_categorie`, `id_souscategorie`) VALUES
+(1, 'Harry', 150, 120, 'C', 0, 'Harry', 'Harry For the win', 'harry', 1, 1),
+(2, 'spiderman', 50, 50, '144', 1, 'erkjgiuz', 'uegziuerhziughiuze', 'hgreiugiu', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,14 @@ CREATE TABLE IF NOT EXISTS `sous_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `sous_categories`
+--
+
+INSERT INTO `sous_categories` (`id`, `name`) VALUES
+(1, 'harry_potter');
 
 -- --------------------------------------------------------
 
@@ -173,7 +182,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `adress` text NOT NULL,
   `id_reward` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `adress`, `id_reward`) VALUES
+(1, 'Admin', 'Admin', 'Admin@admin.com', 'admin', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
