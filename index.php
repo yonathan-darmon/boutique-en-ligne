@@ -31,12 +31,11 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'connexion') {
     Connexion::index();
+} elseif
+($params[0] == 'article') {
+    Article::index();
 } else {
     Accueil::index();
 }
-elseif ($params[0]=='contraitement'){
-    Connexion::connect();
-}
-elseif ($params[0]=='article'){
-    Article::index();
-}
+
+
