@@ -16,8 +16,10 @@ class Article extends Controller
 
             if (isset($_POST['panier'])) {
                 $actualid = $_SESSION['id'];
+                $idproduct = $produit[0]['id_product'];
+                $price = $produit[0]['price'];
                 $panier = new paniermodel();
-                $panier = $produit->insert(Now(),$actualid);
+                $panier = $produit->insert($idproduct,$price,$actualid);
             }
             
             if($produit[0]['stock'] <= 4){
@@ -28,7 +30,8 @@ class Article extends Controller
             $comments = $commentaire->getALL();
             if (isset($_POST['valider'])) {
                 $commentverify = $_POST['commentaire'];
-                $commentaire->insert($commentverify,NOW(),$actualid);
+                $idproduct = $produit[0]['price'];
+                $commentaire->insert($commentverify,$idproduct,$actualid);
             }
 
             self::render('article', compact('produit', 'comments'));

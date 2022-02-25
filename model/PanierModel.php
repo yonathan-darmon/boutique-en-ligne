@@ -9,7 +9,7 @@
 
         public function insert($value)
         {
-            $sth = $this->_connexion->prepare('INSERT INTO `cart` (id_product,price,quantity,date,id_user) VALUES (?,?,1,?,?)');
+            $sth = $this->_connexion->prepare('INSERT INTO `cart` (id_product,price,quantity,date,id_user) VALUES (?,?,1,NOW(),?)');
             $sth->execute(array($value));
         }
     }

@@ -27,10 +27,16 @@
         echo '<form action="#" method="post">
             <textarea name="commentaire" rows="5" cols="33" placeholder="Laisser un message..."></textarea>
             <br></br>
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            <br></br>
             <input type="submit" valuer="Envoyer" name="valider">
         </form>';
     //}
     /*else{ ?>
-        <a href="connexion"><p>Connecter vous pour laisser un commentaire</p></a>
+        <a href="<?=path?>connexion"><p>Connecter vous pour laisser un commentaire</p></a>
     <?php }*/
 ?>
