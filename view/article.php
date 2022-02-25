@@ -27,13 +27,13 @@
         echo '<form action="#" method="post">
             <textarea name="commentaire" rows="5" cols="33" placeholder="Laisser un message..."></textarea>
             <br></br>
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" name="checkbox1">
+            <input type="checkbox" name="checkbox1">
+            <input type="checkbox" name="checkbox1">
+            <input type="checkbox" name="checkbox1">
+            <input type="checkbox" name="checkbox1">
             <br></br>
-            <input type="submit" valuer="Envoyer" name="valider">
+            <input type="submit" value="Envoyer" name="valider">
         </form>';
     //}
     /*else{ ?>
