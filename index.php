@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
     }
 });
 //constante avec le chemin d'index.php
-define('path','/boutique_en_ligne/');
+define('path', '/boutique_en_ligne/');
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 $params = explode('/', $_GET['p']);
 //on verifie les parametres
@@ -32,7 +32,11 @@ if ($params[0] == 'produits') {
 } elseif ($params[0] == 'connexion') {
     Connexion::index();
 } elseif ($params[0] == 'article') {
-    Article::index();
+    if (isset($params[1])) {
+        Article::index($params[1]);
+    } else {
+        Produits::index();
+    }
 } else {
     Accueil::index();
 }
