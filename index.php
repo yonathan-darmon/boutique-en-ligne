@@ -35,7 +35,7 @@ if ($params[0] == 'produits') {
     if (isset($params[1])) {
         Article::index($params[1]);
     } else {
-        Produits::index();
+        header('location:'.path.'produits');
     }
 } else {
     Accueil::index();

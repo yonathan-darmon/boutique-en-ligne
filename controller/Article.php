@@ -14,16 +14,13 @@ class Article extends Controller
         $produit = $article->getOne('id', $params);
         if (!empty($produit)) {
 
-            //var_dump($produit);
-
             if (isset($_POST['panier'])) {
-                $actuallogin = $_SESSION['login'];
                 $actualid = $_SESSION['id'];
                 $panier = new paniermodel();
                 $panier = $produit->insert(Now(),$actualid);
             }
             
-            if($produit['stock'] <= 4){
+            if($produit[0]['stock'] <= 4){
                 echo "stock faible";
             }
 
