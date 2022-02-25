@@ -19,18 +19,19 @@ class Article extends Controller
             if (isset($_POST['panier'])) {
                 $actuallogin = $_SESSION['login'];
                 $actualid = $_SESSION['id'];
-                $panier->insert();
-                //$panier = $this->query('INSERT INTO commandes (date,price,moyen_paiement,id_user,id_cart) VALUES (NOW(), , ,'$actualid',)');
+                $panier = new paniermodel();
+                $panier = $produit->insert(Now(),$actualid);
             }
-            /*if('stock' <= 4){
+            
+            if($produit['stock'] <= 4){
                 echo "stock faible";
-            }*/
+            }
 
             $commentaire = new commentairemodel();
             $comments = $commentaire->getALL();
             if (isset($_POST['valider'])) {
-                $comm = $_POST['commentaire'];
-                $commentaire->insert();
+                $commentverify = $_POST['commentaire'];
+                $commentaire->insert($commentverify,NOW(),$actualid);
             }
 
             self::render('article', compact('produit', 'comments'));
