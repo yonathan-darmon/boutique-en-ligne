@@ -1,7 +1,13 @@
 <?php
 
-class Controller
-{
+class Controller{
+
+    public $path="/boutique_en_ligne/";
+
+    public function __construct()
+    {
+    }
+
     public function loadModel(string $model)
 
     {

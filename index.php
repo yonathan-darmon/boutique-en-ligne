@@ -13,11 +13,10 @@ spl_autoload_register(function ($class) {
     }
 });
 //constante avec le chemin d'index.php
-
+define('path','/boutique_en_ligne/');
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 $params = explode('/', $_GET['p']);
 //on verifie les parametres
-
 if ($params[0] == 'produits') {
     if (isset($params[1])) {
         if ($params[1] == 'harry_potter') {

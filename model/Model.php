@@ -41,7 +41,7 @@ class Model
     {
         $sth = $this->_connexion->prepare('SELECT * FROM  '.$this->table.'  WHERE '.$key.' = ?' );
         $sth->execute(array($value));
-        return $sth->fetch();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
 
