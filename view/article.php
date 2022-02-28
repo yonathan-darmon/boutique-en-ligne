@@ -1,3 +1,9 @@
+<?php 
+    for($i=1; $i<=$pages; $i++){
+        echo "<a href='article?$start=$i'> $i </a>&nbsp";
+    }
+?>
+
 <?php foreach($produit as $value):?>
     <p><?=$value['name'];?></p>
     <p><?=$value['price'];?>€</p>

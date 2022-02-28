@@ -27,7 +27,15 @@ class Article extends Controller
             }
 
             $commentaire = new commentairemodel();
-            $comments = $commentaire->getALL();
+            $comments = $commentaire->select($start);
+
+            //pagination
+            if(isset($_GET['start'])){
+                $start = $_GET['start'];
+                $pages = $comments[0][0]/5;
+                $pages = ceil($pages);
+            }
+
             if (isset($_POST['valider'])) {
                 $commentverify = $_POST['commentaire'];
                 $idproduct = $produit[0]['price'];
