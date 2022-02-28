@@ -25,8 +25,12 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
-    private function priceReduction()
+    private function priceReduction($number, $total, $percent)
     {
-        $prix = 
+        $sth = $this -> _connexion -> prepare('SELECT promo FROM' . $this -> table);
+        $sth -> execute();
+        $price = $sth -> fetchall(PDO::FETCH_ASSOC);
+        $priceRed = $price - ($number/$total) * $percent;
+        return ($priceRed);
     }
 }
