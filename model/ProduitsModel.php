@@ -33,7 +33,7 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
-    private function priceReduction($number, $total, $percent)
+    public function priceReduction($number, $total, $percent)
     {
         $sth = $this -> _connexion -> prepare('SELECT promo FROM' . $this -> table);
         $sth -> execute();
