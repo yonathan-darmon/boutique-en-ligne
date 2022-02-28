@@ -38,6 +38,10 @@ class Produits extends Controller
             $scategorie = $modelsc->getALL();
             $model = new produitsmodel();
             $produits = $model->getProdBySc($cat);
+            $model = new produitsmodel();
+            $produits = $model->getPagination();
+            $pages = $produits[0][0] /6;
+            $pages = ceil($pages);
             self::render('produits', compact('produits', 'categorie', 'scategorie'));
         }
     }

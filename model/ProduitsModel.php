@@ -33,6 +33,14 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
+    public function getPagination()
+    {
+        $sth = $this->_connexion->prepare('SELECT count(*) FROM ' .$this->table. '');
+        $sth->execute();
+        $pagination = $sth->fetchall(PDO::FETCH_ASSOC);
+        return $pagination;
+    }
+
     //public function priceReduction($number, $total, $percent)
    // {
      //   $sth = $this -> _connexion -> prepare('SELECT price FROM' . $this -> table);
