@@ -20,6 +20,7 @@ class Article extends Controller
                 $price = $produit[0]['price'];
                 $panier = new paniermodel();
                 $panier = $produit->insert($idproduct,$price,$actualid);
+                //$produit[0]['stock'] - 1;
             }
             
             if($produit[0]['stock'] <= 4){
@@ -32,7 +33,8 @@ class Article extends Controller
             if (isset($_POST['valider'])) {
                 $commentverify = $_POST['commentaire'];
                 $idproduct = $produit[0]['price'];
-                $commentaire->insert($commentverify,$idproduct,$actualid);
+                $rating = $_POST['rating'];
+                $commentaire->insert($commentverify,$rating,$idproduct,$actualid);
             }
 
             self::render('article', compact('produit', 'comments'));

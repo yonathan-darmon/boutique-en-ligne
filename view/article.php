@@ -30,11 +30,11 @@
         echo '<form action="#" method="post">
             <textarea name="commentaire" rows="5" cols="33" placeholder="Laisser un message..."></textarea>
             <br></br>
-            <input type="checkbox" name="checkbox1">
-            <input type="checkbox" name="checkbox1">
-            <input type="checkbox" name="checkbox1">
-            <input type="checkbox" name="checkbox1">
-            <input type="checkbox" name="checkbox1">
+            <input type="checkbox" name="rating" value="1">
+            <input type="checkbox" name="rating" value="2">
+            <input type="checkbox" name="rating" value="3">
+            <input type="checkbox" name="rating" value="4">
+            <input type="checkbox" name="rating" value="5">
             <br></br>
             <input type="submit" value="Envoyer" name="valider">
         </form>';
