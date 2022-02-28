@@ -27,7 +27,7 @@ class Article extends Controller
             }
 
             $commentaire = new commentairemodel();
-            $comments = $commentaire->select();
+            $comments = $commentaire->getOne('id_product', $params);
 
             if (isset($_POST['valider'])) {
                 $commentverify = $_POST['commentaire'];
