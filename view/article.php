@@ -15,11 +15,14 @@
 <?php endforeach;?>
 
 <h1>Commentaires</h1>
-
-<?php foreach($comments as $value): ?>
-    <p><?=$value['comment'];?></p>
-    <p>Le <?=$value['date'];?></p>
-<?php endforeach;?>
+<div class="commentaire">
+    <?php foreach($comments as $value): ?>
+        <p><?=$value['comment'];?></p>
+        <p>Le <?=$value['date'];?></p>
+        <p><?=$value['approuval'];?> étoile(s)</p>
+        <hr>
+    <?php endforeach;?>
+</div>
 
 <h2>Laisser un commentaire</h2>
 <?php
