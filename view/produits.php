@@ -1,7 +1,7 @@
 <?php
-    for($i=1; $i<=$pages; $i++){
+    /*for($i=1; $i<=$pages; $i++){
       echo "<a href='produits/'> $i </a>";  
-    }
+    }*/
 ?>
 
 <?php
