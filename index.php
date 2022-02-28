@@ -31,18 +31,17 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'connexion') {
     Connexion::index();
+} elseif
+($params[0] == 'inscription') {
+    Inscription::Register();
 } elseif ($params[0] == 'article') {
     if (isset($params[1])) {
         Article::index($params[1]);
     } else {
-        header('location:'.path.'produits');
+        header('location:' . path . 'produits');
     }
 } else {
     Accueil::index();
 }
-elseif($params[0] == 'contraitement'){
-    Connexion::connect();
-}
-elseif($params[0] == 'inscription'){
-    Inscription::Register();
-}
+
+
