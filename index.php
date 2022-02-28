@@ -21,7 +21,15 @@ if ($params[0] == 'produits') {
     if (isset($params[1])) {
         if ($params[1] == 'harry_potter') {
             Produits::selectBySc($params[1]);
-        } else {
+        }
+        elseif ($params[1]=='Fantastique') {
+            Produits::selectBySc($params[1]);
+        }
+        elseif ($params[1]=='starwars'){
+            Produits::selectBySc($params[1]);
+        }
+        else {
+
             Produits::index();
         }
 

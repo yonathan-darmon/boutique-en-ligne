@@ -1,4 +1,5 @@
 <?php
+
 ?>
 <div class="box1">
     <div class="categorie"><a href="<?= path ?>produits/disney">Disney</a></div>
@@ -16,7 +17,7 @@
                     <option value="<?= $value['name']; ?>"><?= $value['name']; ?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" name="choix" value="Filtrez">
+            <input type="submit" name="choix" value="filtrez">
         </form>
 
     </div>

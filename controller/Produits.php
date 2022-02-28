@@ -16,15 +16,15 @@ class Produits extends Controller
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
         $produits = $model->getProdByDate();
-        self::render('produits', compact('produits'));
+        self::render('produits', compact('produits', 'categorie','scategorie'));
 
     }
 
     public static function selectBySc($cat)
     {
-        if (isset($_POST['filtrez'])) {
+        if (isset($_POST['choix'])) {
             $modelcat = new CategorieModel();
-            $produits = $modelcat->getInnerJoin('products', 'id', 'id_categorie', 'categorie.id', $_POST['filtre']);
+            $produits = $modelcat->getInnerJoin('products', 'id', 'id_categorie', 'categories.name', $_POST['filtre']);
             $modelcat = new CategorieModel();
             $modelsc = new SouscategorieModel();
             $categorie = $modelcat->getALL();
@@ -42,10 +42,4 @@ class Produits extends Controller
         }
     }
 
-    public static function showCat()
-
-    {
-
-
-    }
 }
