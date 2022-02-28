@@ -27,18 +27,18 @@ class ProduitsModel extends Model
 
     public function getProdByDate()
     {
-        $sth = $this -> _connexion -> prepare('SELECT * FROM' . $this -> table . 'ORDER BY DATE DESC LIMIT 4');
-        $sth -> execute();
+        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table . ' ORDER BY DATE DESC LIMIT 4 ' );
+        $sth ->execute();
         $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
         return $prodate;
     }
 
-    public function priceReduction($number, $total, $percent)
-    {
-        $sth = $this -> _connexion -> prepare('SELECT promo FROM' . $this -> table);
-        $sth -> execute();
-        $price = $sth -> fetchall(PDO::FETCH_ASSOC);
-        $priceRed = $price - ($number/$total) * $percent;
-        return ($priceRed);
-    }
+    //public function priceReduction($number, $total, $percent)
+   // {
+     //   $sth = $this -> _connexion -> prepare('SELECT price FROM' . $this -> table);
+       // $sth -> execute();
+        //$price = $sth -> fetchall(PDO::FETCH_ASSOC);
+        //$priceRed = $price - ($number/$total) * $percent;
+        //return ($priceRed);
+    //}
 }

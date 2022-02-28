@@ -6,8 +6,9 @@ class Accueil extends Controller {
     }
     public static function index()
     {
-
-        self::render('accueil');
+        $prod = new ProduitsModel;
+        $produit = $prod -> getProdByDate();
+        self::render('accueil', compact('produit'));
 
     }
 }
