@@ -7,6 +7,14 @@ class ProduitsModel extends Model
         $this->table = "products";
         $this->getConnection();
     }
+    public function getProdByCat($value)
+    {
+        $sth = $this->_connexion->prepare('SELECT * FROM  ' . $this->table . ' INNER JOIN categories ON products.id_categories=categories.id WHERE categories.name= ?');
+        $sth->execute(array($value));
+        $products=$sth->fetchall(PDO::FETCH_ASSOC);
+        return $products;
+
+    }
 
     public function getProdBySc($value)
     {
@@ -15,5 +23,18 @@ class ProduitsModel extends Model
         $products=$sth->fetchall(PDO::FETCH_ASSOC);
         return $products;
 
+    }
+
+    public function getProdByDate()
+    {
+        $sth = $this -> _connexion -> prepare('SELECT * FROM' . $this -> table . 'ORDER BY DATE DESC LIMIT 4');
+        $sth -> execute();
+        $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
+        return $prodate;
+    }
+
+    private function priceReduction()
+    {
+        $prix = 
     }
 }

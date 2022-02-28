@@ -43,6 +43,14 @@ class Model
         $sth->execute(array($value));
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
+    public function getInnerJoin($table2,$categories,$categories2,$key,$value)
+    {
+        $sth = $this->_connexion->prepare('SELECT * FROM  ' . $this->table . ' INNER JOIN '.$table2.' ON '.$this->table.'.'.$categories.'='.$table2.'.'.$categories2.' WHERE'.$key.'= ?');
+        $sth->execute(array($value));
+        $products=$sth->fetchall(PDO::FETCH_ASSOC);
+        return $products;
+
+    }
 
 
 }
