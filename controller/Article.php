@@ -14,23 +14,32 @@ class Article extends Controller
         $produit = $article->getOne('id', $params);
         if (!empty($produit)) {
 
-            //var_dump($produit);
-
             if (isset($_POST['panier'])) {
-                $actuallogin = $_SESSION['login'];
                 $actualid = $_SESSION['id'];
-                $panier->insert();
-                //$panier = $this->query('INSERT INTO commandes (date,price,moyen_paiement,id_user,id_cart) VALUES (NOW(), , ,'$actualid',)');
+                $idproduct = $produit[0]['id_product'];
+                $price = $produit[0]['price'];
+                $panier = new paniermodel();
+                $panier = $produit->insert($idproduct,$price,$actualid);
             }
-            /*if('stock' <= 4){
+            
+            if($produit[0]['stock'] <= 4){
                 echo "stock faible";
-            }*/
+            }
 
             $commentaire = new commentairemodel();
-            $comments = $commentaire->getALL();
+            $comments = $commentaire->select($start);
+
+            //pagination
+            if(isset($_GET['start'])){
+                $start = $_GET['start'];
+                $pages = $comments[0][0]/5;
+                $pages = ceil($pages);
+            }
+
             if (isset($_POST['valider'])) {
-                $comm = $_POST['commentaire'];
-                $commentaire->insert();
+                $commentverify = $_POST['commentaire'];
+                $idproduct = $produit[0]['price'];
+                $commentaire->insert($commentverify,$idproduct,$actualid);
             }
 
             self::render('article', compact('produit', 'comments'));

@@ -24,4 +24,17 @@ class ProduitsModel extends Model
         return $products;
 
     }
+
+    public function getProdByDate()
+    {
+        $sth = $this -> _connexion -> prepare('SELECT * FROM' . $this -> table . 'ORDER BY DATE DESC LIMIT 4');
+        $sth -> execute();
+        $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
+        return $prodate;
+    }
+
+    private function priceReduction()
+    {
+        $prix = 
+    }
 }

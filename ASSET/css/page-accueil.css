@@ -1,0 +1,42 @@
+/* Main accueil */
+
+body {
+    height: 100%;
+  }
+
+.wrapper {
+    height: 100%;
+    font-family: Helvetica, sans-serif;
+    line-height: 1.5;
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+  }
+  .fixed {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    color: #eeeeee;
+    text-align: center;
+    display: table;
+  }
+  .fixed h3 {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .scroll {
+    background-color: #ffe0f6;
+    padding: 10px 70px;
+    color: #666666;
+  }
+  .one {
+    background-image: url("Logo.png");
+  }
+ .two {
+    background-image: url("Culte-ure.png");
+  }
+.three {
+    background-image: url("Culte-ure-hover.png");
+  }
