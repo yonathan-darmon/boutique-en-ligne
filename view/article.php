@@ -19,6 +19,7 @@
     <?php foreach($comments as $value): ?>
         <p><?=$value['comment'];?></p>
         <p>Le <?=$value['date'];?></p>
+        <!--<p><?=$value['user'];?></p>-->
         <p><?=$value['approuval'];?> étoile(s)</p>
         <hr>
     <?php endforeach;?>
