@@ -31,8 +31,7 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'connexion') {
     Connexion::index();
-} elseif
-($params[0] == 'inscription') {
+} elseif ($params[0] == 'inscription') {
     Inscription::Register();
 } elseif ($params[0] == 'article') {
     if (isset($params[1])) {
