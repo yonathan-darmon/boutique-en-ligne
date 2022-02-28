@@ -27,14 +27,7 @@ class Article extends Controller
             }
 
             $commentaire = new commentairemodel();
-            $comments = $commentaire->select($start);
-
-            //pagination
-            if(isset($_GET['start'])){
-                $start = $_GET['start'];
-                $pages = $comments[0][0]/5;
-                $pages = ceil($pages);
-            }
+            $comments = $commentaire->select();
 
             if (isset($_POST['valider'])) {
                 $commentverify = $_POST['commentaire'];

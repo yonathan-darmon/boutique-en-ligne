@@ -15,7 +15,7 @@ class CommentaireModel extends Model
 
     public function select($value)
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM `comments` ORDER BY approuval DESC LIMIT '.$value.' 5');
+        $sth = $this->_connexion->prepare('SELECT * FROM `comments` ORDER BY approuval DESC LIMIT 5');
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
