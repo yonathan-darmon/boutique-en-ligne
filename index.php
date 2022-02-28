@@ -40,5 +40,9 @@ if ($params[0] == 'produits') {
 } else {
     Accueil::index();
 }
-
-
+elseif($params[0] == 'contraitement'){
+    Connexion::connect();
+}
+elseif($params[0] == 'inscription'){
+    Inscription::Register();
+}
