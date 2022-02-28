@@ -10,7 +10,6 @@ class Produits extends Controller
 
     public static function index()
     {
-
         $model = new Produitsmodel();
         $produits = $model->getALL();
         self::render('produits', compact('produits'));

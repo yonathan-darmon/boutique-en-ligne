@@ -1,20 +1,22 @@
 <?php
 
 
-    class Article extends Controller
+class Article extends Controller
+{
+    public function __construct()
     {
-        public function __construct()
-        {
 
-        }
+    }
 
-        public static function index()
-        {
-            $article = new produitsmodel();
-            $produit = $article->getALL();
+    public static function index($params)
+    {
+        $article = new produitsmodel();
+        $produit = $article->getOne('id', $params);
+        if (!empty($produit)) {
+
             //var_dump($produit);
-            
-            if(isset($_POST['panier'])){
+
+            if (isset($_POST['panier'])) {
                 $actuallogin = $_SESSION['login'];
                 $actualid = $_SESSION['id'];
                 $panier->insert();
@@ -26,12 +28,16 @@
 
             $commentaire = new commentairemodel();
             $comments = $commentaire->getALL();
-            if(isset($_POST['valider'])){
+            if (isset($_POST['valider'])) {
                 $comm = $_POST['commentaire'];
                 $commentaire->insert();
             }
 
-            self::render('article', compact('produit','comments'));
+            self::render('article', compact('produit', 'comments'));
+        }else{
+            header('location:'.path.'produits');
         }
     }
+}
+
 ?>
