@@ -13,7 +13,7 @@ class CommentaireModel extends Model
         $sth->execute(array($value));
     }
 
-    public function select($value)
+    public function select()
     {
         $sth = $this->_connexion->prepare('SELECT * FROM `comments` ORDER BY approuval DESC LIMIT 5');
         $sth->execute();
