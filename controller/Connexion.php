@@ -13,15 +13,17 @@ class Connexion extends Controller
             $usermodel = new UtilisateursModel();
             $user = $usermodel->getOne('login', $_POST['login']);
             if (!empty($user)) {
-                if ($user['password'] == password_verify($_POST['password'], $user['password'])) {
-                    $_SESSION['id'] = $user['id'];
-                    $_SESSION['login'] = $user['login'];
-                    $success[] = 'Bienvenue ' . $user['login'];
+                if ($user[0]['password'] == password_verify($_POST['password'], $user[0]['password'])) {
+                    $_SESSION['id'] = $user[0]['id'];
+                    $_SESSION['login'] = $user[0]['login'];
+                    $success[] = 'Bienvenue ' . $user[0]['login'];
 
                 } else {
+                    var_dump("error1");
                     array_push($errors, 'Login ou mot de passe incorrect');
                 }
             } else {
+                var_dump("error2");
                 array_push($errors, 'Login ou mot de passe incorrect');
             }
         }
