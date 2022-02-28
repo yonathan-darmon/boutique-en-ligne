@@ -15,7 +15,7 @@ class Produits extends Controller
         $categorie = $modelcat->getALL();
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
-        $produits = $model->getProdByDate();
+        $produits = $model->getProdByDate(6);
         self::render('produits', compact('produits', 'categorie','scategorie'));
 
     }

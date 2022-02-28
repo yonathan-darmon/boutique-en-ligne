@@ -1,5 +1,5 @@
 <?php
-
+var_dump($_POST);
 ?>
 <div class="box1">
     <div class="categorie"><a href="<?= path ?>produits/disney">Disney</a></div>
@@ -25,8 +25,9 @@
         <?php foreach ($produits as $value): ?>
             <h2><a href="<?= path ?>article/<?= $value['id'] ?>"><?= $value['name']; ?></a></h2>
             <h3><?= $value['price']; ?> euros</h3>
-            <button name="panier" value="achat">Achetez</button>
-
+            <form action="#" method="post" name="pan">
+            <button name="panier" value="achat<?=$value['id']?>">Achetez</button>
+            </form>
         <?php endforeach; ?>
     </div>
 </div>

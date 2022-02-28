@@ -25,9 +25,9 @@ class ProduitsModel extends Model
 
     }
 
-    public function getProdByDate()
+    public function getProdByDate($limit)
     {
-        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table . ' ORDER BY DATE DESC LIMIT 4 ' );
+        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table . ' ORDER BY DATE DESC LIMIT '.$limit );
         $sth ->execute();
         $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
         return $prodate;
