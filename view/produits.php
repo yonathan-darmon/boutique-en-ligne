@@ -29,5 +29,6 @@ var_dump($_POST);
             <button name="panier" value="achat<?=$value['id']?>">Achetez</button>
             </form>
         <?php endforeach; ?>
+
     </div>
 </div>
