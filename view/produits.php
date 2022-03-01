@@ -1,4 +1,7 @@
 <?php
+    for($i=1; $i<=$pages; $i++){
+        echo "<a href='produits/'> $i </a>";
+    }
 ?>
 <div class="box1">
     <div class="categorie"><a href="<?= path ?>produits/disney">Disney</a></div>
