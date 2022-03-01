@@ -40,7 +40,7 @@ class Produits extends Controller
             $produits = $model->getProdBySc($cat);
             $model = new produitsmodel();
             $produits = $model->getPagination();
-            $pages = $produits->fetchall /6;
+            $pages = $produits /6;
             $pages = ceil($pages);
             self::render('produits', compact('produits', 'categorie', 'scategorie'));
         }
