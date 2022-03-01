@@ -1,4 +1,6 @@
-<?php foreach($produit as $value):?>
+<?php 
+var_dump($comments);
+foreach($produit as $value):?>
     <p><?=$value['name'];?></p>
     <p><?=$value['price'];?>€</p>
 <?php endforeach;?>
@@ -19,7 +21,7 @@
     <?php foreach($comments as $value): ?>
         <p><?=$value['comment'];?></p>
         <p>Le <?=$value['date'];?></p>
-        <!--<p><?=$value['user'];?></p>-->
+        <p><?=$value['login'];?></p>
         <p><?=$value['approuval'];?> étoile(s)</p>
         <hr>
     <?php endforeach;?>
