@@ -21,9 +21,18 @@ class Profil extends Controller
     public static function modif($params)
     {
         if (isset($_SESSION['id'])) {
-            $user=new UtilisateursModel();
-            $utilisateur=$user->getOne('id',$_SESSION['id']);
-            self::render('profilmodif',compact('utilisateur','params'));
+            $user = new UtilisateursModel();
+            $utilisateur = $user->getSpecific($params, $_SESSION['id']);
+            if (isset($_POST['modif'])) {
+                $modif=$user->update($params,$_POST[$params],$_SESSION['id']);
+
+                header("Refresh:0");
+
+            } else {
+                self::render('profilmodif', compact('utilisateur', 'params'));
+            }
+
+
         } else {
             header('location:' . path . 'accueil');
 

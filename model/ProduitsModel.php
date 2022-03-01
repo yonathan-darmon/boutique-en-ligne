@@ -40,4 +40,5 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
+
 }

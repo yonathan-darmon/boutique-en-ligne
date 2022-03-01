@@ -3,7 +3,7 @@
         <div class="value">
             <p><?= $value['login'] ?> </p>
             <p> Votre mot de passe</p>
-            <p><?= $value['adress'] ?></p>
+            <p><?= $value['adresse'] ?></p>
             <p><?= $value['email'] ?></p>
         </div>
 
