@@ -25,20 +25,20 @@ class ProduitsModel extends Model
 
     }
 
-    public function getProdByDate($limit)
+    public function getProd()
     {
-        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table . ' ORDER BY DATE DESC LIMIT 6 ' );
+        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table);
+        $sth ->execute();
+        $prodgen = $sth -> fetchall(PDO::FETCH_ASSOC);
+        return $prodgen;
+    }
+
+    public function getProdByDate()
+    {
+        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table. 'ORDER BY DATE DESC BETWEEN DATEADD(DAY,GETDATE()) AND DATEADD(DAY,3,GETDATE()) ');
         $sth ->execute();
         $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
         return $prodate;
     }
 
-    //public function priceReduction($number, $total, $percent)
-   // {
-     //   $sth = $this -> _connexion -> prepare('SELECT price FROM' . $this -> table);
-       // $sth -> execute();
-        //$price = $sth -> fetchall(PDO::FETCH_ASSOC);
-        //$priceRed = $price - ($number/$total) * $percent;
-        //return ($priceRed);
-    //}
 }
