@@ -28,7 +28,7 @@
                     </ul>
                     </li>
             </ul>
-            <div class="image"><img src="culte-ure.png" onmouseover="this.src='culte-ure-hover.png';" onmouseout="this.src='culte-ure.png';"></img></div>
+            <div class="image"><img src="<?=path?>ASSET/images/culte-ure.png" onmouseover="this.src='<?=path?>ASSET/images/culte-ure-hover.png';" onmouseout="this.src='<?=path?>ASSET/images/culte-ure.png';"></img></div>
             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             <a href=""><i class="fa-solid fa-user"></i></a>
             <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
@@ -62,7 +62,7 @@
                 <a href="">FAQ</a>
         </div>
 
-        <div class="logo"><img src="culte-ure.png" onmouseover="this.src='culte-ure-hover.png';" onmouseout="this.src='culte-ure.png';"></img></div>
+        <div class="logo"><img src="<?=path?>ASSET/images/culte-ure.png" onmouseover="this.src='<?=path?>ASSET/images/culte-ure-hover.png';" onmouseout="this.src='<?=path?>ASSET/images/culte-ure.png';"></img></div>
 
     </div>
 </footer>
