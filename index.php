@@ -45,7 +45,19 @@ if ($params[0] == 'produits') {
         header('location:' . path . 'produits');
     }
 } elseif ($params[0] == 'profil') {
-    Profil::index();
+    if (isset($params[1])) {
+        if ($params[1] == 'email' || $params[1] == 'login' || $params[1] == 'adresse') {
+            Profil::modif($params[1]);
+
+        } elseif ($params[1] == 'password') {
+            Profil::modifPassword($params[1]);
+
+        } else {
+            header('location:' . path . 'profil');
+        }
+    } else {
+        Profil::index();
+    }
 } else {
     Accueil::index();
 }
