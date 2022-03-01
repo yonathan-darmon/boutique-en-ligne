@@ -21,7 +21,12 @@ if ($params[0] == 'produits') {
     if (isset($params[1])) {
         if ($params[1] == 'harry_potter') {
             Produits::selectBySc($params[1]);
+        } elseif ($params[1] == 'Fantastique') {
+            Produits::selectBySc($params[1]);
+        } elseif ($params[1] == 'starwars') {
+            Produits::selectBySc($params[1]);
         } else {
+
             Produits::index();
         }
 
@@ -39,6 +44,8 @@ if ($params[0] == 'produits') {
     } else {
         header('location:' . path . 'produits');
     }
+} elseif ($params[0] == 'profil') {
+    Profil::index();
 } else {
     Accueil::index();
 }
