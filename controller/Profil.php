@@ -41,6 +41,13 @@ class Profil extends Controller
 
     public static function modifPassword($params)
     {
+        if (isset($_SESSION['id'])) {
+            self::render('profilmodif',compact('params'));
+        }else{
+            header('location:' . path . 'accueil');
+
+        }
+
 
     }
 }
