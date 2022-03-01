@@ -18,4 +18,15 @@ class Profil extends Controller
             header('location:'.  path . 'accueil');
         }
     }
+
+    public static function modif ()
+    {
+        if (isset($_SESSION['id'])){
+            
+        }
+        else{
+            header('location:'.  path . 'accueil');
+
+        }
+    }
 }

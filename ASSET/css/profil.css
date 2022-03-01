@@ -5,7 +5,7 @@
 .boite1{
     display: flex;
 }
-form{
+.link{
     display: flex;
     flex-direction: column;
 }
