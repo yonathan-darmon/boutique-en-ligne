@@ -1,4 +1,6 @@
 <?php
+$params = explode('/', $_GET['p']);
+
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +9,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="header.css" />
+    <link rel="stylesheet" type="text/css" href="<?=path?>ASSET/css/<?php if (isset($params[0])){ echo $params[0];}else{echo 'page-accueil';}?>.css" >
+    <link rel="stylesheet" href="<?=path?>ASSET/css/header.css">
+    <link rel="stylesheet" href="<?=path?>ASSET/css/footer.css">
     <title></title>
 </head>
 <body>
