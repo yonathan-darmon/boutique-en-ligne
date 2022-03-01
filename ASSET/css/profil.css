@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+
+}
+.boite1{
+    display: flex;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}

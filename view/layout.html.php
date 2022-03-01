@@ -22,13 +22,13 @@ $params = explode('/', $_GET['p']);
             <ul class="menu">
                 <li><a href="">Menu</a>
                     <ul class="submenu">
-                        <li><a href="">Accueil</a></li>
-                        <li><a href="">Connexion</a></li>
-                        <li><a href="">Inscription</a></li>
-                        <li><a href="">Profil</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li><a href="">Qui sommes-nous ?</a></li>
-                        <li><a href="">Nous contacter</a></li>
+                        <li><a href="<?=path?>">Accueil</a></li>
+                        <li><a href="<?=path?>connexion">Connexion</a></li>
+                        <li><a href="<?=path?>inscription">Inscription</a></li>
+                        <li><a href="<?=path?>profil">Profil</a></li>
+                        <li><a href="<?=path?>produits">Shop</a></li>
+                        <li><a href="<?=path?>">Qui sommes-nous ?</a></li>
+                        <li><a href="<?=path?>">Nous contacter</a></li>
                     </ul>
                     </li>
             </ul>
