@@ -39,5 +39,4 @@ class ProduitsModel extends Model
         $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
         return $prodate;
     }
-
 }
