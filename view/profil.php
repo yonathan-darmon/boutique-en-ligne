@@ -14,6 +14,7 @@
             <a href="<?= path ?>profil/email">Modifiez votre emaiil</a>
         </div>
     </div>
+    <a href="<?=path?>profil/historique_des_commandes">Historique des commandes</a>
 
     <h2>Votre niveau de reward</h2>
     <h1><?= $value['name']; ?></h1>
