@@ -1,8 +1,5 @@
 <?php
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 ?>
 
 <div class="bloc">
