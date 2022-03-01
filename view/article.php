@@ -16,6 +16,12 @@
 
 <h1>Commentaires</h1>
 <div class="commentaire">
+    <?php
+        if(empty($comments)){
+            echo '<p>Soyez le premier à donner votre avis</p>';
+        }
+    ?>
+
     <?php foreach($comments as $value): ?>
         <p><?=$value['comment'];?></p>
         <p> Le <?=$value['date'];?></p>
