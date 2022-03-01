@@ -25,13 +25,12 @@ class ProduitsModel extends Model
 
     }
 
+
     public function getProd()
     {
-        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table);
-        $sth ->execute();
-        $prodgen = $sth -> fetchall(PDO::FETCH_ASSOC);
-        return $prodgen;
+
     }
+    
 
     public function getProdByDate()
     {
