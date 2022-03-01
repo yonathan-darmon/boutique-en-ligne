@@ -29,7 +29,7 @@ class Article extends Controller
 
             $commentaire = new commentairemodel();
             $comments = $commentaire->getOne('id_product', $params);
-            //$comment = $commentaire->getInnerJoin('user','id','comments.id_user','comments.id',$params);
+            //$comment = $commentaire->getInnerJoin('user','id_user','id','id_product',$params);
             //var_dump($comment);
 
             if (isset($_POST['valider'])) {

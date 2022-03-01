@@ -29,16 +29,20 @@
 <?php
     //if(isset($_SESSION['login'])){ 
         echo '<form action="#" method="post">
-            <textarea name="commentaire" rows="5" cols="33" placeholder="Laisser un message..."></textarea>
-            <br></br>
-            <input type="checkbox" name="rating" value="1">
-            <input type="checkbox" name="rating" value="2">
-            <input type="checkbox" name="rating" value="3">
-            <input type="checkbox" name="rating" value="4">
-            <input type="checkbox" name="rating" value="5">
-            <br></br>
-            <input type="submit" value="Envoyer" name="valider">
-        </form>';
+                <textarea name="commentaire" rows="5" cols="33" placeholder="Laisser un message..."></textarea>
+                <br>
+                <p>Laisser nous une note</p>
+                <select name="rating">
+                    <option>Noter nous</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <br></br>
+                <input type="submit" value="Envoyer" name="valider">
+            </form>';
     //}
     /*else{ ?>
         <a href="<?=path?>connexion"><p>Connecter vous pour laisser un commentaire</p></a>
