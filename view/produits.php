@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 ?>
 <div class="box1">
     <div class="categorie"><a href="<?= path ?>produits/disney">Disney</a></div>
