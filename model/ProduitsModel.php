@@ -39,12 +39,4 @@ class ProduitsModel extends Model
         $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
         return $prodate;
     }
-
-//    public function Pagination()
-//    {
-//        $sth = $this->_connexion->prepare('SELECT count(*) FROM ' .$this->table. '');
-//        $sth->execute();
-//        $pagination = $sth->fetchall(PDO::FETCH_ASSOC);
-//        return $pagination;
-//    }
 }
