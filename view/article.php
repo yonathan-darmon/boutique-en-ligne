@@ -1,6 +1,4 @@
-<?php 
-var_dump($comments);
-foreach($produit as $value):?>
+<?php foreach($produit as $value):?>
     <p><?=$value['name'];?></p>
     <p><?=$value['price'];?>€</p>
 <?php endforeach;?>
