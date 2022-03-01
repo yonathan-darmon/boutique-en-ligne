@@ -37,6 +37,7 @@
     </header>
 
     <main>
+        <?=$content?>
         
     </main>
 

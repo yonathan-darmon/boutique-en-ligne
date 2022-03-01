@@ -16,6 +16,9 @@ class Controller{
     public static function render($fichier, $data = [])
     {
         extract($data);
+        ob_start();
         require_once (ROOT.'view/'.$fichier.'.php');
+        $content=ob_clean();
+        require_once (ROOT.'view/layout.html.php');
     }
 }
