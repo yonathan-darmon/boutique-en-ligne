@@ -18,8 +18,8 @@
 <div class="commentaire">
     <?php foreach($comments as $value): ?>
         <p><?=$value['comment'];?></p>
-        <p>Le <?=$value['date'];?></p>
-        <p><?=$value['login'];?></p>
+        <p> Le <?=$value['date'];?></p>
+        <p> Par <?=$value['login'];?></p>
         <p><?=$value['approuval'];?> étoile(s)</p>
         <hr>
     <?php endforeach;?>
