@@ -61,8 +61,15 @@ class Profil extends Controller
 
     }
 
-    public static function histo ()
+    public static function histo()
     {
-        
+        if(isset($_SESSION['id'])){
+
+            self::render('historique');
+
+        }
+        else{
+            self::index();
+        }
     }
 }
