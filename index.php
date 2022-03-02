@@ -52,7 +52,10 @@ if ($params[0] == 'produits') {
         } elseif ($params[1] == 'password') {
             Profil::modifPassword($params[1]);
 
-        } else {
+        }elseif ($params[1]== 'historique_des_commandes'){
+            Profil::histo();
+        }
+        else {
             header('location:' . path . 'profil');
         }
     } else {

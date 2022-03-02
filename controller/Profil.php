@@ -21,12 +21,13 @@ class Profil extends Controller
     public static function modif($params)
     {
         if (isset($_SESSION['id'])) {
+            $success = [];
             $user = new UtilisateursModel();
             $utilisateur = $user->getSpecific($params, $_SESSION['id']);
             if (isset($_POST['modif'])) {
                 $modif = $user->update($params, $_POST[$params], $_SESSION['id']);
-
-                header("Refresh:0");
+                array_push($success, "Modification effectuée");
+                self::index();
 
             } else {
                 self::render('profilmodif', compact('utilisateur', 'params'));
@@ -42,12 +43,11 @@ class Profil extends Controller
     public static function modifPassword($params)
     {
         if (isset($_SESSION['id'])) {
-            var_dump($_POST);
             $error = [];
             $success = [];
             if (isset($_POST['modif']) && $_POST['password'] == $_POST['verifypassword']) {
-                $user=new UtilisateursModel();
-                $user->update($params,password_hash($_POST['password'], PASSWORD_DEFAULT),$_SESSION['id']);
+                $user = new UtilisateursModel();
+                $user->update($params, password_hash($_POST['password'], PASSWORD_DEFAULT), $_SESSION['id']);
                 array_push($success, "Modification effectué");
             } else {
                 array_push($error, 'Verifiez votre mot de passe');
@@ -59,5 +59,10 @@ class Profil extends Controller
         }
 
 
+    }
+
+    public static function histo ()
+    {
+        
     }
 }
