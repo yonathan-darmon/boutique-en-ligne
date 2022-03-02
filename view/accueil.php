@@ -21,26 +21,31 @@
         echo $value['price']. '€'; 
     }
       ?>
+              <?php 
+        if($value['promo'] != 0) 
+        {
+          $price = $value['price'];
+          $reduc = ($value['price'] * $value['promo']) /100;
+          $priceRed = ($price - $reduc);
+          echo $priceRed;
+        }
+        ?>
       <?php endforeach;?>
     </div>
 
     <div class="bloc2">
-    <h1>Nos top ventes !</h1>
-    <?php foreach($produit as $value):?>
-        <?php if($value['stock'] <= 3) 
-      {
-        echo $value['name'];
-        echo $value['price']. '€'; 
-        echo $value['stock']. 'pce';
-    }
-      ?>
-      <?php endforeach;?>
-    </div>
-
-    <div class="bloc3">
     <h1>Nos derniers arrivages</h1>
-    <?php foreach($produit2 as $value):?>
+    <?php foreach($produit as $value):?>
         <p><?=$value['name'];?></p>
         <p><?=$value['price'];?></p>
+        <?php 
+        if($value['promo'] != 0) 
+        {
+          $price = $value['price'];
+          $reduc = ($value['price'] * $value['promo']) /100;
+          $priceRed = ($price - $reduc);
+          echo $priceRed;
+        }
+        ?>
         <?php endforeach;?>
     </div>
