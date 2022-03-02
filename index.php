@@ -11,7 +11,14 @@ spl_autoload_register(function ($class) {
     if (file_exists('model/' . $class . '.php')) {
         require_once('model/' . $class . '.php');
     }
-});
+    if (file_exists('ASSET/PHPMailer-master/src/PHPMailer.php')) {
+        require_once('ASSET/PHPMailer-master/src/PHPMailer.php');
+        require_once('ASSET/PHPMailer-master/src/Exception.php');
+        require_once('ASSET/PHPMailer-master/src/PHPMailer.php');
+        require_once('ASSET/PHPMailer-master/src/SMTP.php');
+}
+}
+);
 //constante avec le chemin d'index.php
 define('path', '/boutique_en_ligne/');
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
@@ -58,8 +65,23 @@ if ($params[0] == 'produits') {
     } else {
         Profil::index();
     }
-} else {
+} 
+elseif($params[0] == 'contact') {
+    Contact::index();
+}
+else {
     Accueil::index();
 }
 
 
+/* param phpmailer */
+
+use PHPMailer\PHPMailer\PHPMailer;
+require_once('ASSET/PHPMailer-master/src/Exception.php');
+require_once('ASSET/PHPMailer-master/src/PHPMailer.php');
+require_once('ASSET/PHPMailer-master/src/SMTP.php');
+define("mail", new PHPMailer(true) )
+
+
+
+?>
