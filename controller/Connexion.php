@@ -19,11 +19,9 @@ class Connexion extends Controller
                     $success[] = 'Bienvenue ' . $user[0]['login'];
 
                 } else {
-                    var_dump("error1");
                     array_push($errors, 'Login ou mot de passe incorrect');
                 }
             } else {
-                var_dump("error2");
                 array_push($errors, 'Login ou mot de passe incorrect');
             }
         }

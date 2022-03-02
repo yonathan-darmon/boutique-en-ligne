@@ -24,7 +24,7 @@ class Profil extends Controller
             $user = new UtilisateursModel();
             $utilisateur = $user->getSpecific($params, $_SESSION['id']);
             if (isset($_POST['modif'])) {
-                $modif=$user->update($params,$_POST[$params],$_SESSION['id']);
+                $modif = $user->update($params, $_POST[$params], $_SESSION['id']);
 
                 header("Refresh:0");
 
@@ -42,8 +42,18 @@ class Profil extends Controller
     public static function modifPassword($params)
     {
         if (isset($_SESSION['id'])) {
-            self::render('profilmodif',compact('params'));
-        }else{
+            var_dump($_POST);
+            $error = [];
+            $success = [];
+            if (isset($_POST['modif']) && $_POST['password'] == $_POST['verifypassword']) {
+                $user=new UtilisateursModel();
+                $user->update($params,password_hash($_POST['password'], PASSWORD_DEFAULT),$_SESSION['id']);
+                array_push($success, "Modification effectué");
+            } else {
+                array_push($error, 'Verifiez votre mot de passe');
+            }
+            self::render('profilmodif', compact('params', 'error', 'success'));
+        } else {
             header('location:' . path . 'accueil');
 
         }
