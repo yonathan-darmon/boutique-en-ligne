@@ -16,7 +16,9 @@ class Produits extends Controller
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
         $produits = $model->getALL();
-        self::render('produits', compact('produits', 'categorie','scategorie'));
+        $pages = count($produits) /6;
+        $pages = ceil($pages);
+        self::render('produits', compact('produits', 'categorie','scategorie','pages'));
 
     }
 
@@ -29,7 +31,9 @@ class Produits extends Controller
             $modelsc = new SouscategorieModel();
             $categorie = $modelcat->getALL();
             $scategorie = $modelsc->getALL();
-            self::render('produits', compact('produits', 'categorie', 'scategorie'));
+            $pages = count($produits) /6;
+            $pages = ceil($pages);
+            self::render('produits', compact('produits', 'categorie', 'scategorie','pages'));
 
         } else {
             $modelcat = new CategorieModel();
@@ -38,7 +42,11 @@ class Produits extends Controller
             $scategorie = $modelsc->getALL();
             $model = new produitsmodel();
             $produits = $model->getProdBySc($cat);
-            self::render('produits', compact('produits', 'categorie', 'scategorie'));
+            $model = new produitsmodel();
+            $produits = $model->getPagination();
+            $pages = count($produits) /6;
+            $pages = ceil($pages);
+            self::render('produits', compact('produits', 'categorie', 'scategorie','pages'));
         }
     }
 

@@ -1,5 +1,3 @@
-<?php
-?>
 <div class="box1">
     <div class="categorie"><a href="<?= path ?>produits/disney">Disney</a></div>
     <div class="categorie"><a href="<?= path ?>produits/harry_potter">Harry Potter</a></div>
@@ -31,3 +29,7 @@
 
     </div>
 </div>
+
+<?php for($i=1; $i<=$pages; $i++): ?>
+        <a href="<?= path ?>produits"><?= $i ?></a>&nbsp
+<?php endfor;?>
