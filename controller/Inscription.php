@@ -15,15 +15,15 @@ class Inscription extends Controller
             $password = htmlspecialchars($_POST['password']);
             $passwordverify = htmlspecialchars($_POST['passwordverify']);
             $email = htmlspecialchars($_POST['email']);
-            $adress = htmlspecialchars($_POST['adress']);
-            if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['email']) && !empty($_POST['adress'])) {
+            $adress = htmlspecialchars($_POST['numero']).'.'.htmlspecialchars($_POST['nom']).htmlspecialchars($_POST['codepostal']).htmlspecialchars($_POST['ville']);
+            if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['email']) && !empty($_POST['numero']) && !empty($_POST['nom']) && !empty($_POST['codepostal']) && !empty($_POST['ville'])) {
                 if ($password != $passwordverify) {
                     echo "verifiez votre mot de passe";
                 } else {
                     $hash = password_hash($password, PASSWORD_DEFAULT);
                     $user = new Utilisateursmodel();
                     $user->insert($login, $hash, $email, $adress);
-                    var_dump($user);
+                    header('location:'.path.'connexion');
                 }
                 /*$userverify = $user->getOne('login', $_POST['login']);
                 if($userverify['login']==$_POST['login']){
