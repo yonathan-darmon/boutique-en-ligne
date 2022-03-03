@@ -1,5 +1,4 @@
 <?php
-var_dump($historique);
 if(empty($historique)):;
 ?>
 <h1>Vous n'avez pas encore de commandes</h1>
@@ -7,16 +6,23 @@ if(empty($historique)):;
     <h1>Commandes</h1>
 <table>
     <thead>
-    <th>
+    <tr>
     <?php foreach ($historique[0] as $key => $value):?>
-    <tr> <?=$key;?> </tr>
+    <th> <?=$key;?> </th>
     <?php endforeach;?>
 
-    </th>
+    </tr>
     </thead>
     <tbody>
     <?php foreach ($historique as $key =>$value):?>
+<tr>
+    <?php foreach ($value as $value2):?>
+    <td>
+        <?=$value2?>
+    </td>
+    <?php endforeach;?>
 
+</tr>
     <?php endforeach;?>
     </tbody>
 </table>
