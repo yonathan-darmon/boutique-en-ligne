@@ -24,19 +24,15 @@ class ProduitsModel extends Model
         return $products;
 
     }
-
-
-    public function getProd()
-    {
-
-    }
     
 
     public function getProdByDate()
     {
-        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table. 'ORDER BY DATE DESC BETWEEN DATEADD(DAY,GETDATE()) AND DATEADD(DAY,3,GETDATE()) ');
+        $sth = $this -> _connexion ->prepare('SELECT * FROM ' . $this -> table . ' ORDER BY DATE DESC LIMIT 6 ');
         $sth ->execute();
         $prodate = $sth -> fetchall(PDO::FETCH_ASSOC);
         return $prodate;
     }
+
+
 }

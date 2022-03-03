@@ -51,6 +51,11 @@ class Model
         return $products;
 
     }
+    public function update($params,$value,$id)
+    {
+        $sth = $this->_connexion->prepare("UPDATE $this->table SET $params=? WHERE id=$id ");
+        $sth->execute(array($value));
+    }
 
 
 }

@@ -11,7 +11,7 @@
         <form action="<?= path ?>produits/<?php if(isset($_POST['filtre'])) {echo $_POST['filtre'];}?>" name="select" method="post">
             <select name="filtre" id="filtre">
                 <?php foreach ($categorie as $value): ?>
-                    <option value="<?= $value['name']; ?>"><?= $value['name']; ?></option>
+                    <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option>
                 <?php endforeach; ?>
             </select>
             <input type="submit" name="choix" value="filtrez">
