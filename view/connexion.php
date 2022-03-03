@@ -1,11 +1,8 @@
-<?php
-if(!empty($success)){
-    echo $success[0];
-}
-if (!empty($errors)){
-    echo $errors[0];
-}
-?>
+<?php if(!empty($success)):?>
+    <div class="success"><?=$success[0];?></:></div>
+<?php elseif (!empty($errors)):?>
+    <div class="errors"><?= $errors[0];?></div>
+<?php endif;?>
 <form action="./connexion" method="post" >
     <input type="text" name="login">
     <input type="password" name="password">
