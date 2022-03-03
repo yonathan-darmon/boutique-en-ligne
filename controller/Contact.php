@@ -1,5 +1,7 @@
 <?php
 
+//use PHPMailer\PHPMailer\PHPMailer;
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Contact extends Controller {
@@ -9,6 +11,12 @@ class Contact extends Controller {
     }
 
     public static function index()
+    {
+        self::sendmail();
+        self::render('contact');
+    }
+
+  /* public static function index()
     {
         $php = new PHPMailer();
 
@@ -55,7 +63,7 @@ class Contact extends Controller {
         $headers = 'Content-type: text/html; charset=iso-8859-1'."\r\n";
         $retour = mail('aurleien.adjimi@laplateforme.io', 'Envoi depuis la page contact',  $_POST['message'], ''); 
         if($retour)
-        echo '<div class="erreur"><p>Message envoyé</p></div>';*/
-    }
+        echo '<div class="erreur"><p>Message envoyé</p></div>';
+    }*/
 }
     ?>
