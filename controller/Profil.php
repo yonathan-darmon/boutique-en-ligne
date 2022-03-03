@@ -64,8 +64,9 @@ class Profil extends Controller
     public static function histo()
     {
         if(isset($_SESSION['id'])){
-
-            self::render('historique');
+            $histo=new HistoriqueModel();
+            $historique=$histo->getOne('id_user',1);
+            self::render('historique', compact('historique'));
 
         }
         else{
