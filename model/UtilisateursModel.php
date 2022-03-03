@@ -21,4 +21,11 @@ class UtilisateursModel extends Model
         return $sth->fetch();
     }
 
+    public function getReward($value)
+    {
+        $sth=$this->_connexion->prepare("SELECT reward.name FROM $this->table INNER JOIN reward ON reward.id=user.id_reward WHERE user.id=?");
+        $sth->execute(array($value));
+        return $sth->fetch();
+    }
+
 }
