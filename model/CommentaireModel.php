@@ -15,7 +15,7 @@ class CommentaireModel extends Model
 
     public function average($key,$value)
     {
-        $sth = $this->_connexion->prepare('SELECT AVG(approuval) FROM `comments` WHERE '.$key.' =?');
+        $sth = $this->_connexion->prepare('SELECT AVG(`approuval`) FROM `comments` WHERE '.$key.' =?');
         $sth->execute(array($value));
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }

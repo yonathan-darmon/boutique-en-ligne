@@ -4,15 +4,15 @@
     <p><?=$value['price'];?>€</p>
 <?php endforeach;?>
 
-<?php foreach($comments as $value):?>
-<a href="#commentaire"> 
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-solid fa-star"></i>
-    <i class="fa-solid fa-star"></i>
-</a>
-<?php endforeach;?>
+<div>
+    <p>Note moyenne des utilisateurs</p>
+    <?php foreach($comments as $value):?>
+        <a href="#commentaire"> 
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+        </a>
+    <?php endforeach;?>
+</div>
 
 <div class="bouttonpanier">
     <form action="#" method="post">
@@ -43,6 +43,9 @@
             <p> Par <?=$value['login'];?></p>
             <p><?=$value['approuval'];?> étoile(s)</p>
             <hr>
+            <?php
+                var_dump($value);
+            ?>
         <?php endforeach;?>
     </div>
 </div>
