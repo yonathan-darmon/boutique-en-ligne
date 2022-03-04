@@ -6,12 +6,13 @@
 
 <div>
     <p>Note moyenne des utilisateurs</p>
-    <?php foreach($comments as $value):?>
-        <a href="#commentaire"> 
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-        </a>
-    <?php endforeach;?>
+    <a href="#commentaire"> 
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </a>
 </div>
 
 <div class="bouttonpanier">

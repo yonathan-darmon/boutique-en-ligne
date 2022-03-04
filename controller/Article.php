@@ -33,7 +33,7 @@ class Article extends Controller
             $comments = $commentaire->average('id_product', $params);
 
             if (isset($_POST['valider'])) {
-                $commentverify = $_POST['commentaire'];
+                $commentverify = htmlspecialchars($_POST['commentaire']);
                 $idproduct = $produit[0]['price'];
                 $rating = $_POST['rating'];
                 $commentaire->insert($commentverify,$rating,$idproduct,$actualid);
