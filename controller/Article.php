@@ -30,6 +30,7 @@ class Article extends Controller
             $commentaire = new commentairemodel();
             $comments = $commentaire->getOne('id_product', $params);
             $comments = $commentaire->getInnerJoin('user','id_user','id','id_product',$params);
+            $comments = $commentaire->average('id_product', $params);
 
             if (isset($_POST['valider'])) {
                 $commentverify = $_POST['commentaire'];

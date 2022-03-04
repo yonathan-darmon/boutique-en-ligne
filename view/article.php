@@ -12,11 +12,6 @@
     <i class="fa-solid fa-star"></i>
     <i class="fa-solid fa-star"></i>
 </a>
-<p>
-    <?php
-        $rate = (5*($value['comments']==5) + 4*($value['comments']==4) + 3*($value['comments']==3) + 2*($value['comments']==2) + 1*($value['comments']==1)) / (5+4+3+2+1) 
-    ?>
-</p>
 <?php endforeach;?>
 
 <div class="bouttonpanier">
