@@ -2,16 +2,23 @@
 
 ?>
 <form action="#" method="post">
-    <p>Login</p>
+    <label for="login">Login</label>
     <input type="text" name="login">
-    <p>Password</p>
+    <label for="password">Password</label>
     <input type="password" name="password">
-    <p>Vérification du mot de passe</p>
+    <label for="passwordverify">Verification du mot de passe</label>
     <input type="password" name="passwordverify">
-    <p>Email</p>
+    <label for="email">Email</label>
     <input type="text" name="email">
     <p>Adresse</p>
-    <input type="text" name="adress">
-    <br></br>
+    <label for="numero">Numero de rue</label>
+    <input type="number" name="numero">
+    <label for="nom">Nom de votre voie</label>
+    <input type="text" name="nom">
+    <label for="codepostal">Votre Code Postal</label>
+    <input type="number" name="codepostal">
+    <label for="ville">Ville</label>
+    <input type="text" name="ville">
+    <label for="valider">Valider vos données</label>
     <input type="submit" value="s'inscrire" name="valider">
 </form>
