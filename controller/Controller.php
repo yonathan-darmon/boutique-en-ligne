@@ -30,6 +30,7 @@ class Controller
             $panier=new PanierModel();
             $panier->delete($_SESSION['id']);
             unset($_SESSION['id']);
+            header('location:'.path.'accueil');
         }
     }
 }
