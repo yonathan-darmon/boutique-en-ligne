@@ -103,4 +103,13 @@ class Controller
             }
         }
     }
+    public function disconnect($id)
+    {
+        if (isset($_POST['deco'])){
+            $panier=new PanierModel();
+            $panier->delete($_SESSION['id']);
+            unset($_SESSION['id']);
+            header('location:'.path.'accueil');
+        }
+    }
 }

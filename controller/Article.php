@@ -16,35 +16,31 @@ class Article extends Controller
 
             if (isset($_POST['panier'])) {
                 $actualid = $_SESSION['id'];
-                $idproduct = $produit[0]['id_product'];
+                $idproduct = $produit[0]['id'];
                 $price = $produit[0]['price'];
-                $panier = new paniermodel();
-                $panier = $produit->insert($idproduct,$price,$actualid);
+                $panier = new PanierModel();
+                $panier->insert($idproduct, $price, $actualid);
             }
-            
-            if($produit[0]['stock'] <= 4){
+
+            if ($produit[0]['stock'] <= 4) {
                 echo "stock faible";
             }
 
             $commentaire = new commentairemodel();
-            $comments = $commentaire->select($start);
-
-            //pagination
-            if(isset($_GET['start'])){
-                $start = $_GET['start'];
-                $pages = $comments[0][0]/5;
-                $pages = ceil($pages);
-            }
+            $comments = $commentaire->getOne('id_product', $params);
+            $comments = $commentaire->getInnerJoin('user', 'id_user', 'id', 'id_product', $params);
+            $commentsaverage = $commentaire->average('id_product', $params);
 
             if (isset($_POST['valider'])) {
-                $commentverify = $_POST['commentaire'];
+                $commentverify = htmlspecialchars($_POST['commentaire']);
                 $idproduct = $produit[0]['price'];
-                $commentaire->insert($commentverify,$idproduct,$actualid);
+                $rating = $_POST['rating'];
+                $commentaire->insert($commentverify, $rating, $idproduct, $actualid);
             }
 
-            self::render('article', compact('produit', 'comments'));
-        }else{
-            header('location:'.path.'produits');
+            self::render('article', compact('produit', 'comments', 'commentsaverage'));
+        } else {
+            header('location:' . path . 'produits');
         }
     }
 }

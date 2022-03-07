@@ -16,9 +16,22 @@ class Produits extends Controller
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
         $produits = $model->getALL();
-        $pages = count($produits) /6;
+        $pages = count($produits) / 6;
         $pages = ceil($pages);
-        self::render('produits', compact('produits', 'categorie','scategorie','pages'));
+        if (isset ($_POST['achat'])) {
+            $produit = $model->getOne('id', $_POST['hidden']);
+            $panier = new PanierModel();
+            $panier->insert($produit[0]['id'], $produit[0]['price'], $_SESSION['id']);
+
+            self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages', 'produit'));
+
+        }
+
+        if (isset($_POST['delete'])){
+            $panier=new PanierModel();
+            $panier->delete($_SESSION['id']);
+        }
+        self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages'));
 
     }
 
@@ -31,9 +44,9 @@ class Produits extends Controller
             $modelsc = new SouscategorieModel();
             $categorie = $modelcat->getALL();
             $scategorie = $modelsc->getALL();
-            $pages = count($produits) /6;
+            $pages = count($produits) / 6;
             $pages = ceil($pages);
-            self::render('produits', compact('produits', 'categorie', 'scategorie','pages'));
+            self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages'));
 
         } else {
             $modelcat = new CategorieModel();
@@ -44,9 +57,9 @@ class Produits extends Controller
             $produits = $model->getProdBySc($cat);
             $model = new produitsmodel();
             $produits = $model->getPagination();
-            $pages = count($produits) /6;
+            $pages = count($produits) / 6;
             $pages = ceil($pages);
-            self::render('produits', compact('produits', 'categorie', 'scategorie','pages'));
+            self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages'));
         }
     }
 

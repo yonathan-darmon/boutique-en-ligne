@@ -13,10 +13,10 @@ class CommentaireModel extends Model
         $sth->execute(array($value));
     }
 
-    public function select($value)
+    public function average($key,$value)
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM `comments` ORDER BY approuval DESC LIMIT '.$value.' 5');
-        $sth->execute();
+        $sth = $this->_connexion->prepare('SELECT AVG(`approuval`) FROM `comments` WHERE '.$key.' =?');
+        $sth->execute(array($value));
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
-}
+}   
