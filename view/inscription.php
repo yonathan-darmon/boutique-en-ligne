@@ -1,6 +1,10 @@
 <?php
-
-?>
+var_dump($error1);if(isset($error1)):?>
+    <div class="error"><?=$error1?></div>
+<?php endif;?>
+<?php if(!empty($success)):?>
+<div class="reussi"><?=$success[0]?></div>
+<?php else:?>
 <form action="#" method="post">
     <label for="login">Login</label>
     <input type="text" name="login">
@@ -22,3 +26,5 @@
     <label for="valider">Valider vos données</label>
     <input type="submit" value="s'inscrire" name="valider">
 </form>
+<?php endif;?>
+
