@@ -51,3 +51,8 @@
 for ($i = 1; $i <= $pages; $i++): ?>
     <a href="<?= path ?>produits"><?= $i ?></a>&nbsp
 <?php endfor; ?>
+<?php
+$params=explode('/',$_GET['p']);
+if (isset($params[1])):?>
+    <a href="<?=path?>produits"> Retour sur tout les produits</a>
+<?php endif;?>
