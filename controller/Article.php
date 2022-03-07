@@ -20,6 +20,7 @@ class Article extends Controller
                 $price = $produit[0]['price'];
                 $panier = new paniermodel();
                 $panier = $produit->insert($idproduct,$price,$actualid);
+                $produit = $article->update('stock','stock'-1,$params);
             }
             
             if($produit[0]['stock'] <= 4){
@@ -27,22 +28,18 @@ class Article extends Controller
             }
 
             $commentaire = new commentairemodel();
-            $comments = $commentaire->select($start);
-
-            //pagination
-            if(isset($_GET['start'])){
-                $start = $_GET['start'];
-                $pages = $comments[0][0]/5;
-                $pages = ceil($pages);
-            }
+            $comments = $commentaire->getOne('id_product', $params);
+            $comments = $commentaire->getInnerJoin('user','id_user','id','id_product',$params);
+            $commentsaverage = $commentaire->average('id_product', $params);
 
             if (isset($_POST['valider'])) {
-                $commentverify = $_POST['commentaire'];
+                $commentverify = htmlspecialchars($_POST['commentaire']);
                 $idproduct = $produit[0]['price'];
-                $commentaire->insert($commentverify,$idproduct,$actualid);
+                $rating = $_POST['rating'];
+                $commentaire->insert($commentverify,$rating,$idproduct,$actualid);
             }
 
-            self::render('article', compact('produit', 'comments'));
+            self::render('article', compact('produit', 'comments', 'commentsaverage'));
         }else{
             header('location:'.path.'produits');
         }
