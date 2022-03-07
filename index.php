@@ -28,17 +28,19 @@ require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
 define('path', '/boutique_en_ligne/');
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 $params = explode('/', $_GET['p']);
+
 //on verifie les parametres
 if ($params[0] == 'produits') {
     if (isset($params[1])) {
-        if ($params[1] == 'harry_potter') {
+        $souC = new SouscategorieModel();
+        $souCate = $souC->getOne('name', $params[1]);
+        $cat = new CategorieModel();
+        $cate = $cat->getOne('name_categories', $params[1]);
+        if (count($souCate) > 0) {
             Produits::selectBySc($params[1]);
-        } elseif ($params[1] == 'Fantastique') {
-            Produits::selectBySc($params[1]);
-        } elseif ($params[1] == 'starwars') {
-            Produits::selectBySc($params[1]);
+        } elseif (count($cate) > 0) {
+            Produits::selectByCat($_POST['filtre']);
         } else {
-
             Produits::index();
         }
 
@@ -64,23 +66,19 @@ if ($params[0] == 'produits') {
         } elseif ($params[1] == 'password') {
             Profil::modifPassword($params[1]);
 
-        }elseif ($params[1]== 'historique_des_commandes'){
+        } elseif ($params[1] == 'historique_des_commandes') {
             Profil::histo();
-        }
-        else {
+        } else {
             header('location:' . path . 'profil');
         }
     } else {
         Profil::index();
     }
-} 
-elseif($params[0] == 'contact') {
+} elseif ($params[0] == 'contact') {
     Contact::index();
-}
-else {
+} else {
     Accueil::index();
 }
-
 
 
 ?>
