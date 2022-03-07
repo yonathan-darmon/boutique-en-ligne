@@ -46,9 +46,7 @@ class Controller
             //Set the hostname of the mail server
             $mail -> Mailer = 'smtp';
             $mail->Host = 'smtp.gmail.com';
-            //Use `$mail->Host = gethostbyname('smtp.gmail.com');`
-            //if your network does not support SMTP over IPv6,
-            //though this may cause issues with TLS
+
             
             //Set the SMTP port number: 587 for SMTP+STARTTLS
             $mail->Port = 587;
@@ -64,10 +62,10 @@ class Controller
             $mail->Username = 'aurelien.adjimi@laplateforme.io';
             
             //Password to use for SMTP authentication
-            $mail->Password = 'Ekqd9m9q2asi';
+            $mail->Password = '';
             
             //Set who the message is to be sent from
-            $mail->setFrom($_POST['mail'], $_POST['nom']);
+            $mail->setFrom($_POST['mail'], "$_POST[prenom], $_POST[nom]");
             
             //Set an alternative reply-to address
             //$mail->addReplyTo('replyto@example.com', 'First Last');
