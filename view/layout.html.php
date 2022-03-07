@@ -45,8 +45,8 @@ $params = explode('/', $_GET['p']);
                                     onmouseover="this.src='<?= path ?>ASSET/images/culte-ure-hover.png';"
                                     onmouseout="this.src='<?= path ?>ASSET/images/culte-ure.png';"></img></div>
             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href=""><i class="fa-solid fa-user"></i></a>
-            <a href=""><i class="fa-solid fa-basket-shopping"></i></a>
+            <a href="<?=path?>profil"><i class="fa-solid fa-user"></i></a>
+            <a href="<?=path?>panier"><i class="fa-solid fa-basket-shopping"></i></a>
         </div>
     </nav>
 </header>
