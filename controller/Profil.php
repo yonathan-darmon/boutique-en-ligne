@@ -11,7 +11,6 @@ class Profil extends Controller
         if (isset($_SESSION['id'])) {
             $user = new UtilisateursModel();
             $utilisateur = $user->getOne('id', $_SESSION['id']);
-            var_dump($_SESSION['id']);
             $reward = $user->getReward($_SESSION['id']);
             self::render('profil', compact('utilisateur','reward'));
         } else {

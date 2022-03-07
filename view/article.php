@@ -16,9 +16,7 @@
     <?php foreach($commentsaverage as $value): ?>
         <?php
             $value = implode(',', $value);
-            //$value = explode(',', $value);
             echo $value;
-            var_dump($value);
         ?>
     <?php endforeach;?>
 </div>
@@ -58,7 +56,7 @@
 
 <h2>Laisser un commentaire</h2>
 <?php
-    //if(isset($_SESSION['login'])){ 
+    if(isset($_SESSION['id'])){
         echo '<form action="#" method="post">
                 <textarea name="commentaire" rows="5" cols="33" placeholder="Laisser un message..."></textarea>
                 <br>
@@ -74,7 +72,7 @@
                 <br></br>
                 <input type="submit" value="Envoyer" name="valider">
             </form>';
-    //}
+    }
     /*else{ ?>
         <a href="<?=path?>connexion"><p>Connecter vous pour laisser un commentaire</p></a>
     <?php }*/
