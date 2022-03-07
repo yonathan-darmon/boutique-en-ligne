@@ -20,7 +20,7 @@ class Article extends Controller
                 $price = $produit[0]['price'];
                 $panier = new paniermodel();
                 $panier = $produit->insert($idproduct,$price,$actualid);
-                //$produit[0]['stock'] - 1;
+                $produit = $article->update('stock','stock'-1,$params);
             }
             
             if($produit[0]['stock'] <= 4){

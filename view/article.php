@@ -13,6 +13,11 @@
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
     </a>
+    <?php foreach($comments as $value): ?>
+        <?php
+                var_dump($value);
+            ?>
+    <?php endforeach;?>
 </div>
 
 <div class="bouttonpanier">
@@ -44,9 +49,6 @@
             <p> Par <?=$value['login'];?></p>
             <p><?=$value['approuval'];?> étoile(s)</p>
             <hr>
-            <?php
-                var_dump($value);
-            ?>
         <?php endforeach;?>
     </div>
 </div>
