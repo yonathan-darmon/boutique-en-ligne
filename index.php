@@ -16,6 +16,8 @@ spl_autoload_register(function ($class) {
 
 );
 
+// Paramètres utilisation PHP Mailer
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
