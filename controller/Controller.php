@@ -23,4 +23,13 @@ class Controller
         $content = ob_get_clean();
         require_once(ROOT . 'view/layout.html.php');
     }
+
+    public function disconnect($id)
+    {
+        if (isset($_POST['deco'])){
+            $panier=new PanierModel();
+            $panier->delete($_SESSION['id']);
+            unset($_SESSION['id']);
+        }
+    }
 }

@@ -18,13 +18,18 @@ class Produits extends Controller
         $produits = $model->getALL();
         $pages = count($produits) / 6;
         $pages = ceil($pages);
-        if (isset ($_POST['achat'])){
-            $produit=$model->getOne('id',$_POST['hidden']);
-            $panier=new PanierModel();
-            $panier->insert($produit[0]['id'],$produit[0]['price'],$_SESSION['id']);
+        if (isset ($_POST['achat'])) {
+            $produit = $model->getOne('id', $_POST['hidden']);
+            $panier = new PanierModel();
+            $panier->insert($produit[0]['id'], $produit[0]['price'], $_SESSION['id']);
 
             self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages', 'produit'));
 
+        }
+
+        if (isset($_POST['delete'])){
+            $panier=new PanierModel();
+            $panier->delete($_SESSION['id']);
         }
         self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages'));
 

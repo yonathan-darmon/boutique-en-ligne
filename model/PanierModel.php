@@ -8,10 +8,16 @@ class PanierModel extends Model
         $this->getConnection();
     }
 
-    public function insert($id_product,$price, $id_user)
+    public function insert($id_product, $price, $id_user)
     {
-        $sth=$this->_connexion->prepare('INSERT INTO cart(id_product, price, quantity, date, id_user) VALUES (?,?,1, Now(),?)');
-        $sth->execute(array($id_product,$price,$id_user));
+        $sth = $this->_connexion->prepare('INSERT INTO cart(id_product, price, quantity, date, id_user) VALUES (?,?,1, Now(),?)');
+        $sth->execute(array($id_product, $price, $id_user));
 
+    }
+
+    public function delete($id_user)
+    {
+        $sth=$this->_connexion->prepare('DELETE FROM cart WHERE id_user=?');
+        $sth->execute(array($id_user));
     }
 }
