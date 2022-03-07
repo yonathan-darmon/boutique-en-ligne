@@ -14,14 +14,12 @@
         <i class="fa-solid fa-star"></i>
     </a>
     <?php foreach($commentsaverage as $value): ?>
-        <p>(
-            <?php 
-                $value = implode(',', $value);
-                //$value = explode(',', $value);
-                echo $value;
-            ?>)
-        </p>
-       <?php var_dump($value); ?>
+        <?php
+            $value = implode(',', $value);
+            //$value = explode(',', $value);
+            echo $value;
+            var_dump($value);
+        ?>
     <?php endforeach;?>
 </div>
 
