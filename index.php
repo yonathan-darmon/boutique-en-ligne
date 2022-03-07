@@ -11,14 +11,19 @@ spl_autoload_register(function ($class) {
     if (file_exists('model/' . $class . '.php')) {
         require_once('model/' . $class . '.php');
     }
-    /*if (file_exists('ASSET/PHPMailer-master/src/PHPMailer.php')) {
-        require_once('ASSET/PHPMailer-master/src/PHPMailer.php');
-        require_once('ASSET/PHPMailer-master/src/Exception.php');
-        require_once('ASSET/PHPMailer-master/src/PHPMailer.php');
-        require_once('ASSET/PHPMailer-master/src/SMTP.php');
-}*/
 }
+
+
 );
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require_once('ASSET/PHPMailer-6.6.0/src/Exception.php');
+require_once('ASSET/PHPMailer-6.6.0/src/PHPMailer.php');
+require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
+
 //constante avec le chemin d'index.php
 define('path', '/boutique_en_ligne/');
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
@@ -72,15 +77,6 @@ elseif($params[0] == 'contact') {
 else {
     Accueil::index();
 }
-
-
-/* param phpmailer */
-/*
-use PHPMailer\PHPMailer\PHPMailer;
-require_once('ASSET/PHPMailer-master/src/Exception.php');
-require_once('ASSET/PHPMailer-master/src/PHPMailer.php');
-require_once('ASSET/PHPMailer-master/src/SMTP.php');
-define("mail", new PHPMailer(true) )*/
 
 
 
