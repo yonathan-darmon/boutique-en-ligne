@@ -30,7 +30,7 @@ class Article extends Controller
             $commentaire = new commentairemodel();
             $comments = $commentaire->getOne('id_product', $params);
             $comments = $commentaire->getInnerJoin('user','id_user','id','id_product',$params);
-            $comments = $commentaire->average('id_product', $params);
+            $commentsaverage = $commentaire->average('id_product', $params);
 
             if (isset($_POST['valider'])) {
                 $commentverify = htmlspecialchars($_POST['commentaire']);
@@ -39,7 +39,7 @@ class Article extends Controller
                 $commentaire->insert($commentverify,$rating,$idproduct,$actualid);
             }
 
-            self::render('article', compact('produit', 'comments'));
+            self::render('article', compact('produit', 'comments', 'commentsaverage'));
         }else{
             header('location:'.path.'produits');
         }

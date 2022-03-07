@@ -13,10 +13,15 @@
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
     </a>
-    <?php foreach($comments as $value): ?>
-        <?php
-                var_dump($value);
-            ?>
+    <?php foreach($commentsaverage as $value): ?>
+        <p>(
+            <?php 
+                $value = implode(',', $value);
+                //$value = explode(',', $value);
+                echo $value;
+            ?>)
+        </p>
+       <?php var_dump($value); ?>
     <?php endforeach;?>
 </div>
 
