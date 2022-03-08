@@ -7,7 +7,7 @@ class Connexion extends Controller
     public static function index()
     {
         $errors = [];
-        $success=[];
+        $success = [];
         if (isset($_POST['connect'])) {
 
             $usermodel = new UtilisateursModel();
@@ -17,8 +17,8 @@ class Connexion extends Controller
                     $_SESSION['id'] = $user[0]['id'];
                     $_SESSION['login'] = $user[0]['login'];
                     $success[] = 'Bienvenue ' . $user[0]['login'];
-                    self::render("connexion", compact("errors","success"));
-                    header('Refresh:3,'.path.'produits');
+                    self::render("connexion", compact("errors", "success"));
+                    header('Refresh:3,' . path . 'produits');
 
                 } else {
                     array_push($errors, 'Login ou mot de passe incorrect');
@@ -28,14 +28,33 @@ class Connexion extends Controller
             }
 
         }
-        self::render("connexion", compact("errors","success"));
+        self::render("connexion", compact("errors", "success"));
 
 
     }
 
     public static function reset()
     {
-        self::render("oublipass");
+        $error = [];
+        $success = [];
+        if (isset($_POST['reset'])) {
+            if (!empty($_POST['email'])) {
+                $user = new UtilisateursModel();
+                $mail = $user->getOne('email', $_POST['email']);
+                if (!empty($mail)) {
+                    $password = uniqid();
+                    $hashpassword= password_hash($password, PASSWORD_DEFAULT);
+                    $modifmail=$user->updateMail('email',$hashpassword,$_POST['email']);
+                    array_push($success, 'Votre nouveau mot de passe est bien envoyé');
+
+                } else {
+                    array_push($error, 'Cette addresse mail n\'est pas utilisé');
+                }
+            } else {
+                array_push($error, "Veuillez remplir le champ");
+            }
+        }
+        self::render("oublipass", compact('error', 'success'));
     }
 
 }

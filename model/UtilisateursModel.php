@@ -11,7 +11,6 @@ class UtilisateursModel extends Model
     public function insert($value1, $value2, $value3, $value4)
     {
         $sth = $this->_connexion->prepare('INSERT INTO `user`(login, password, email, adresse, id_reward,droits) VALUES (?,?,?,?,1,1)');
-        var_dump($value1);
         $sth->execute(array($value1, $value2, $value3, $value4));
     }
 
@@ -24,9 +23,16 @@ class UtilisateursModel extends Model
 
     public function getReward($value)
     {
-        $sth=$this->_connexion->prepare("SELECT reward.name FROM $this->table INNER JOIN reward ON reward.id=user.id_reward WHERE user.id=?");
+        $sth = $this->_connexion->prepare("SELECT reward.name FROM $this->table INNER JOIN reward ON reward.id=user.id_reward WHERE user.id=?");
         $sth->execute(array($value));
         return $sth->fetch();
+    }
+
+    public function updateMail($params, $value, $mail)
+    {
+        $sth = $this->_connexion->prepare("UPDATE $this->table SET $params=? WHERE mail=$mail ");
+        $sth->execute(array($value));
+
     }
 
 }
