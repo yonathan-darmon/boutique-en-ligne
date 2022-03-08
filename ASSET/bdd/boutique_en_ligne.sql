@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 08 mars 2022 à 09:47
+-- Généré le : mar. 08 mars 2022 à 10:57
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -216,17 +216,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) NOT NULL,
   `adresse` text NOT NULL,
   `id_reward` int(11) NOT NULL,
+  `droits` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `email`, `adresse`, `id_reward`) VALUES
-(2, 'admin', '$2y$10$Q79TVpae7iSFjsmQ9lKeX.sLmPN/0j7t3Kj6u7eWHemCFONnyVwMC', 'admin@admin.com', '192 avenue', 1),
-(4, 'koobiak', '$2y$10$UfhJe8aOEzn.dmwvzdgeE.GKtAmK6DyfNt/Ig/hh4f2j9aq2bPAaa', 'yoni.darmon@gmail.com', '192.avenue du prado13008Marseille', 1),
-(5, 'lol', '$2y$10$1UX8DXKt1P.1imewcWe6PeepBCbH4kgvdhtmBWHjvacGoz1cJM4C2', 'lol', '5.lol5lol', 1);
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `adresse`, `id_reward`, `droits`) VALUES
+(2, 'admin', '$2y$10$Q79TVpae7iSFjsmQ9lKeX.sLmPN/0j7t3Kj6u7eWHemCFONnyVwMC', 'admin@admin.com', '192 avenue', 1, 2),
+(4, 'koobiak', '$2y$10$UfhJe8aOEzn.dmwvzdgeE.GKtAmK6DyfNt/Ig/hh4f2j9aq2bPAaa', 'yoni.darmon@gmail.com', '192.avenue du prado13008Marseille', 1, 1),
+(5, 'lol', '$2y$10$1UX8DXKt1P.1imewcWe6PeepBCbH4kgvdhtmBWHjvacGoz1cJM4C2', 'lol', '5.lol5lol', 1, 1),
+(12, 'test', '$2y$10$VAnKYmUz2WjeSBRafF0SGOxFhNnnpEgx7J8bqjRqf401mTvaLKuja', 'thomas-germany@laplateforme.io', '5.55test', 1, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
