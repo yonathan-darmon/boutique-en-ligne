@@ -3,6 +3,7 @@
 <?php endif; ?>
 <?php if (!empty($success)): ?>
     <div class="reussi"><?= $success[0] ?></div>
+<?php header('Refresh:3;url='.path.'connexion');?>
 <?php else: ?>
     <form action="#" method="post">
         <label for="login">Login</label>
