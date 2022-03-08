@@ -7,5 +7,6 @@
     <input type="text" name="login">
     <input type="password" name="password">
     <input type="submit" value="se connecter" name="connect">
+    <a href="<?=path?>inscription">Pas encore inscrit? C'est par ici!</a>
     <a href="<?=path?>oubli"> Mot de passe oublié</a>
 </form>
