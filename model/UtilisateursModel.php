@@ -30,7 +30,7 @@ class UtilisateursModel extends Model
 
     public function updateMail($params, $value, $mail)
     {
-        $sth = $this->_connexion->prepare("UPDATE $this->table SET $params=? WHERE mail=$mail ");
+        $sth = $this->_connexion->prepare('UPDATE $this->table SET $params = ? WHERE email = $mail');
         $sth->execute(array($value));
 
     }
