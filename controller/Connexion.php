@@ -17,6 +17,8 @@ class Connexion extends Controller
                     $_SESSION['id'] = $user[0]['id'];
                     $_SESSION['login'] = $user[0]['login'];
                     $success[] = 'Bienvenue ' . $user[0]['login'];
+                    self::render("connexion", compact("errors","success"));
+                    header('Refresh:3,'.path.'produits');
 
                 } else {
                     array_push($errors, 'Login ou mot de passe incorrect');
@@ -24,6 +26,7 @@ class Connexion extends Controller
             } else {
                 array_push($errors, 'Login ou mot de passe incorrect');
             }
+
         }
         self::render("connexion", compact("errors","success"));
 
