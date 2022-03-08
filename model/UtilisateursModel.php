@@ -11,6 +11,7 @@ class UtilisateursModel extends Model
     public function insert($value1, $value2, $value3, $value4)
     {
         $sth = $this->_connexion->prepare('INSERT INTO `user`(login, password, email, adresse, id_reward) VALUES (?,?,?,?,1)');
+        var_dump($value1);
         $sth->execute(array($value1, $value2, $value3, $value4));
     }
 

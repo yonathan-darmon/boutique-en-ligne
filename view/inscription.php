@@ -1,5 +1,5 @@
-<?php
-var_dump($error1);if(isset($error1)):?>
+<?php var_dump($_POST);
+if(isset($error1)):?>
     <div class="error"><?=$error1?></div>
 <?php endif;?>
 <?php if(!empty($success)):?>
