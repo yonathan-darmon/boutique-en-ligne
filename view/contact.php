@@ -1,5 +1,5 @@
 <?php 
-var_dump($_POST);
+
 ?>
 <div id="contact">
     <div class="infos">

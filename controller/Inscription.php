@@ -25,8 +25,9 @@ class Inscription extends Controller
         $mail->addAddress($_POST['email']);
         $mail->Subject = 'Bienvenue parmi nous !';
         $mail->WordWrap = 70;
+        $mail -> isHTML(true);
         $mail->CharSet = 'utf-8';
-        $mail->Body = 'Bienvenue chez Pop Cult(e)ure'. $_POST['login']. '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
+        $mail->Body = '<p style="font-size: 32px; color: Blue;">Bienvenue chez Pop Cult(e)ure</p>'. ' ' .'<p style="font-size: 52px; color: Red;">'.$_POST['login'].'</p>'. '<h3 style="font-size: 20px;">Nous espérons que vous trouverez votre bonheur <br>dans notre large gamme de produits !</p>';
         $mail -> send();
     }
 
