@@ -59,10 +59,10 @@ class Controller
             $mail->SMTPSecure = 'tls';  
             
             //Username to use for SMTP authentication - use full email address for gmail
-            $mail->Username = 'aurelien.adjimi@laplateforme.io';
+            $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
             
             //Password to use for SMTP authentication
-            $mail->Password = '';
+            $mail->Password = 'Coucousalutbonjour';
             
             //Set who the message is to be sent from
             $mail->setFrom($_POST['mail'], "$_POST[prenom], $_POST[nom]");
@@ -71,7 +71,7 @@ class Controller
             //$mail->addReplyTo('replyto@example.com', 'First Last');
             
             //Set who the message is to be sent to
-            $mail->addAddress('aurelien.adjimi@laplateforme.io', 'Aurélien Adjimi');
+            $mail->addAddress('pop.cult.e.ure.boutique@gmail.com', 'Boutique Ligne');
             
             //Set the subject line
             $mail->Subject = $_POST['objet'];
