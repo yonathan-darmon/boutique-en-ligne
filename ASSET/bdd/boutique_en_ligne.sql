@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 08 mars 2022 à 10:57
+-- Généré le : mar. 08 mars 2022 à 11:02
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -99,6 +99,27 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `droits_user`
+--
+
+DROP TABLE IF EXISTS `droits_user`;
+CREATE TABLE IF NOT EXISTS `droits_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `droits_user`
+--
+
+INSERT INTO `droits_user` (`id`, `nom`) VALUES
+(1, 'Utilisateur'),
+(2, 'Administrateur');
 
 -- --------------------------------------------------------
 
@@ -216,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(255) NOT NULL,
   `adresse` text NOT NULL,
   `id_reward` int(11) NOT NULL,
-  `droits` int(11) NOT NULL,
+  `id_droit` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
@@ -224,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `email`, `adresse`, `id_reward`, `droits`) VALUES
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `adresse`, `id_reward`, `id_droit`) VALUES
 (2, 'admin', '$2y$10$Q79TVpae7iSFjsmQ9lKeX.sLmPN/0j7t3Kj6u7eWHemCFONnyVwMC', 'admin@admin.com', '192 avenue', 1, 2),
 (4, 'koobiak', '$2y$10$UfhJe8aOEzn.dmwvzdgeE.GKtAmK6DyfNt/Ig/hh4f2j9aq2bPAaa', 'yoni.darmon@gmail.com', '192.avenue du prado13008Marseille', 1, 1),
 (5, 'lol', '$2y$10$1UX8DXKt1P.1imewcWe6PeepBCbH4kgvdhtmBWHjvacGoz1cJM4C2', 'lol', '5.lol5lol', 1, 1),
