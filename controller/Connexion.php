@@ -44,8 +44,8 @@ class Connexion extends Controller
                 if (!empty($mail)) {
                     $mdp = uniqid();
                     echo $mdp;
-                    $hashpassword= password_hash($mdp, PASSWORD_DEFAULT);
-                    var_dump($modifmail=$user->updateMail('password', $hashpassword, $_POST['email']));
+                    $hashedpassword = password_hash($mdp, PASSWORD_DEFAULT);
+                    $user->updatePassword($hashedpassword, $_POST['email']);
 
                     array_push($success, 'Votre nouveau mot de passe est bien envoyé');
 
