@@ -33,4 +33,9 @@ class Connexion extends Controller
 
     }
 
+    public static function reset()
+    {
+        self::render("oublipass");
+    }
+
 }
