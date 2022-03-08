@@ -78,12 +78,13 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'contact') {
     Contact::index();
-}elseif ($params[0]=='oubli'){
+} elseif ($params[0]=='oubli'){
     Connexion::reset();
+} elseif($params[0] == 'panier') {
+    Panier::index();
 }
 else {
     Accueil::index();
 }
-
 
 ?>
