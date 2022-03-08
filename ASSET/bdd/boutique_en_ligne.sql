@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 24 fév. 2022 à 15:26
+-- Généré le : mar. 08 mars 2022 à 09:47
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `date` datetime NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,10 +47,17 @@ CREATE TABLE IF NOT EXISTS `cart` (
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `id_souscat` int(11) NOT NULL,
+  `name_categories` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name_categories`) VALUES
+(1, 'Fantastique'),
+(2, 'Science-fiction');
 
 -- --------------------------------------------------------
 
@@ -64,11 +71,17 @@ CREATE TABLE IF NOT EXISTS `commandes` (
   `achat` text NOT NULL,
   `date` datetime NOT NULL,
   `price` int(11) NOT NULL,
-  `moyen_paiement` int(11) NOT NULL,
+  `moyen_paiement` varchar(255) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_cart` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commandes`
+--
+
+INSERT INTO `commandes` (`id`, `achat`, `date`, `price`, `moyen_paiement`, `id_user`) VALUES
+(1, 'test', '2022-03-03 11:17:26', 3, 'test', 2);
 
 -- --------------------------------------------------------
 
@@ -98,11 +111,20 @@ CREATE TABLE IF NOT EXISTS `historique` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(255) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
+  `prices` int(11) NOT NULL,
   `moyen_de_paiement` varchar(255) NOT NULL,
   `id_commande` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `historique`
+--
+
+INSERT INTO `historique` (`id`, `product_name`, `quantity`, `prices`, `moyen_de_paiement`, `id_commande`, `id_user`) VALUES
+(1, 'test', 1, 1, 'test', 1, 2),
+(2, 'test2', 2, 2, 'test2', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -147,7 +169,16 @@ CREATE TABLE IF NOT EXISTS `reward` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `reward`
+--
+
+INSERT INTO `reward` (`id`, `name`) VALUES
+(1, 'or'),
+(2, 'silver'),
+(3, 'bronze');
 
 -- --------------------------------------------------------
 
@@ -159,15 +190,17 @@ DROP TABLE IF EXISTS `sous_categories`;
 CREATE TABLE IF NOT EXISTS `sous_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `id_categorie` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `sous_categories`
 --
 
-INSERT INTO `sous_categories` (`id`, `name`) VALUES
-(1, 'harry_potter');
+INSERT INTO `sous_categories` (`id`, `name`, `id_categorie`) VALUES
+(1, 'harry_potter', 1),
+(2, 'Marvel', 2);
 
 -- --------------------------------------------------------
 
@@ -181,17 +214,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `adress` text NOT NULL,
+  `adresse` text NOT NULL,
   `id_reward` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `login`, `password`, `email`, `adress`, `id_reward`) VALUES
-(1, 'Admin', 'Admin', 'Admin@admin.com', 'admin', 1);
+INSERT INTO `user` (`id`, `login`, `password`, `email`, `adresse`, `id_reward`) VALUES
+(2, 'admin', '$2y$10$Q79TVpae7iSFjsmQ9lKeX.sLmPN/0j7t3Kj6u7eWHemCFONnyVwMC', 'admin@admin.com', '192 avenue', 1),
+(4, 'koobiak', '$2y$10$UfhJe8aOEzn.dmwvzdgeE.GKtAmK6DyfNt/Ig/hh4f2j9aq2bPAaa', 'yoni.darmon@gmail.com', '192.avenue du prado13008Marseille', 1),
+(5, 'lol', '$2y$10$1UX8DXKt1P.1imewcWe6PeepBCbH4kgvdhtmBWHjvacGoz1cJM4C2', 'lol', '5.lol5lol', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

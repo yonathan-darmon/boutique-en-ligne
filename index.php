@@ -78,7 +78,10 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'contact') {
     Contact::index();
-} else {
+}elseif ($params[0]=='oubli'){
+    Connexion::reset();
+}
+else {
     Accueil::index();
 }
 
