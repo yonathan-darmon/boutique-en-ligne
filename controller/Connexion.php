@@ -22,7 +22,7 @@ class Connexion extends Controller
                     $_SESSION['login'] = $user[0]['login'];
                     $success[] = 'Bienvenue ' . $user[0]['login'];
                     self::render("connexion", compact("errors", "success"));
-                    header('Refresh:3,' . path . 'produits');
+                    header('Refresh:2,' . path . 'produits');
 
                 } else {
                     array_push($errors, 'Login ou mot de passe incorrect');
