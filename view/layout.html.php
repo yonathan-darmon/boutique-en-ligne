@@ -37,7 +37,7 @@ $params = explode('/', $_GET['p']);
 
                         <li><a href="<?= path ?>produits">Shop</a></li>
                         <li><a href="<?= path ?>">Qui sommes-nous ?</a></li>
-                        <li><a href="<?= path ?>">Nous contacter</a></li>
+                        <li><a href="<?= path ?>contact">Nous contacter</a></li>
                     </ul>
                 </li>
             </ul>

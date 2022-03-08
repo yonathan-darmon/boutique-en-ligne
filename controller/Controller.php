@@ -102,6 +102,30 @@ class Controller
         }
     }
 
+    public static function mailwelcome()
+    {
+        
+        if(isset($_POST['valider'])) {
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->Mailer = 'smtp';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+            $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
+            $mail->Password = 'Coucousalutbonjour';
+            $mail->setFrom('pop.cult.e.ure.boutique@gmail.com', "Boutique Ligne");
+            $mail->addAddress($_POST['email']);
+            $mail->Subject = 'Bienvenue parmi nous !';
+            $mail->WordWrap = 70;
+            $mail->CharSet = 'utf-8';
+            $mail->Body = 'Bienvenue chez Pop Cult(e)ure'. $_POST['login']. '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
+            $mail -> send();
+        }
+    }
+
     public function disconnect($id)
     {
         if (isset($_POST['deco'])) {

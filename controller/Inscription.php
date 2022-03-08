@@ -49,6 +49,11 @@ class Inscription extends Controller
         }
         self::render("inscription",compact('success'));
     }
+    public static function index()
+    {
+        self::mailwelcome();
+        self::render('inscription');
+    }
 }
 
 
