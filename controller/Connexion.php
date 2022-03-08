@@ -1,12 +1,10 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
 require_once('ASSET/PHPMailer-6.6.0/src/Exception.php');
 require_once('ASSET/PHPMailer-6.6.0/src/PHPMailer.php');
 require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 class Connexion extends Controller
 {
 
@@ -82,7 +80,7 @@ class Connexion extends Controller
         $mail->Subject = 'Nouveau mot de passe !';
         $mail->WordWrap = 70;
         $mail->CharSet = 'utf-8';
-        $mail->Body = 'Bonjour voici votre nouveau mot de passe: '. $mdp. '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
+        $mail->Body = 'Bonjour voici votre nouveau mot de passe: '. $mdp. '. Nous vous invitons à le modifier le plus tot possible dans votre page profil';
         $mail -> send();
     }
 
