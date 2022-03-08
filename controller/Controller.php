@@ -65,7 +65,8 @@ class Controller
             $mail->Password = 'Coucousalutbonjour';
             
             //Set who the message is to be sent from
-            $mail->setFrom($_POST['mail'], "$_POST[prenom], $_POST[nom]");
+            $email = $_POST['mail'];
+            $mail->setFrom($email, "$_POST[prenom], $_POST[nom]");
             
             //Set an alternative reply-to address
             //$mail->addReplyTo('replyto@example.com', 'First Last');
@@ -83,7 +84,7 @@ class Controller
             //Config body mail
             $mail->WordWrap = 70;
             $mail->CharSet = 'utf-8';
-            $mail->Body = $_POST['message'];
+            $mail->Body = $_POST['message']; $_POST['mail'];
 
             //Attach an image file
             //$mail->addAttachment('images/phpmailer_mini.png');
@@ -123,6 +124,7 @@ class Controller
             $mail->CharSet = 'utf-8';
             $mail->Body = 'Bienvenue chez Pop Cult(e)ure'. $_POST['login']. '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
             $mail -> send();
+
         }
     }
 
