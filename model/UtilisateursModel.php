@@ -28,10 +28,10 @@ class UtilisateursModel extends Model
         return $sth->fetch();
     }
 
-    public function updateMail($params, $value, $mail)
+    public function updatePassword($value, $mail)
     {
-        $sth = $this->_connexion->prepare("UPDATE $this->table SET $params=? WHERE mail=$mail ");
-        $sth->execute(array($value));
+        $sth = $this->_connexion->prepare('UPDATE `user` SET `password` = ? WHERE `email`= ?');
+        $sth->execute(array($value,$mail));
 
     }
 
