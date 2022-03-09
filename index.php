@@ -80,6 +80,8 @@ if ($params[0] == 'produits') {
     Contact::index();
 }elseif ($params[0]=='oubli'){
     Connexion::reset();
+} elseif($params[0] == 'admin') {
+    
 }
 else {
     Accueil::index();
