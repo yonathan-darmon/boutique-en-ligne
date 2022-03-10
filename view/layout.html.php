@@ -1,7 +1,9 @@
 <?php
 $params = explode('/', $_GET['p']);
-
 ?>
+<script src="https://js.stripe.com/v3/"></script>
+    <script src="scripts.js"></script>
+
 
 <!DOCTYPE html>
 <html lang="fr">
