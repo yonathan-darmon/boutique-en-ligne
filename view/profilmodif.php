@@ -16,3 +16,4 @@
     ?>
     <input type="submit" name="modif" value="Modifier">
 </form>
+<img src="<?=path?>ASSET/images/it.png" alt="funko IT" class="imageit">

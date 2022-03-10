@@ -38,4 +38,11 @@ main {
 }
 .metal{
 text-align: center;
+    margin-bottom: 15px;
+}
+.image{
+    margin-top: 25px;
+}
+.imageit{
+    width: 20%;
 }
