@@ -47,7 +47,7 @@ class Controller
             $mail->Mailer = 'smtp';
             $mail->Host = 'smtp.gmail.com';
 
-            
+
             //Set the SMTP port number: 587 for SMTP+STARTTLS
             $mail->Port = 587;
 
@@ -60,20 +60,20 @@ class Controller
 
             //Username to use for SMTP authentication - use full email address for gmail
             $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
-            
+
             //Password to use for SMTP authentication
             $mail->Password = 'Coucousalutbonjour';
-            
+
             //Set who the message is to be sent from
             $email = $_POST['mail'];
             $mail->setFrom($email, "$_POST[prenom], $_POST[nom]");
-            
+
             //Set an alternative reply-to address
             //$mail->addReplyTo('replyto@example.com', 'First Last');
 
             //Set who the message is to be sent to
             $mail->addAddress('pop.cult.e.ure.boutique@gmail.com', 'Boutique Ligne');
-            
+
             //Set the subject line
             $mail->Subject = $_POST['objet'];
 
@@ -84,7 +84,8 @@ class Controller
             //Config body mail
             $mail->WordWrap = 70;
             $mail->CharSet = 'utf-8';
-            $mail->Body = $_POST['message']; $_POST['mail'];
+            $mail->Body = $_POST['message'];
+            $_POST['mail'];
 
             //Attach an image file
             //$mail->addAttachment('images/phpmailer_mini.png');
@@ -105,8 +106,8 @@ class Controller
 
     public static function mailwelcome()
     {
-        
-        if(isset($_POST['valider'])) {
+
+        if (isset($_POST['valider'])) {
             $mail = new PHPMailer();
             $mail->isSMTP();
             $mail->Mailer = 'smtp';
@@ -122,19 +123,18 @@ class Controller
             $mail->Subject = 'Bienvenue parmi nous !';
             $mail->WordWrap = 70;
             $mail->CharSet = 'utf-8';
-            $mail->Body = 'Bienvenue chez Pop Cult(e)ure'. $_POST['login']. '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
-            $mail -> send();
+            $mail->Body = 'Bienvenue chez Pop Cult(e)ure' . $_POST['login'] . '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
+            $mail->send();
 
         }
     }
 
-    public function disconnect($id)
+    public static function disconnect($id)
     {
-        if (isset($_POST['deco'])) {
-            $panier = new PanierModel();
-            $panier->delete($_SESSION['id']);
-            unset($_SESSION['id']);
-            header('location:' . path . 'accueil');
-        }
+        $panier = new PanierModel();
+        $panier->delete($id);
+        unset($_SESSION['id']);
+        unset($_SESSION['login']);
+        header('Refresh:0;url=' . path . 'accueil');
     }
 }

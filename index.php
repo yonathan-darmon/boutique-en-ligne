@@ -81,6 +81,9 @@ if ($params[0] == 'produits') {
     Contact::index();
 }elseif ($params[0]=='oubli'){
     Connexion::reset();
+}elseif ($params[0]=='deco'){
+    Controller::disconnect($_SESSION['id']);
+
 }
 else {
     Accueil::index();
