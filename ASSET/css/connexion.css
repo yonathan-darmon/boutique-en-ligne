@@ -17,15 +17,22 @@ form a{
     color: #0c88b4;
 }
 main{
-    min-height: 50vh;
-    background: black;
-    color: white;
+    min-height: 60vh;
     font-family: Hey-Comic,Sans-serif;
 }
 .formconnect{
     margin-top: 55px;
 }
-
+.imageconnect{
+    margin-top: 3%;
+}
+#connect{
+    background: black;
+    color: white;
+    min-height: 45px;
+    border-radius: 30px;
+    font-size: 20px;
+}
 .errors {
     background-color: red;
     color: white;

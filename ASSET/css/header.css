@@ -28,8 +28,7 @@ header nav {
 /*Logo*/
 
 .image {
-    margin-top: 0px;
-    width: 15%;
+    width: 13%;
 }
 
 .image img {
@@ -63,7 +62,7 @@ header nav {
 }
 
 .menu {
-    max-width: 600px;
+    max-height: 205px;
     width: -moz-fit-content;
     width: -webkit-fit-content;
     width: fit-content;
@@ -82,7 +81,7 @@ header nav {
     text-transform: uppercase;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .menu li:hover {

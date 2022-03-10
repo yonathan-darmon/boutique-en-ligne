@@ -6,7 +6,7 @@
     <div class="errors"><?= $errors[0]; ?></div>
 <?php endif; ?>
 <div class="box">
-    <img class="imageconnect" src="<?= path ?>ASSET\images\Figurine-Funko-Pop-Rocks-Queen-Freddie-Mercury-Radio-Gaga.jpg"
+    <img class="imageconnect" src="<?= path ?>ASSET\images\Figurine-Funko-Pop-Rocks-Queen-Freddie-Mercury-Radio-Gaga-removebg-preview.png"
          alt="figurine pop">
     <div class="formconnect">
         <h1>Connexion</h1>
@@ -15,7 +15,7 @@
             <input type="text" name="login">
             <label for="password">Votre Mot de passe</label>
             <input type="password" name="password">
-            <input type="submit" value="se connecter" name="connect">
+            <input id="connect" type="submit" value="se connecter" name="connect">
             <a href="<?= path ?>inscription">Pas encore inscrit? C'est par ici!</a>
             <a href="<?= path ?>oubli"> Mot de passe oublié</a>
         </form>
