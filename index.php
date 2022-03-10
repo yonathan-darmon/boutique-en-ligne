@@ -85,7 +85,20 @@ if ($params[0] == 'produits') {
     if (isset($params[1])) {
         if ($params[1] == 'stock') {
             Admin::Stock();
-        }else{
+        }
+        if($params[1] == 'user') {
+            Admin::user();
+        }
+        if ($params[1] == 'article') {
+            Admin::articles();
+        }
+        if ($params[1] == 'vente') {
+            Admin::ventes();
+        }
+        if ($params[1] == 'categorie') {
+            Admin::categories();
+        }
+        else{
             Admin::index();
         }
 
