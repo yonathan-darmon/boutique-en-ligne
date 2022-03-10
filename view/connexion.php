@@ -1,5 +1,7 @@
 <?php if (!empty($success)): ?>
     <div class="success"><?= $success[0]; ?></:></div>
+   <?php header('Refresh:3,' . path . 'accueil');?>
+
 <?php elseif (!empty($errors)): ?>
     <div class="errors"><?= $errors[0]; ?></div>
 <?php endif; ?>
@@ -9,7 +11,9 @@
     <div class="formconnect">
         <h1>Connexion</h1>
         <form action="" method="post">
+            <label for="login">Votre Login</label>
             <input type="text" name="login">
+            <label for="password">Votre Mot de passe</label>
             <input type="password" name="password">
             <input type="submit" value="se connecter" name="connect">
             <a href="<?= path ?>inscription">Pas encore inscrit? C'est par ici!</a>

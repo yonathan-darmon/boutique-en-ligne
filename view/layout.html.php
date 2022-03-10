@@ -38,16 +38,19 @@ $params = explode('/', $_GET['p']);
                         <li><a href="<?= path ?>produits">Shop</a></li>
                         <li><a href="<?= path ?>">Qui sommes-nous ?</a></li>
                         <li><a href="<?= path ?>contact">Nous contacter</a></li>
+                        <li><a href="<?=path?>deco">deconnexion</a></li>
                     </ul>
                 </li>
             </ul>
             <div class="image"><img src="<?= path ?>ASSET/images/culte-ure.png"
                                     onmouseover="this.src='<?= path ?>ASSET/images/culte-ure-hover.png';"
                                     onmouseout="this.src='<?= path ?>ASSET/images/culte-ure.png';"></img></div>
+            <div class="icon">
             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             <?php if (isset($_SESSION['id'])):?>
             <a href="<?=path?>profil"><i class="fa-solid fa-user"></i></a>
             <a href="<?=path?>panier"><i class="fa-solid fa-basket-shopping"></i></a>
+            </div>
             <?php endif;?>
         </div>
     </nav>

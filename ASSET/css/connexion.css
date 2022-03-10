@@ -1,5 +1,4 @@
 .box{
-    margin-top: 25px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -7,12 +6,24 @@ form{
     display: flex;
     flex-direction: column;
     margin-right: auto;
-    gap: 25px;
+    gap: 15px;
     margin-top: 15px;
+    margin-bottom: 25px;
+}
+form input{
+    border-radius: 5px;
+}
+form a{
+    color: #0c88b4;
 }
 main{
+    min-height: 50vh;
     background: black;
     color: white;
+    font-family: Hey-Comic,Sans-serif;
+}
+.formconnect{
+    margin-top: 55px;
 }
 
 .errors {
