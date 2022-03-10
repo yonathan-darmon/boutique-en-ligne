@@ -59,20 +59,21 @@ class Controller
             $mail->SMTPSecure = 'tls';
 
             //Username to use for SMTP authentication - use full email address for gmail
-            $mail->Username = 'aurelien.adjimi@laplateforme.io';
-
+            $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
+            
             //Password to use for SMTP authentication
-            $mail->Password = '';
+            $mail->Password = 'Coucousalutbonjour';
             
             //Set who the message is to be sent from
-            $mail->setFrom($_POST['mail'], "$_POST[prenom], $_POST[nom]");
+            $email = $_POST['mail'];
+            $mail->setFrom($email, "$_POST[prenom], $_POST[nom]");
             
             //Set an alternative reply-to address
             //$mail->addReplyTo('replyto@example.com', 'First Last');
 
             //Set who the message is to be sent to
-            $mail->addAddress('aurelien.adjimi@laplateforme.io', 'Aurélien Adjimi');
-
+            $mail->addAddress('pop.cult.e.ure.boutique@gmail.com', 'Boutique Ligne');
+            
             //Set the subject line
             $mail->Subject = $_POST['objet'];
 
@@ -83,7 +84,7 @@ class Controller
             //Config body mail
             $mail->WordWrap = 70;
             $mail->CharSet = 'utf-8';
-            $mail->Body = $_POST['message'];
+            $mail->Body = $_POST['message']; $_POST['mail'];
 
             //Attach an image file
             //$mail->addAttachment('images/phpmailer_mini.png');
@@ -99,6 +100,31 @@ class Controller
                 #    echo "Message saved!";
                 #}
             }
+        }
+    }
+
+    public static function mailwelcome()
+    {
+        
+        if(isset($_POST['valider'])) {
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->Mailer = 'smtp';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls';
+            $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
+            $mail->Password = 'Coucousalutbonjour';
+            $mail->setFrom('pop.cult.e.ure.boutique@gmail.com', "Boutique Ligne");
+            $mail->addAddress($_POST['email']);
+            $mail->Subject = 'Bienvenue parmi nous !';
+            $mail->WordWrap = 70;
+            $mail->CharSet = 'utf-8';
+            $mail->Body = 'Bienvenue chez Pop Cult(e)ure'. $_POST['login']. '. Nous espérons que vous trouverez votre bonheur dans notre large gamme de produits !';
+            $mail -> send();
+
         }
     }
 
