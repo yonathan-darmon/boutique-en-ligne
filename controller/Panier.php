@@ -13,11 +13,11 @@
 
             if(isset($_POST['supprimer'])){
                 $panier = $model->delete($_SESSION['id']);
-                header('Refresh:2,' . path . 'panier');
+                //header('Refresh:2,' . path . 'panier');
             }
-            if(isset($_POST['modifquantite'])){
-                $quantity = $_POST['quantity'];
-                $panier = $model->update('quantity', $quantity, 'id_product');
+            if(isset($_POST['modifquantity'])){
+                $quantity = htmlspecialchars($_POST['quantity']);
+                $panierquantity = $model->update('quantity', $quantity, 'id_product');
             }
             self::render('panier', compact('panier'));
         }

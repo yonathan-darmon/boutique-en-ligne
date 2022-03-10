@@ -10,7 +10,10 @@
         <h3>Prix</h3>
         <p><?=$value['price'];?>€</p>
         <h3>Quantité</h3>
-        <input type="number" name="modifquantite" value="<?=$value['quantity'];?>">
+        <form method="post">
+            <input type="number" name="quantity" value="<?=$value['quantity'];?>">
+            <input type="submit" name="modifquantity" value="ajouter">
+        </form>
         <h3>Total</h3>
         <p><?=$value['price']*$value['quantity'];?>€</p>
         <form method="post">
