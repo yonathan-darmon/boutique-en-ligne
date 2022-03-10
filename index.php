@@ -87,6 +87,8 @@ if ($params[0] == 'produits') {
         $addP = $add->addProd($nom, $prix, $stock, $promo, $push, $short, $long, $tags);
     }
     Admin::index();
+}elseif ($params[0]=='deco'){
+    Controller::disconnect($_SESSION['id']);
 
 }
 else {
