@@ -2,6 +2,9 @@
 .boite1{
     display: flex;
     padding-top: 50px;
+    justify-content: space-around;
+    gap: 50px;
+    line-height: 1.5;
 
 }
 .link{
@@ -14,5 +17,25 @@ table{
 }
 main {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.link a{
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    border: solid 3px black;
+}
+.link :hover{
+    background: red;
+    color: white;
+}
+.value{
+    line-height: 1.9;
+}
+.reward{
+    margin-top: 15px;
+}
+.metal{
+text-align: center;
 }
