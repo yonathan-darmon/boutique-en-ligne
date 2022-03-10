@@ -1,0 +1,55 @@
+.box{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    gap: 25px;
+    margin-top: 15px;
+}
+main{
+    background: black;
+    color: white;
+}
+
+.errors {
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 1s ease-in-out 2s 1 normal forwards;
+}
+
+.success {
+    background-color: limegreen;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 2s ease-in-out 2s 1 normal forwards;
+}
+
+@keyframes entrance {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes outro {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
