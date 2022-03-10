@@ -6,18 +6,18 @@
         {         
             if(isset($_SESSION['id'])){
                 $model = new paniermodel();
-                $panier = $model->getAll();
+                $panier = $model->getOne('id_user', $_SESSION['id']);
                 var_dump($panier);
                 //$panier = $model->getInnerJoin('products', 'id_products', 'id', 'id_user');
             }
 
             if(isset($_POST['supprimer'])){
-                $panier = $model->delete($_SESSION['id']);
+                $panier = $model->delete($panier[0]['id_user']);
                 //header('Refresh:2,' . path . 'panier');
             }
             if(isset($_POST['modifquantity'])){
                 $quantity = htmlspecialchars($_POST['quantity']);
-                $panierquantity = $model->update('quantity', $quantity, 'id_product');
+                $model->update('quantity', $quantity, $_SESSION['id']);
             }
             self::render('panier', compact('panier'));
         }
