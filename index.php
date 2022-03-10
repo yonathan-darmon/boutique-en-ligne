@@ -82,10 +82,6 @@ if ($params[0] == 'produits') {
 }elseif ($params[0]=='oubli'){
     Connexion::reset();
 } elseif($params[0] == 'admin') {
-    if(isset($params[1])){
-        $add = new ProduitsModel();
-        $addP = $add->addProd($nom, $prix, $stock, $promo, $push, $short, $long, $tags);
-    }
     Admin::index();
 }elseif ($params[0]=='deco'){
     Controller::disconnect($_SESSION['id']);

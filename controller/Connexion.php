@@ -22,6 +22,7 @@ class Connexion extends Controller
                 if ($user[0]['password'] == password_verify($_POST['password'], $user[0]['password'])) {
                     $_SESSION['id'] = $user[0]['id'];
                     $_SESSION['login'] = $user[0]['login'];
+                    $_SESSION['droit'] =$user[0]['id_droit'];
                     $success[] = 'Bienvenue ' . $user[0]['login'];
                     self::render("connexion", compact("errors", "success"));
 
