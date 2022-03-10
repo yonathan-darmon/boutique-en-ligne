@@ -18,6 +18,11 @@ class Admin extends Controller
         self::renderAdmin('admin',compact('utilisateur','produit','stocklow'));
     }
 
+    public static function stock ()
+    {
+
+    }
+
 }
 
 ?>
