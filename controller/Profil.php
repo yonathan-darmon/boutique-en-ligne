@@ -49,7 +49,7 @@ class Profil extends Controller
             $utilisateur = $user->getSpecific($params, $_SESSION['id']);
             if (isset($_POST['modif'])) {
                 if (!empty($_POST['numero']) && !empty($_POST['nom']) && !empty($_POST['codepostal']) && !empty($_POST['ville'])) {
-                    $adress = htmlspecialchars($_POST['numero']) . '.' . htmlspecialchars($_POST['nom']) . htmlspecialchars($_POST['codepostal']) . htmlspecialchars($_POST['ville']);
+                    $adress = htmlspecialchars($_POST['numero']) . ',' . htmlspecialchars($_POST['nom']) . htmlspecialchars($_POST['codepostal']) . htmlspecialchars($_POST['ville']);
                     $modif=$user->update($params,$adress,$_SESSION['id']);
                     array_push($success, "Modification effectuée");
                     self::index();
