@@ -112,4 +112,13 @@ class Controller
             header('location:' . path . 'accueil');
         }
     }
+
+    public static function renderAdmin($fichier, $data = [])
+    {
+        extract($data);
+        ob_start();
+        require_once(ROOT . 'view/' . $fichier . '.php');
+        $content = ob_get_clean();
+        require_once(ROOT . 'view/layout.admin.html.php');
+    }
 }
