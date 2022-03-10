@@ -46,3 +46,14 @@ text-align: center;
 .imageit{
     width: 20%;
 }
+#modif{
+    background: black;
+    color: white;
+    min-height: 45px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#modif:hover{
+    background: green;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

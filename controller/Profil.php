@@ -12,7 +12,7 @@ class Profil extends Controller
             $user = new UtilisateursModel();
             $utilisateur = $user->getOne('id', $_SESSION['id']);
             $reward = $user->getReward($_SESSION['id']);
-            self::render('profil', compact('utilisateur','reward'));
+            self::render('profil', compact('utilisateur', 'reward'));
         } else {
             header('location:' . path . 'accueil');
         }
@@ -40,6 +40,31 @@ class Profil extends Controller
         }
     }
 
+    public static function modifAdresse($params)
+    {
+        if (isset($_SESSION['id'])) {
+            $error = [];
+            $success = [];
+            $user = new UtilisateursModel();
+            $utilisateur = $user->getSpecific($params, $_SESSION['id']);
+            if (isset($_POST['modif'])) {
+                if (!empty($_POST['numero']) && !empty($_POST['nom']) && !empty($_POST['codepostal']) && !empty($_POST['ville'])) {
+
+                } else {
+                    array_push($error, "Vous devez remplir tout les champs");
+
+                }
+
+            }
+            else {
+                self::render('profilmodif', compact('params', 'error', 'success'));
+
+            }
+        } else {
+            header('location:' . path . 'accueil');
+        }
+    }
+
     public static function modifPassword($params)
     {
         if (isset($_SESSION['id'])) {
@@ -63,13 +88,12 @@ class Profil extends Controller
 
     public static function histo()
     {
-        if(isset($_SESSION['id'])){
-            $histo=new HistoriqueModel();
-            $historique=$histo->getHisto($_SESSION['id']);
+        if (isset($_SESSION['id'])) {
+            $histo = new HistoriqueModel();
+            $historique = $histo->getHisto($_SESSION['id']);
             self::render('historique', compact('historique'));
 
-        }
-        else{
+        } else {
             self::index();
         }
     }
