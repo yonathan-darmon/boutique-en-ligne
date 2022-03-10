@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.boite{
+    display: flex;
+    justify-content: space-between  ;
+    max-width: 1200px;
+}
+.navside{
+    width: 30%;
+    padding-left: 15px;
+    line-height: 5;
+    padding-top: 50px;
+    font-size: 20px;
+    background: #0dcaf0;
+}
+li{
+    list-style: none;
+}
+.navside a{
+    text-decoration: none;
+    color: black;
+
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: 75px;
+    line-height: 3;
+    margin-left: 25px;
+}

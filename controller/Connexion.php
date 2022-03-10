@@ -2,9 +2,11 @@
 require_once('ASSET/PHPMailer-6.6.0/src/Exception.php');
 require_once('ASSET/PHPMailer-6.6.0/src/PHPMailer.php');
 require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 class Connexion extends Controller
 {
 
@@ -20,9 +22,9 @@ class Connexion extends Controller
                 if ($user[0]['password'] == password_verify($_POST['password'], $user[0]['password'])) {
                     $_SESSION['id'] = $user[0]['id'];
                     $_SESSION['login'] = $user[0]['login'];
+                    $_SESSION['droit'] =$user[0]['id_droit'];
                     $success[] = 'Bienvenue ' . $user[0]['login'];
                     self::render("connexion", compact("errors", "success"));
-                    header('Refresh:2,' . path . 'produits');
 
                 } else {
                     array_push($errors, 'Login ou mot de passe incorrect');
@@ -64,7 +66,8 @@ class Connexion extends Controller
     }
 
 
-    public static function sendMailForget($mdp){
+    public static function sendMailForget($mdp)
+    {
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Mailer = 'smtp';
@@ -80,8 +83,8 @@ class Connexion extends Controller
         $mail->Subject = 'Nouveau mot de passe !';
         $mail->WordWrap = 70;
         $mail->CharSet = 'utf-8';
-        $mail->Body = 'Bonjour voici votre nouveau mot de passe: '. $mdp. '. Nous vous invitons à le modifier le plus tot possible dans votre page profil';
-        $mail -> send();
+        $mail->Body = 'Bonjour voici votre nouveau mot de passe: ' . $mdp . '. Nous vous invitons à le modifier le plus tot possible dans votre page profil';
+        $mail->send();
     }
 
 }

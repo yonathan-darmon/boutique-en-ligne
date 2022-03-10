@@ -1,0 +1,70 @@
+.box{
+    display: flex;
+    justify-content: space-evenly;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+form input{
+    border-radius: 5px;
+}
+form a{
+    color: #0c88b4;
+}
+
+.formconnect{
+    margin-top: 55px;
+}
+.imageconnect{
+    margin-top: 3%;
+}
+#connect{
+    background: black;
+    color: white;
+    min-height: 45px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+.errors {
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 1s ease-in-out 2s 1 normal forwards;
+}
+
+.success {
+    background-color: limegreen;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 2s ease-in-out 2s 1 normal forwards;
+}
+
+@keyframes entrance {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes outro {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+

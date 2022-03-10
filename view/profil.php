@@ -1,4 +1,5 @@
 <?php foreach ($utilisateur as $value): ?>
+<div class="bigboite">
     <div class="boite1">
         <div class="value">
             <p><?= $value['login'] ?> </p>
@@ -15,7 +16,8 @@
             <a href="<?= path ?>profil/email">Modifiez votre emaiil</a>
         </div>
     </div>
-    <a href="<?=path?>profil/historique_des_commandes">Historique des commandes</a>
+    <a href="<?= path ?>profil/historique_des_commandes">Historique des commandes</a>
 
     <h2>Votre niveau de reward</h2>
     <h1><?= $reward['name']; ?></h1>
+</div>

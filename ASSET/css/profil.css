@@ -1,9 +1,8 @@
-*{
-    margin: 0;
 
-}
 .boite1{
     display: flex;
+    padding-top: 50px;
+
 }
 .link{
     display: flex;
@@ -12,4 +11,8 @@
 
 table{
     gap: 5px;
+}
+main {
+    display: flex;
+    justify-content: center;
 }

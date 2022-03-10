@@ -35,5 +35,31 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
+    public function addProd($nom, $prix, $stock, $promo, $push, $short, $long, $tags)
+    {
+        $sth = $this -> _connexion->prepare('INSERT INTO products (name, price, date, stock, promo, mis_avant, short_descr, long_descr, tags) VALUES (?, ?, NOW, ?, ?, ?, ?, ?, ?)');
+        $sth -> execute(array($nom, $prix, $stock, $promo, $push, $short, $long, $tags));
+    }
 
+    public function push()
+    {
+        $sth = $this -> _connexion->prepare('INSERT INTO products VALUES mis_avant = 1');
+        $sth -> execute();
+        $push = $sth->fetchall(PDO::FETCH_ASSOC);
+    }
+
+    public function stock()
+    {
+        $sth = $this -> _connexion->prepare('SELECT name, stock, FROM products');
+        $sth->execute();
+        $visu = $sth->fetchall(PDO::FETCH_ASSOC);
+        return $visu;
+    }
+
+    public function getLowStock()
+    {
+        $sth=$this->_connexion->prepare('SELECT name FROM '.$this->table.' WHERE stock <=10');
+        $sth->execute();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+    }
 }

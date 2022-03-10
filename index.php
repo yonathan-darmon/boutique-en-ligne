@@ -79,12 +79,24 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'contact') {
     Contact::index();
-} elseif ($params[0]=='oubli'){
+} elseif ($params[0] == 'oubli') {
     Connexion::reset();
-} elseif($params[0] == 'panier') {
-    Panier::index();
-}
-else {
+} elseif ($params[0] == 'admin') {
+    if (isset($params[1])) {
+        if ($params[1] == 'stock') {
+            Admin::Stock();
+        }else{
+            Admin::index();
+        }
+
+
+    } else {
+        Admin::index();
+    }
+} elseif ($params[0] == 'deco') {
+    Controller::disconnect($_SESSION['id']);
+
+} else {
     Accueil::index();
 }
 
