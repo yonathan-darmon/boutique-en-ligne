@@ -1,8 +1,6 @@
 <h1>Modifier votre <?= $params ?></h1>
 <form action="#" name="modif" method="post">
     <?php
-    var_dump($error);
-
 
     if (!empty($error)) {
         echo $error[0];
