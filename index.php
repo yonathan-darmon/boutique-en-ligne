@@ -77,6 +77,8 @@ if ($params[0] == 'produits') {
     } else {
         Profil::index();
     }
+} elseif($params[0] == 'panier') {
+    Panier::index();
 } elseif ($params[0] == 'contact') {
     Contact::index();
 } elseif ($params[0] == 'oubli') {
