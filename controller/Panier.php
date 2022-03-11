@@ -19,6 +19,22 @@
                 $quantity = htmlspecialchars($_POST['quantity']);
                 $model->update('quantity', $quantity, $_SESSION['id']);
             }
+
+            if(isset($_POST['prix']) && isset($_POST['button']) && !empty($_POST['prix'])){
+                require 'vendor/autoload.php';
+                $prix = $_POST['prix'];
+                
+                //on instancie stripe
+                \Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
+                $intent = \Stripe\PaymentIntent::create([
+                    'amount' => $prix*100,
+                    'currency' => 'eur'
+                ]);
+
+                $output = [
+                    'clientSecret' => $intent->client_secret,
+                ];
+            }
             self::render('panier', compact('panier'));
         }
     }

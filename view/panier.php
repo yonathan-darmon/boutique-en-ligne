@@ -27,21 +27,10 @@
         <!--<p>Total: <?=$value['price']*$value['quantity'];?>€</p>-->
         <?php foreach($panier as $value):?>
             <form method="post">
-                <input type="text" name="prix" value="<?=$value['price'];?>">€
+                <input type="text" name="prix" disabled="disabled" value="<?=$value['price']?>">€
             </form>
         <?php endforeach;?>
-       <?php
-            if(isset($_POST['prix']) && !empty($_POST['prix'])){
-                require_once('vendor/autload.php');
-                $prix = (float)$_POST['prix'];
-                //on instancie stripe
-                \Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
-                $intent = \Stripe\PaymentIntent::create([
-                    'amount' => $prix*100,
-                    'currency' => 'eur'
-                ]);
-            }
-       ?>
+      
 </div>
 <body>
     <form method="post">
@@ -49,7 +38,7 @@
         <input type="text" id="cardholder-name" placeholder="Titulaire de la carte">
         <div id="card-elements"></div><!--formulaire des informations de la carte-->
         <div id="card-errors" role="alert"></div><!--erreur pour la carte-->
-        <button id="card-button" type="button">Procéder au paiement</button>
+        <input id="card-button" type="submit" name="button" value="Proceder au paiement">
     </form>
 
     
