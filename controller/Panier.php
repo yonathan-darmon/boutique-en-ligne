@@ -6,7 +6,7 @@
         {         
             if(isset($_SESSION['id'])){
                 $model = new paniermodel();
-                $panier = $model->getOne('id_user', $_SESSION['id']);
+                $panier = $model->getAll();
                 var_dump($panier);
                 //$panier = $model->getInnerJoin('products', 'id_products', 'id', 'id_user');
             }
@@ -17,7 +17,7 @@
             }
             if(isset($_POST['modifquantity'])){
                 $quantity = htmlspecialchars($_POST['quantity']);
-                $model->update('quantity', $quantity, $_SESSION['id']);
+                $model->update('quantity', $quantity, $panier[0]['id']);
             }
 
             if(isset($_POST['prix']) && isset($_POST['button']) && !empty($_POST['prix'])){
