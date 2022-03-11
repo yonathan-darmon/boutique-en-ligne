@@ -1,6 +1,6 @@
 window.onload = () => {
     //variables
-    let stripe = Stripe('pk_test_51Kb39iC5Di6WbNI4KyJXYbtRGgFR2awKHWcNfxoqvkHPH31upAieodnGDDRkLFnfFUmOE1Q8mcgIofbC0dkiLFxa008oIzQOo6')
+    const stripe = Stripe('pk_test_51Kb39iC5Di6WbNI4KyJXYbtRGgFR2awKHWcNfxoqvkHPH31upAieodnGDDRkLFnfFUmOE1Q8mcgIofbC0dkiLFxa008oIzQOo6')
     let elements = stripe.elements()
     let redirect = "./index.php"
 
