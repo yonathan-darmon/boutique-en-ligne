@@ -20,4 +20,17 @@ class PanierModel extends Model
         $sth=$this->_connexion->prepare('DELETE FROM cart WHERE id_user=?');
         $sth->execute(array($id_user));
     }
+
+    public function deletecart($id)
+    {
+        $sth = $this->_connexion->prepare('DELETE FROM cart WHERE id=?');
+        $sth->execute(array($id));
+    }
+
+    public function total()
+    {
+        $sth = $this->_connexion->prepare('SELECT SUM(`price`) FROM ' . $this->table . ' ');
+        $sth->execute();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+    }
 }

@@ -8,11 +8,12 @@
                 $model = new paniermodel();
                 $panier = $model->getAll();
                 var_dump($panier);
-                //$panier = $model->getInnerJoin('products', 'id_products', 'id', 'id_user');
+                //$panier = $model->getInnerJoin('products', 'id_product', 'id', 'id_product', $_SESSION['id']);
             }
+            $paniertotal = $model->total();
 
             if(isset($_POST['supprimer'])){
-                $panier = $model->delete($panier[0]['id_user']);
+                $panier = $model->deletecart($panier[0]['id']);
                 //header('Refresh:2,' . path . 'panier');
             }
             if(isset($_POST['modifquantity'])){
@@ -35,7 +36,7 @@
                     'clientSecret' => $intent->client_secret,
                 ];
             }
-            self::render('panier', compact('panier'));
+            self::render('panier', compact('panier', 'paniertotal'));
         }
     }
 ?>

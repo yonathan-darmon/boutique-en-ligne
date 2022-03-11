@@ -25,11 +25,14 @@
 <div class="paiement">
         <h2>Total panier</h2>
         <!--<p>Total: <?=$value['price']*$value['quantity'];?>€</p>-->
-        
+        <?php foreach($paniertotal as $value):?>
             <form method="post">
-                <input type="text" name="prix" disabled="disabled" value="<?=$value['price']*$value['quantity'];?>">€
+                <input type="text" name="prix" disabled="disabled" value="<?php
+                $value = implode(',', $value);
+                echo $value;
+                ?>">€
             </form>
-        
+        <?php endforeach;?>
       
 </div>
 <body>
