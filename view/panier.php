@@ -27,7 +27,7 @@
         <!--<p>Total: <?=$value['price']*$value['quantity'];?>€</p>-->
         <?php foreach($panier as $value):?>
             <form method="post">
-                <input type="text" name="prix" disabled="disabled" value="<?=$value['price']?>">€
+                <input type="text" name="prix" disabled="disabled" value="<?=$value['price']*$value['quantity'];?>">€
             </form>
         <?php endforeach;?>
       
