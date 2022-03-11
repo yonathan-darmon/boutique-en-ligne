@@ -24,14 +24,19 @@
 
 <div class="paiement">
         <h2>Total panier</h2>
-        <p>Total: <?=$value['price']*$value['quantity'];?>€</p>
+        <!--<p>Total: <?=$value['price']*$value['quantity'];?>€</p>-->
+        <?php foreach($panier as $value):?>
+            <form method="post">
+                <input type="text" name="prix" value="<?=$value['price'];?>">€
+            </form>
+        <?php endforeach;?>
        <?php
-            if(!empty($panier['price'])){
+            if(isset($_POST['prix']) && !empty($_POST['prix'])){
                 require_once('vendor/autload.php');
-                $prix = $panier['price'];
+                $prix = (float)$_POST['prix'];
                 //on instancie stripe
                 \Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
-                $PaymentIntent = \Stripe\PaymentIntent::create([
+                $intent = \Stripe\PaymentIntent::create([
                     'amount' => $prix*100,
                     'currency' => 'eur'
                 ]);
