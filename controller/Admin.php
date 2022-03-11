@@ -21,14 +21,28 @@ class Admin extends Controller
     public static function stock ()
     {
         $stock = new ProduitsModel();
-        $rendstock = count($stock->stock());
+        $rendstock = ($stock->stock());
+        //$addstock = $stock->update('stock', );
         self::renderAdmin('adminstock', compact('rendstock'));
+    }
+    public static function adStock($params)
+    {
+        $stock = new ProduitsModel();
+        $addstock = ($stock ->getOne('id', $params));
+        self::renderAdmin('adminadstock', compact('addstock'));
+    }
+
+    public static function upstock()
+    {
+        $stock = new ProduitsModel();
+        $upstock = ($stock->upstock());
+        self::renderAdmin('adminadstock', compact('upstock'));
     }
 
     public static function user ()
     {
         $user=new UtilisateursModel();
-        $utilisateur=count($user->getALL());
+        $utilisateur=($user->getALL());
         self::renderAdmin('adminuser', compact('utilisateur'));
     }
 
@@ -50,7 +64,7 @@ class Admin extends Controller
     public static function ventes ()
     {
         $product=new HistoriqueModel();
-        $produit=count($product->getALL());
+        $produit=($product->getALL());
         self::renderAdmin('adminventes', compact('produit'));
     }
 

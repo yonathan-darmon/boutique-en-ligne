@@ -41,19 +41,19 @@ class ProduitsModel extends Model
         $sth -> execute(array($nom, $prix, $stock, $promo, $push, $short, $long, $tags));
     }
 
-    public function push()
-    {
-        $sth = $this -> _connexion->prepare('INSERT INTO products VALUES mis_avant = 1');
-        $sth -> execute();
-        $push = $sth->fetchall(PDO::FETCH_ASSOC);
-    }
-
     public function stock()
     {
-        $sth = $this -> _connexion->prepare('SELECT name, stock, FROM products');
+        $sth = $this -> _connexion->prepare('SELECT id, name, stock FROM products');
         $sth->execute();
         $visu = $sth->fetchall(PDO::FETCH_ASSOC);
         return $visu;
+    }
+
+    public function upstock($params, $value)
+    {
+        $sth = $this -> _connexion->prepare('UPDATE products SET stock=$value WHERE id=?');
+        $sth -> execute(array($params));
+        $up = $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
     public function getLowStock()
