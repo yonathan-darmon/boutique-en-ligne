@@ -35,7 +35,7 @@ class Admin extends Controller
     public static function upstock()
     {
         $stock = new ProduitsModel();
-        $upstock = ($stock->upstock());
+        $upstock = ($stock->upstock($params $value));
         self::renderAdmin('adminadstock', compact('upstock'));
     }
 

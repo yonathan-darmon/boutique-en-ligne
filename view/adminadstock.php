@@ -5,7 +5,11 @@
 <?=$value['stock']?>
 
 <?php if(isset($addstock)):?>
-<?php if(isset($_POST['ad']))?>
+<?php if(isset($_POST['ad'])){
+
+
+
+    }?>
 <?php if(isset($upstock))?>
 <?php endif;?>
 <form action="" method="POST">
