@@ -37,7 +37,7 @@
                 ];
 
                 $produitmodel = new produitsmodel();
-                $stock = $produitmodel->update('stock', 'stock'-$quantity, $_SESSION['id']);
+                $stock = $produitmodel->update('stock', 'stock'-$quantity, $panier[0]['id']);
             }
             self::render('panier', compact('panier', 'paniertotal'));
         }
