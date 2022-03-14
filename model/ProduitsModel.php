@@ -51,7 +51,7 @@ class ProduitsModel extends Model
 
     public function upstock($params, $value)
     {
-        $sth = $this -> _connexion->prepare('UPDATE products SET stock='.$value.' WHERE id=?');
+        $sth = $this -> _connexion->prepare('UPDATE products SET stock= stock + '.$value.' WHERE id=?');
         $sth -> execute(array($params));
         $up = $sth->fetchall(PDO::FETCH_ASSOC);
     }
