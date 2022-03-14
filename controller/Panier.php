@@ -21,7 +21,7 @@
                 $model->update('quantity', $quantity, $panier[0]['id']);
             }
 
-            if(isset($_POST['prix']) && isset($_POST['button']) && !empty($_POST['prix'])){
+            if(isset($_POST['button']) && !empty($_POST['prix'])){
                 require 'vendor/autoload.php';
                 $prix = $_POST['prix'];
                 
@@ -35,6 +35,9 @@
                 $output = [
                     'clientSecret' => $intent->client_secret,
                 ];
+
+                $produitmodel = new produitsmodel();
+                $stock = $produitmodel->update('stock', 'stock'-$quantity, $_SESSION['id']);
             }
             self::render('panier', compact('panier', 'paniertotal'));
         }
