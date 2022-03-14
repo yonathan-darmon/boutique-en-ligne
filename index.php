@@ -90,6 +90,10 @@ if ($params[0] == 'produits') {
             Admin::Stock();
         }
         if($params[1] == 'user') {
+            if(isset($params[2])) {
+                Admin::manageuser($params[2]);
+
+            }
             Admin::user();
         }
         if ($params[1] == 'article') {

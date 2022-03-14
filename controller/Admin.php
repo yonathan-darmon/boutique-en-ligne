@@ -32,7 +32,7 @@ class Admin extends Controller
         $stock = new ProduitsModel();
         $addstock = ($stock->getOne('id', $params[2]));
         if (isset($_POST['ad'])) {
-            $stock->upstock($_POST['num'], $params[2]);
+            $stock->upstock($params[2], $_POST['num']);
             header('location:' . path . 'admin');
         } else {
             self::renderadmin('adminadstock', compact('addstock'));
@@ -45,6 +45,14 @@ class Admin extends Controller
         $user = new UtilisateursModel();
         $utilisateur = ($user->getALL());
         self::renderAdmin('adminuser', compact('utilisateur'));
+    }
+
+    public static function manageUser()
+    {
+        $params=explode('/',$_GET['p']);
+        $user = new UtilisateursModel();
+        $manage = ($user->update());
+        self::renderAdmin('manageuser', compact('manage'));
     }
 
     public static function articles()
