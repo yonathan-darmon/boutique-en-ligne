@@ -1,35 +1,41 @@
-.titre{
-    margin-top: 25px;
+.titre {
+    text-align: center;
+    margin-bottom: 25px;
 }
-.box{
+
+.box {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 50px;
 }
-form{
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: 250px 150px;
-    grid-gap: 25px;
+
+.imageoubli {
+    width: 40%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    gap: 15px;
 }
 form label{
-    font-size: 20px;
+    font-size: 30px;
 }
-form input {
-    border-radius: 5px;
-}
-#valider{
+#reset{
+    width: 150px;
     background: black;
     color: white;
     min-height: 45px;
     border-radius: 30px;
     font-size: 20px;
 }
-#valider:hover{
+#reset:hover{
     background: green;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.error {
+.error1 {
     background-color: red;
     color: white;
     text-align: center;
@@ -38,7 +44,7 @@ form input {
     outro 1s ease-in-out 2s 1 normal forwards;
 }
 
-.reussi {
+.success {
     background-color: limegreen;
     color: white;
     text-align: center;

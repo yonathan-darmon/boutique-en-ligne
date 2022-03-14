@@ -74,12 +74,12 @@ $params = explode('/', $_GET['p']);
     <div id="footer">
         <div class="contact">
             <h1>Nous contacter</h1>
-            <a href=""><i class="fa-solid fa-envelope"></i></a>
+            <a href="<?=path?>contact"><i class="fa-solid fa-envelope"></i></a>
             <a href=""><i class="fa-solid fa-phone"></i></a>
-            <a href=""><i class="fa-brands fa-github"></i></a><br>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-facebook"></i></a>
-            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://github.com/yonathan-darmon/boutique-en-ligne"><i class="fa-brands fa-github"></i></a><br>
+            <a href="https://www.instagram.com/originalfunko/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/funkoeurope"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/OriginalFunko"><i class="fa-brands fa-twitter"></i></a>
         </div>
 
         <div class="savoir">
