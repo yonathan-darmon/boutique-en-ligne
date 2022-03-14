@@ -5,6 +5,7 @@
     <div class="reussi"><?= $success[0] ?></div>
 <?php header('Refresh:3;url='.path.'connexion');?>
 <?php else: ?>
+<h1 class="titre">Inscription</h1>
 <div class="box">
     <form action="#" method="post">
         <label for="login">Login</label>

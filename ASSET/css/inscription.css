@@ -1,7 +1,9 @@
+.titre{
+    margin-top: 25px;
+}
 .box{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
     margin-bottom: 50px;
 }
 form{
@@ -14,7 +16,7 @@ form label{
     font-size: 20px;
 }
 form input {
-    border-radius: 10px;
+    border-radius: 5px;
 }
 #valider{
     background: black;
