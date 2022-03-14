@@ -1,0 +1,68 @@
+.titre{
+    margin-top: 25px;
+}
+.box{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+form{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 250px 150px;
+    grid-gap: 25px;
+}
+form label{
+    font-size: 20px;
+}
+form input {
+    border-radius: 5px;
+}
+#valider{
+    background: black;
+    color: white;
+    min-height: 45px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+#valider:hover{
+    background: green;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.error {
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 1s ease-in-out 2s 1 normal forwards;
+}
+
+.reussi {
+    background-color: limegreen;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 2s ease-in-out 2s 1 normal forwards;
+}
+
+@keyframes entrance {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes outro {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

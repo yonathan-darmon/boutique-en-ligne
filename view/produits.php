@@ -1,14 +1,18 @@
-<div class="box1" xmlns="http://www.w3.org/1999/html">
-    <div class="categorie"><a href="<?= path ?>produits/disney">Disney</a></div>
-    <div class="categorie"><a href="<?= path ?>produits/harry_potter">Harry Potter</a></div>
-    <div class="categorie"><a href="<?= path ?>produits/marvel">Marvel</a></div>
-    <div class="categorie"><a href="<?= path ?>produits/starwars">Star Wars</a></div>
-    <div class="categorie"><a href="<?= path ?>produits/dc">DC Universe</a></div>
+<div class="souscat">
+    <div class="categorie"><a href="<?= path ?>produits/disney"><img src="<?= path ?>ASSET/images/Disney.png"
+                                                                     alt="sous categorie Disney"></a></div>
+    <div class="categorie"><a href="<?= path ?>produits/harry_potter"><img src="<?= path ?>ASSET/images/HP.png"
+                                                                           alt="sous categorie Harry Potter"></a></div>
+    <div class="categorie"><a href="<?= path ?>produits/marvel"><img src="<?= path ?>ASSET/images/Marvel.png"
+                                                                     alt="sous categorie Marvel"></a></div>
+    <div class="categorie"><a href="<?= path ?>produits/starwars"><img src="<?= path ?>ASSET/images/Star Wars.png"
+                                                                       alt="sous categorie Star wars"></a></div>
+    <div class="categorie"><a href="<?= path ?>produits/dc"><img src="<?= path ?>ASSET/images/DC.png"
+                                                                 alt="sous categorie DC Comics"></a></div>
 </div>
-<h1>Découvrez notre collection</h1>
 <div class="box">
     <div class="research">
-        <form action="<?= path ?>produits/<?php if (isset($_POST['filtre'])) {
+        <form action="<?= path ?>produits/<?php if (isset($_POST['choix'])) {
             echo $_POST['filtre'];
         } ?>" name="select" method="post">
             <select name="filtre" id="filtre">
@@ -22,22 +26,38 @@
     </div>
     <?php if (isset($error1)) {
         echo $error1;
-        header('Refresh:3; url='.path.'connexion');
+        header('Refresh:3; url=' . path . 'connexion');
     }
-
     ?>
     <?php if (!isset($produit)): ?>
 
         <div class="productlist">
-            <?php foreach ($produits as $value): ?>
-                <h2><a href="<?= path ?>article/<?= $value['id'] ?>"><?= $value['name']; ?></a></h2>
-                <h3><?= $value['price']; ?> euros</h3>
-                <form action="#" method="post" name="pan">
-                    <input type="hidden" name="hidden" value="<?= $value['id'] ?>">
-                    <input type="submit" name="achat" value="acheter">
-                </form>
-            <?php endforeach; ?>
-
+            <h1 class="titre">Découvrez notre collection</h1>
+            <div class="cards">
+                <?php foreach ($produits as $value): ?>
+                    <div class="card">
+                        <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
+                                    src="<?= path ?>ASSET/images/<?= $value['image'] ?>" alt="">
+                            <h2><?= $value['name']; ?></h2></a>
+                        <h3><?= $value['price']; ?> euros</h3>
+                        <form action="#" method="post" name="pan">
+                            <input type="hidden" name="hidden" value="<?= $value['id'] ?>">
+                            <input type="submit" name="achat" value="acheter">
+                        </form>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="page">
+                <?php
+                for ($i = 1; $i <= $pages; $i++): ?>
+                    <a href="<?= path ?>produits"><?= $i ?></a>&nbsp
+                <?php endfor; ?>
+                <?php
+                $params = explode('/', $_GET['p']);
+                if (isset($params[1])):?>
+                    <a href="<?= path ?>produits"> Retour sur tout les produits</a>
+                <?php endif; ?>
+            </div>
         </div>
     <?php endif; ?>
 
@@ -52,13 +72,3 @@
 
 </div>
 
-
-<?php
-for ($i = 1; $i <= $pages; $i++): ?>
-    <a href="<?= path ?>produits"><?= $i ?></a>&nbsp
-<?php endfor; ?>
-<?php
-$params = explode('/', $_GET['p']);
-if (isset($params[1])):?>
-    <a href="<?= path ?>produits"> Retour sur tout les produits</a>
-<?php endif; ?>

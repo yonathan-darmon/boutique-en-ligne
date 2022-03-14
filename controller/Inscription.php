@@ -40,7 +40,7 @@ class Inscription extends Controller
             $password = htmlspecialchars($_POST['password']);
             $passwordverify = htmlspecialchars($_POST['passwordverify']);
             $email = htmlspecialchars($_POST['email']);
-            $adress = htmlspecialchars($_POST['numero']) . '.' . htmlspecialchars($_POST['nom']) . htmlspecialchars($_POST['codepostal']) . htmlspecialchars($_POST['ville']);
+            $adress = htmlspecialchars($_POST['numero']) . ',' . htmlspecialchars($_POST['nom']) . htmlspecialchars($_POST['codepostal']) . htmlspecialchars($_POST['ville']);
             $user=new UtilisateursModel();
             $utilisateur=$user->getOne('email',$email);
             $loginExist=$user->getOne('login',$login);

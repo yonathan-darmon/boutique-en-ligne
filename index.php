@@ -63,7 +63,7 @@ if ($params[0] == 'produits') {
     }
 } elseif ($params[0] == 'profil') {
     if (isset($params[1])) {
-        if ($params[1] == 'email' || $params[1] == 'login' || $params[1] == 'adresse') {
+        if ($params[1] == 'email' || $params[1] == 'login') {
             Profil::modif($params[1]);
 
         } elseif ($params[1] == 'password') {
@@ -71,12 +71,17 @@ if ($params[0] == 'produits') {
 
         } elseif ($params[1] == 'historique_des_commandes') {
             Profil::histo();
-        } else {
+        } elseif ($params[1] == 'adresse'){
+            Profil::modifAdresse($params[1]);
+        }
+        else {
             header('location:' . path . 'profil');
         }
     } else {
         Profil::index();
     }
+} elseif($params[0] == 'panier') {
+    Panier::index();
 } elseif ($params[0] == 'contact') {
     Contact::index();
 } elseif ($params[0] == 'oubli') {
@@ -119,6 +124,5 @@ if ($params[0] == 'produits') {
 } else {
     Accueil::index();
 }
-
 
 ?>
