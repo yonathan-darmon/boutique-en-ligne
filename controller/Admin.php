@@ -28,7 +28,7 @@ class Admin extends Controller
 
     public static function adStock()
     {
-        $params=explode('/',$_GET['p']);
+        $params = explode('/', $_GET['p']);
         $stock = new ProduitsModel();
         $addstock = ($stock->getOne('id', $params[2]));
         if (isset($_POST['ad'])) {
@@ -49,10 +49,16 @@ class Admin extends Controller
 
     public static function manageUser()
     {
-        $params=explode('/',$_GET['p']);
+        $params = explode('/', $_GET['p']);
         $user = new UtilisateursModel();
-        $manage = ($user->update());
-        self::renderAdmin('manageuser', compact('manage'));
+        $droits = new DroitsModel();
+        $utilis=$user->getOne('id',$params[2]);
+        $droit = $droits->getOne("id", $utilis[0]['id_droit']);
+        if (isset($_POST['modif'])){
+             $manage = ($user->update('id_droit',$_POST['droit'], $params[2]));
+
+        }
+        self::renderAdmin('manageuser', compact('utilis','droit'));
     }
 
     public static function articles()
