@@ -35,10 +35,10 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
-    public function addProd($nom, $prix, $stock, $promo, $push, $short, $long, $tags)
+    public function addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat)
     {
-        $sth = $this -> _connexion->prepare('INSERT INTO products (name, price, date, stock, promo, mis_avant, short_descr, long_descr, tags) VALUES (?, ?, NOW, ?, ?, ?, ?, ?, ?)');
-        $sth -> execute(array($nom, $prix, $stock, $promo, $push, $short, $long, $tags));
+        $sth = $this -> _connexion->prepare('INSERT INTO products (name, price, date, stock, promo, image, mis_avant, short_descr, long_descr, tags, id_categorie, id_souscategorie) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $sth -> execute(array($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat));
     }
 
     public function stock()

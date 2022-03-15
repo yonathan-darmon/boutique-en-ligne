@@ -63,17 +63,27 @@ class Admin extends Controller
 
     public static function articles()
     {
-        $nom =
-        $prix =
-        $stock =
-        $promo =
-        $push =
-        $short =
-        $long =
-        $tags =
+        $cat = new CategorieModel();
+        $catego=$cat->getALL();
+
+        if(isset($_POST['ajouter'])){
+        $nom = $_POST['nom'];
+        $prix = $_POST['price'];
+        $stock = $_POST['stock'];
+        $promo = $_POST['promo'];
+        $image = $_POST['image'];
+        $push = $_POST['push'];
+        $short = $_POST['short'];
+        $long = $_POST['long'];
+        $tags = $_POST['tags'];
+        $getcat = $cat->getOne('id_categorie', 'name_categories');
+        $cats = $getcat[0]['id'];
+        $sousCat = $_POST['souscat'];
         $add = new ProduitsModel();
-        $addprod = $add->addProd($nom, $prix, $stock, $promo, $push, $short, $long, $tags);
-        self::renderAdmin('adminarticles', compact('addprod'));
+        $add->addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat);
+        }
+    
+        self::renderAdmin('adminarticles', compact('catego'));
     }
 
     public static function ventes()
