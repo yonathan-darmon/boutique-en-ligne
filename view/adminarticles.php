@@ -1,5 +1,5 @@
 <?php
-var_dump($catego)
+
 ?>
 <form action="" method="POST">
     <input type="text" name="nom" placeholder="Nom du produit" required>
@@ -16,7 +16,11 @@ var_dump($catego)
     <option value="<?=$value['id']?>"><?=$value['name_categories']?></option>
     <?php endforeach;?>
     </select>
-    <select name="souscat"></select>
+    <select name="souscat">
+    <?php foreach ($souscateg as $key=>$value ): ?>
+        <option value="<?=$value['id']?>"><?=$value['name']?></option>
+        <?php endforeach;?>
+        </select>
     <input type="submit" name="ajouter" placeholder="Ajouter">
 </form>
 

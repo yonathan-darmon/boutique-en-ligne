@@ -64,7 +64,9 @@ class Admin extends Controller
     public static function articles()
     {
         $cat = new CategorieModel();
+        $cat2 = new SouscategorieModel();
         $catego=$cat->getALL();
+        $souscateg = $cat2->getALL();
 
         if(isset($_POST['ajouter'])){
         $nom = $_POST['nom'];
@@ -78,12 +80,13 @@ class Admin extends Controller
         $tags = $_POST['tags'];
         $getcat = $cat->getOne('id_categorie', 'name_categories');
         $cats = $getcat[0]['id'];
-        $sousCat = $_POST['souscat'];
+        $getsouscat = $cat2->getOne('id_categorie', 'name');
+        $sousCat = $getsouscat[0]['id'];
         $add = new ProduitsModel();
         $add->addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat);
         }
     
-        self::renderAdmin('adminarticles', compact('catego'));
+        self::renderAdmin('adminarticles', compact('catego', 'souscateg'));
     }
 
     public static function ventes()
