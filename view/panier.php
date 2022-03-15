@@ -35,6 +35,7 @@
         <?php endforeach;?>
       
 </div>
+
 <body>
     <form method="post">
         <div id="errors"></div><!--messages d'erreur de paiement-->

@@ -25,14 +25,14 @@
             }
 
             //fonction pour pouvoir payer
-            if(isset($_POST['button']) && !empty($_POST['prix'])){
+            if(isset($_POST['button'])){
                 require 'vendor/autoload.php';
-                $prix = $_POST['prix'];
+                
                 
                 //on instancie stripe
                 \Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
                 $intent = \Stripe\PaymentIntent::create([
-                    'amount' => $prix*100,
+                    'amount' => $panier[0]['price']*100,
                     'currency' => 'eur'
                 ]);
 
@@ -41,6 +41,7 @@
                 ];
                 
                 $panier = $model->deletecart($_SESSION['id']);
+                
                 $produitmodel = new produitsmodel();
                 $stock = $produitmodel->update('stock', 'stock'-$quantity, $panier[0]['id']);
             }
