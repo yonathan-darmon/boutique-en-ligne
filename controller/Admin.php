@@ -98,6 +98,14 @@ class Admin extends Controller
 
     public static function categories()
     {
+        $cat = new CategorieModel();
+        if(isset($_POST['add'])){
+            $cat -> addCat($_POST['nom']);
+        }
+        $cat2 = new SouscategorieModel();
+        if(isset($_POST['add2'])){
+            $cat2 -> addSousCat($_POST['nom'], $_POST['id_cat']);
+        }
         self::renderAdmin('admincategories');
     }
 
