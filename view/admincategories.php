@@ -7,7 +7,7 @@
     <input type="text" name="nom" placeholder="Nom de Sous-Catégorie" required>
     <select name="id_cat">
     <?php foreach ($catego as $key=>$value ): ?>
-    <option value="<?=$value['id']?>"><?=$value['name_categories']?></option>
+        <option value="<?=$value['id']?>"><?=$value['name_categories']?></option>
     <?php endforeach;?>
     </select>
     <input type="submit" name="add2" value="Ajouter">

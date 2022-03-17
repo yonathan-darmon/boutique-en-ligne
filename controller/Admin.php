@@ -98,7 +98,9 @@ class Admin extends Controller
 
     public static function categories()
     {
+        
         $cat = new CategorieModel();
+        $catego=$cat->getALL();
         if(isset($_POST['add'])){
             $cat -> addCat($_POST['nom']);
         }
@@ -106,7 +108,7 @@ class Admin extends Controller
         if(isset($_POST['add2'])){
             $cat2 -> addSousCat($_POST['nom'], $_POST['id_cat']);
         }
-        self::renderAdmin('admincategories');
+        self::renderAdmin('admincategories', compact('catego'));
     }
 
 }
