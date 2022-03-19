@@ -32,7 +32,7 @@
                 //on instancie stripe
                 \Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
                 $intent = \Stripe\PaymentIntent::create([
-                    'amount' => $panier[0]['price']*100,
+                    'amount' => $paniertotal*100,
                     'currency' => 'eur'
                 ]);
 
@@ -40,10 +40,12 @@
                     'clientSecret' => $intent->client_secret,
                 ];
                 
-                $panier = $model->deletecart($_SESSION['id']);
+                $mod = new paniermodel();
+                $pan = $mod->delete($panier[0]['id_user']);
+                //$panier = $model->deletecart($_SESSION['id']);
                 
                 $produitmodel = new produitsmodel();
-                $stock = $produitmodel->update('stock', 'stock'-$quantity, $panier[0]['id']);
+                $stock = $produitmodel->update('stock', 'stock'-$panier['quantity'], $panier[0]['id']);
             }
             self::render('panier', compact('panier', 'paniertotal'));
         }
