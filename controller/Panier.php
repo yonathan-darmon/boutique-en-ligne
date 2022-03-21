@@ -6,7 +6,7 @@
         {         
             //if(isset($_SESSION['id'])){
                 $model = new paniermodel();
-                $panier = $model->getOne('id_user', $_SESSION['id']);
+                $panier = $model->getProdByPanier($_SESSION['id']);
                 var_dump($panier);
                 //$panier = $model->getInnerJoin('products', 'id_product', 'id', 'id_product', );
             //}

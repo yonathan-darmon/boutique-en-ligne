@@ -33,4 +33,11 @@ class PanierModel extends Model
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
+
+    public function getProdByPanier($id)
+    {
+        $sth=$this->_connexion->prepare('SELECT products.name,products.image,cart.price,cart.quantity FROM products INNER JOIN cart ON cart.id_product=products.id WHERE cart.id_user=?');
+        $sth->execute(array($id));
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+    }
 }

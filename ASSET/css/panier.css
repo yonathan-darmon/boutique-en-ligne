@@ -1,8 +1,12 @@
 .panier2{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-top: 15px;
     border: 1px solid black;
     height: 10%;
+}
+.panier2 img{
+    width: 50px;
 }

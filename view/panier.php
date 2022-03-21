@@ -8,6 +8,9 @@
     <?php foreach($panier as $value):?>
         <?php //var_dump($panier) ?>
     <div class="panier2">
+        <img src="<?=path?>ASSET/images/<?=$value['image']?>" alt="">
+        <h3>Nom</h3>
+        <p><?=$value['name']?></p>
         <h3>Prix</h3>
         <p><?=$value['price'];?>€</p>
         <h3>Quantité</h3>
