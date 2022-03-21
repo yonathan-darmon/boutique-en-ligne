@@ -4,12 +4,12 @@
     {
         public static function index()
         {         
-            if(isset($_SESSION['id'])){
+            //if(isset($_SESSION['id'])){
                 $model = new paniermodel();
-                $panier = $model->getAll();
+                $panier = $model->getOne('id_user', $_SESSION['id']);
                 var_dump($panier);
-                //$panier = $model->getInnerJoin('products', 'id_product', 'id', 'id_product', $_SESSION['id']);
-            }
+                //$panier = $model->getInnerJoin('products', 'id_product', 'id', 'id_product', );
+            //}
             $paniertotal = $model->total();
 
             //supprimer le panier
@@ -26,26 +26,35 @@
 
             //fonction pour pouvoir payer
             if(isset($_POST['button'])){
-                require 'vendor/autoload.php';
+                //require 'vendor/autoload.php';
                 
                 
                 //on instancie stripe
-                \Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
+                /*\Stripe\Stripe::setApiKey('sk_test_51Kb39iC5Di6WbNI4XF9KPchnOZOxF0x8XIIADxhzlGVgAoBL7oL9T0GUsyOO2fDaVWhOqDFjeo1bxHDuHc27XYP700BKvleeR3');
                 $intent = \Stripe\PaymentIntent::create([
                     'amount' => $paniertotal*100,
-                    'currency' => 'eur'
+                    'currency' => 'eur',
                 ]);
 
                 $output = [
                     'clientSecret' => $intent->client_secret,
-                ];
+                ];*/
                 
+                //supprime le panier à l'achat
                 $mod = new paniermodel();
-                $pan = $mod->delete($panier[0]['id_user']);
-                //$panier = $model->deletecart($_SESSION['id']);
+                $pan = $mod->delete($_SESSION['id']);
                 
+                //modifie le stock
                 $produitmodel = new produitsmodel();
-                $stock = $produitmodel->update('stock', 'stock'-$panier['quantity'], $panier[0]['id']);
+                $stockquantity = $panier[0]['quantity'];
+                $stock = $produitmodel->update('stock', 'stock'-$stockquantity, $panier[0]['id']);
+
+                //insert le panier dans la table commandes
+                /*$commandesmodel = new commandesmodel();
+                $commandes = $commandesmodel->insert();
+                $price = $panier[0]['price'];
+                $paiement = $_POST['paiement'];
+                $actualid = $_SESSION['id'];*/
             }
             self::render('panier', compact('panier', 'paniertotal'));
         }
