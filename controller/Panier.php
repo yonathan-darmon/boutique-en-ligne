@@ -8,7 +8,6 @@
                 $model = new paniermodel();
                 $panier = $model->getProdByPanier($_SESSION['id']);
                 var_dump($panier);
-                //$panier = $model->getInnerJoin('products', 'id_product', 'id', 'id_product', );
             //}
             $paniertotal = $model->total();
 
