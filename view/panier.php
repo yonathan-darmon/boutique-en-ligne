@@ -36,6 +36,13 @@
                 $value = implode(',', $value);
                 echo $value;
                 ?>">€
+                <br></br>
+                <select name="paiment">
+                    <option>Moyen de paiement</option>
+                    <option>Carte bancaire</option>
+                    <option>Paypal</option>
+                </select>
+                <br></br>
             </form>
         <?php endforeach;?>
       

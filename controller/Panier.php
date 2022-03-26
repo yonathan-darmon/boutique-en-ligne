@@ -23,6 +23,11 @@
                 $model->update('quantity', $quantity, $panier[0]['id']);
             }
 
+            //si le produit est deja dans le panier
+            /*if(isset($panier[0]['id'])){
+                $model->update('quantity', +1, $panier[0]['id']);
+            }*/
+
             //fonction pour pouvoir payer
             if(isset($_POST['button'])){
                 //require 'vendor/autoload.php';
@@ -46,14 +51,15 @@
                 //modifie le stock
                 $produitmodel = new produitsmodel();
                 $stockquantity = $panier[0]['quantity'];
-                $stock = $produitmodel->update('stock', 'stock'-$stockquantity, $panier[0]['id']);
+                //$stock = $produitmodel->update('stock', 'stock'-$stockquantity, $panier[0]['id']);
 
                 //insert le panier dans la table commandes
-                /*$commandesmodel = new commandesmodel();
-                $commandes = $commandesmodel->insert();
-                $price = $panier[0]['price'];
-                $paiement = $_POST['paiement'];
-                $actualid = $_SESSION['id'];*/
+                $nomachat = $panier[0]['name'];
+                $price = $_POST['prix'];
+                $paiement = $_POST['paiment'];
+                //$actualid = $_SESSION['id'];
+                $commandemodel = new commandesmodel();
+                $commandes = $commandemodel->insert($nomachat ,$price, $paiement, $_SESSION['id']);
             }
             self::render('panier', compact('panier', 'paniertotal'));
         }
