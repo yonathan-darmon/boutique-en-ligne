@@ -37,11 +37,6 @@
                 echo $value;
                 ?>">€
                 <br></br>
-                <select name="paiment">
-                    <option>Moyen de paiement</option>
-                    <option>Carte bancaire</option>
-                    <option>Paypal</option>
-                </select>
                 <br></br>
             </form>
         <?php endforeach;?>
@@ -49,14 +44,22 @@
 </div>
 
 <body>
-    <form method="post">
-        <div id="errors"></div><!--messages d'erreur de paiement-->
-        <input type="text" id="cardholder-name" placeholder="Titulaire de la carte">
-        <br></br>
-        <div id="card-elements"></div><!--formulaire des informations de la carte-->
-        <div id="card-errors" role="alert"></div><!--erreur pour la carte-->
-        <br>
-        <input id="card-button" type="submit" name="button" value="Proceder au paiement">
+    <form  method="post">
+        <div class="pay">
+            <select name="paiment">
+                <option>Moyen de paiement</option>
+                <option>Carte bancaire</option>
+                <option>Paypal</option>
+            </select>
+            <br></br>
+            <div id="errors"></div><!--messages d'erreur de paiement-->
+            <input type="text" id="cardholder-name" placeholder="Titulaire de la carte">
+            <br></br>
+            <div id="card-elements"></div><!--formulaire des informations de la carte-->
+            <div id="card-errors" role="alert"></div><!--erreur pour la carte-->
+            <br>
+            <input id="card-button" type="submit" name="button" value="Proceder au paiement">
+        </div>
     </form>
 
     

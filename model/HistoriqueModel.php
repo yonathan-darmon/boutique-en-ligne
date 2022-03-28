@@ -15,4 +15,9 @@ class HistoriqueModel extends Model
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
+    public function insert($product_name, $quantity, $prices, $moyen_de_paiement, $id_commande, $id_user)
+    {
+        $sth = $this->_connexion->prepare("INSERT INTO historique(product_name, quantity, prices, moyen_de_paiement, id_commande, id_user) VALUES (?,?,?,?,?,?)");
+        $sth->execute(array($product_name, $quantity, $prices, $moyen_de_paiement, $id_commande, $id_user));
+    }
 }

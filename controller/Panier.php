@@ -9,6 +9,8 @@
                 $panier = $model->getProdByPanier($_SESSION['id']);
                 var_dump($panier);
             //}
+
+            //prix total du panier
             $paniertotal = $model->total();
 
             //supprimer le panier
@@ -22,11 +24,6 @@
                 $quantity = htmlspecialchars($_POST['quantity']);
                 $model->update('quantity', $quantity, $panier[0]['id']);
             }
-
-            //si le produit est deja dans le panier
-            /*if(isset($panier[0]['id'])){
-                $model->update('quantity', +1, $panier[0]['id']);
-            }*/
 
             //fonction pour pouvoir payer
             if(isset($_POST['button'])){
@@ -53,13 +50,20 @@
                 $stockquantity = $panier[0]['quantity'];
                 //$stock = $produitmodel->update('stock', 'stock'-$stockquantity, $panier[0]['id']);
 
-                //insert le panier dans la table commandes
-                $nomachat = $panier[0]['name'];
-                $price = $_POST['prix'];
+                //insert les données dans la table commandes
+                $nomachat = $panier[0]['name']."-".$panier[1]['name'];
+                $price = $paniertotal[0]['SUM(`price`)'];
                 $paiement = $_POST['paiment'];
-                //$actualid = $_SESSION['id'];
                 $commandemodel = new commandesmodel();
                 $commandes = $commandemodel->insert($nomachat ,$price, $paiement, $_SESSION['id']);
+
+                //insert les données dans la table historique
+                $commandes = $commandemodel->getOne('id', $_SESSION['id']);
+                $idcommande = $commandes[0]['id'];
+                $prices = $panier[0]['price'];
+                $quantite = $panier[0]['quantity'];
+                $historiquemodel = new historiquemodel();
+                $historiques = $historiquemodel->insert($nomachat ,$quantite ,$prices ,$paiement ,$idcommande ,$_SESSION['id']);
             }
             self::render('panier', compact('panier', 'paniertotal'));
         }
