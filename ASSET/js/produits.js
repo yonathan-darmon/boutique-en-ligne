@@ -5,4 +5,5 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         window.location.href="http://localhost/boutique_en_ligne/produits/"+filtre.value
     })
+
 })

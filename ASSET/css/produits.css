@@ -62,15 +62,28 @@
     margin-top: 25px;
 }
 .card img {
-    max-width: 150px;
+    width: 100%;
 }
-
+.short{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    opacity: 0.9;
+    bottom: 20%;
+}
 .page {
     margin-top: 50px;
     text-align: center;
     margin-bottom: 50px;
 }
-
-.card img:hover {
-    transform: scale(1.5);
+.card a{
+    max-width: 150px;
+    display: block;
+}
+.contener{
+    position: relative;
+}
+.card:hover .short{
+    display: block;
 }

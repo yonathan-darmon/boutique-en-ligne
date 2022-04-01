@@ -34,10 +34,13 @@
             <div class="cards">
                 <?php foreach ($produits as $value): ?>
                     <div class="card">
+                        <div class="contener">
                         <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
                                     src="<?= path ?>ASSET/images/<?= $value['image'] ?>" alt="">
                             <h2><?= $value['name']; ?></h2></a>
                         <h3><?= $value['price']; ?> euros</h3>
+                        <p class="short"><?=$value['short_descr']?></p>
+                        </div>
                         <form action="#" method="post" name="pan">
                             <input type="hidden" name="hidden" value="<?= $value['id'] ?>">
                             <input type="submit" name="achat" value="acheter">
