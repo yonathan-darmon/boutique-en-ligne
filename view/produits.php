@@ -12,15 +12,13 @@
 </div>
 <div class="box">
     <div class="research">
-        <form action="<?= path ?>produits/<?php if (isset($_POST['choix'])) {
-            echo $_POST['filtre'];
-        } ?>" name="select" method="post">
+        <form action="" name="select" method="post">
             <select name="filtre" id="filtre">
                 <?php foreach ($categorie as $value): ?>
                     <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" name="choix" value="filtrez">
+            <input type="submit" name="choix" id="choix" value="filtrez">
         </form>
 
     </div>
@@ -36,10 +34,13 @@
             <div class="cards">
                 <?php foreach ($produits as $value): ?>
                     <div class="card">
+                        <div class="contener">
                         <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
                                     src="<?= path ?>ASSET/images/<?= $value['image'] ?>" alt="">
                             <h2><?= $value['name']; ?></h2></a>
                         <h3><?= $value['price']; ?> euros</h3>
+                        <p class="short"><?=$value['short_descr']?></p>
+                        </div>
                         <form action="#" method="post" name="pan">
                             <input type="hidden" name="hidden" value="<?= $value['id'] ?>">
                             <input type="submit" name="achat" value="acheter">

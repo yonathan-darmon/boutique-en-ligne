@@ -19,6 +19,11 @@ $params = explode('/', $_GET['p']);
     <link rel="stylesheet" href="<?= path ?>ASSET/css/header.css">
     <link rel="stylesheet" href="<?= path ?>ASSET/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="<?=path?>ASSET/js/<?php if (isset($params[0])) {
+        echo $params[0];
+    } else {
+        echo 'page-accueil';
+    } ?>.js"></script>
     <title></title>
 </head>
 <body>
