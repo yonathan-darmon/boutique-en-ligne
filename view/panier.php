@@ -27,6 +27,7 @@
     <?php endforeach;?>
 </div>
 
+<div id="container1">
 <div class="paiement">
         <h2>Total panier</h2>
         <!--<p>Total: <?=$value['price']*$value['quantity'];?>€</p>-->
@@ -42,7 +43,7 @@
         <?php endforeach;?>
       
 </div>
-
+        </div>
 <body>
     <form  method="post">
         <div class="pay">
@@ -58,9 +59,15 @@
             <div id="card-elements"></div><!--formulaire des informations de la carte-->
             <div id="card-errors" role="alert"></div><!--erreur pour la carte-->
             <br>
-            <input id="card-button" type="submit" name="button" value="Proceder au paiement">
+            <input id="card-button" type="submit" name="button" value="Proceder au paiement" onClick="Message()">
         </div>
     </form>
 
+    <!--alert pour le paiement-->
+    <script>
+        function Message() {
+            alert("Merci pour votre achat ! \n Vous allez recevoir un mail de confirmation.");
+        }
+    </script>
     
 </body>

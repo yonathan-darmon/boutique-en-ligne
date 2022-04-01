@@ -10,7 +10,16 @@
 .panier2 img{
     width: 50px;
 }
-
+#container1{
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid black;
+    height: 60px;
+    margin-top: 15px;
+}
+.paiement{
+    margin-right: 5%;
+}
 .pay{
     padding: 4px 4px;
     width: 318px;
@@ -21,4 +30,7 @@
 }
 #card-button{
     width: 308px;
+    border: none;
+    background: #D7DBAF;
+    padding: 2px;
 }
