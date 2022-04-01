@@ -29,7 +29,7 @@ class PanierModel extends Model
 
     public function total()
     {
-        $sth = $this->_connexion->prepare('SELECT SUM(`price`)*quantity FROM ' . $this->table . ' ');
+        $sth = $this->_connexion->prepare('SELECT SUM((`price`)*quantity) FROM ' . $this->table . ' ');
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }

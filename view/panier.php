@@ -4,7 +4,7 @@
             echo '<p>votre panier est vide</p>';
         }
     ?>
-
+<?php if(isset($panier)):?>
     <?php foreach($panier as $value):?>
         <?php //var_dump($panier) ?>
     <div class="panier2">
@@ -20,17 +20,18 @@
         </form>
         <h3>Total</h3>
         <p><?=$value['price']*$value['quantity'];?>€</p>
+    
         <form method="post">
             <input type="submit" name="supprimer" value="supprimer">
         </form>
+
     </div>
     <?php endforeach;?>
+    <?php endif;?>
 </div>
-
 <div id="container1">
 <div class="paiement">
         <h2>Total panier</h2>
-        <!--<p>Total: <?=$value['price']*$value['quantity'];?>€</p>-->
         <?php foreach($paniertotal as $value):?>
             <form method="post">
                 <input type="text" name="prix" disabled="disabled" value="<?php
