@@ -7,7 +7,7 @@
             //if(isset($_SESSION['id'])){
                 $model = new paniermodel();
                 $panier = $model->getProdByPanier($_SESSION['id']);
-                var_dump($panier);
+                //var_dump($panier);
             //}
 
             //prix total du panier
