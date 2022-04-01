@@ -1,0 +1,24 @@
+.panier2{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+    border: 1px solid black;
+    height: 10%;
+}
+.panier2 img{
+    width: 50px;
+}
+
+.pay{
+    padding: 4px 4px;
+    width: 318px;
+    height: 139px;
+    border: 1px solid black;
+    position: relative;
+    left: 80%;
+}
+#card-button{
+    width: 308px;
+}
