@@ -12,15 +12,13 @@
 </div>
 <div class="box">
     <div class="research">
-        <form action="<?= path ?>produits/<?php if (isset($_POST['choix'])) {
-            echo $_POST['filtre'];
-        } ?>" name="select" method="post">
+        <form action="" name="select" method="post">
             <select name="filtre" id="filtre">
                 <?php foreach ($categorie as $value): ?>
                     <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" name="choix" value="filtrez">
+            <input type="submit" name="choix" id="choix" value="filtrez">
         </form>
 
     </div>
