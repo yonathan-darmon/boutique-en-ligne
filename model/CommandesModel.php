@@ -14,6 +14,13 @@ class CommandesModel extends Model
         $sth->execute(array($achat, $price, $moyen_paiement, $id_user));
     }
 
+    public function getOrder($id)
+    {
+        $sth=$this->_connexion->prepare('SELECT * FROM '.$this->table.' WHERE id_user='.$id.' ORDER BY date DESC');
+        $sth->execute();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+    }
+
 }
 
 ?>

@@ -26,7 +26,7 @@ class Model
                 echo 'Erreur :' . $exception->getMessage();
             }
         }
-        return$this->_connexion;
+        return $this->_connexion;
     }
 
     public function getALL()
@@ -39,23 +39,31 @@ class Model
 
     public function getOne($key, $value)
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM  '.$this->table.'  WHERE '.$key.' = ?' );
+        $sth = $this->_connexion->prepare('SELECT * FROM  ' . $this->table . '  WHERE ' . $key . ' = ?');
         $sth->execute(array($value));
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
-    public function getInnerJoin($table2,$categories,$categories2,$key,$value)
+
+    public function getInnerJoin($table2, $categories, $categories2, $key, $value)
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM  ' . $this->table . ' INNER JOIN '.$table2.' ON '.$this->table.'.'.$categories.'='.$table2.'.'.$categories2.' WHERE '.$key.'= ? LIMIT 6');
+        $sth = $this->_connexion->prepare('SELECT * FROM  ' . $this->table . ' INNER JOIN ' . $table2 . ' ON ' . $this->table . '.' . $categories . '=' . $table2 . '.' . $categories2 . ' WHERE ' . $key . '= ? LIMIT 6');
         $sth->execute(array($value));
-        $products=$sth->fetchall(PDO::FETCH_ASSOC);
+        $products = $sth->fetchall(PDO::FETCH_ASSOC);
         return $products;
 
     }
-    public function update($params,$value,$id)
+
+    public function update($params, $value, $id)
     {
         $sth = $this->_connexion->prepare("UPDATE $this->table SET $params=? WHERE id=$id ");
         $sth->execute(array($value));
     }
 
+    public function deleteId($params,$id)
+    {
+        $sth=$this->_connexion->prepare('DELETE FROM'.$this->table.' WHERE'. $params.'='.$id);
+        $sth->execute();
+
+    }
 
 }
