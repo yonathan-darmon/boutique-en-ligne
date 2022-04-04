@@ -1,0 +1,40 @@
+.panier2{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+    border: 1px solid black;
+    height: 10%;
+}
+.panier2 img{
+    width: 50px;
+}
+#container1{
+    display: flex;
+    justify-content: flex-end;
+    height: 60px;
+    margin-top: 20px;
+}
+.paiement{
+    margin-right: 5%;
+}
+.pay{
+    padding: 4px 4px;
+    width: 318px;
+    height: 142px;
+    border: 1px solid black;
+    position: relative;
+    left: 80%;
+}
+#cardholder-name{
+    width: 308px;
+    padding: 2px;
+}
+#card-button{
+    width: 308px;
+    border: none;
+    background: #D7DBAF;
+    padding: 2px;
+    cursor: pointer;
+}

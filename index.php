@@ -42,7 +42,7 @@ if ($params[0] == 'produits') {
         if (count($souCate) > 0) {
             Produits::selectBySc($params[1]);
         } elseif (count($cate) > 0) {
-            Produits::selectByCat($_POST['filtre']);
+            Produits::selectByCat($params[1]);
         } else {
             Produits::index();
         }
