@@ -66,7 +66,7 @@ class Panier extends Controller
             $commandes = $commandemodel->insert($name, $price, $paiement, $_SESSION['id']);
 
             //insert les données dans la table historique
-            
+
             foreach ($nomachat as $value) {
 
                 $commandes = $commandemodel->getOrder($_SESSION['id']);
@@ -78,9 +78,11 @@ class Panier extends Controller
                 $historiques = $historiquemodel->insert($value, $quantite, $prices, $paiement, $idcommande, $_SESSION['id']);
 
 
+            }
+            $histo = $historiquemodel->getOne('id_user', $_SESSION['id']);
+            for ($i=0; isset($histo[$i]);$i++){
 
             }
-
         }
         self::render('panier', compact('panier', 'paniertotal'));
     }
