@@ -42,9 +42,6 @@ class Panier extends Controller
                 'clientSecret' => $intent->client_secret,
             ];*/
 
-            //supprime le panier à l'achat
-            $mod = new paniermodel();
-            $pan = $mod->delete($_SESSION['id']);
 
             //modifie le stock
             $produitmodel = new produitsmodel();
@@ -64,25 +61,29 @@ class Panier extends Controller
             $commandemodel = new CommandesModel();
             $name = implode(';', $nomachat);
             $commandes = $commandemodel->insert($name, $price, $paiement, $_SESSION['id']);
+            $prod = $model->getProdByPanier($_SESSION['id']);
+            var_dump($prod);
+            $historiquemodel = new historiquemodel();
 
             //insert les données dans la table historique
 
-            foreach ($nomachat as $value) {
-
+            foreach ($prod as $value) {
                 $commandes = $commandemodel->getOrder($_SESSION['id']);
                 $idcommande = $commandes[0]['id'];
-                $prices = $panier[0]['price'];
-                $quantite = $panier[0]['quantity'];
+                $nom=$value['name'];
+                $prices = $value['prix'];
+                $quantite = $value['quantity'];
 
-                $historiquemodel = new historiquemodel();
-                $historiques = $historiquemodel->insert($value, $quantite, $prices, $paiement, $idcommande, $_SESSION['id']);
+                $historiques = $historiquemodel->insert($nom, $quantite, $prices, $paiement, $idcommande, $_SESSION['id']);
 
 
             }
+
+            //supprime le panier à l'achat
+            $mod = new paniermodel();
+            $pan = $mod->delete($_SESSION['id']);
             $histo = $historiquemodel->getOne('id_user', $_SESSION['id']);
-            for ($i=0; isset($histo[$i]);$i++){
 
-            }
         }
         self::render('panier', compact('panier', 'paniertotal'));
     }

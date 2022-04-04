@@ -20,4 +20,12 @@ class HistoriqueModel extends Model
         $sth = $this->_connexion->prepare("INSERT INTO historique(product_name, quantity, prices, moyen_de_paiement, date, id_commande, id_user) VALUES (?,?,?,?,Now(),?,?)");
         $sth->execute(array($product_name, $quantity, $prices, $moyen_de_paiement, $id_commande, $id_user));
     }
+
+    public function updatePrice($value,$nom)
+    {
+        $sth=$this->_connexion->prepare("UPDATE `historique` SET prices=$value WHERE product_name='$nom' AND  TIMEDIFF(CURTIME(), `date`) < '00:10'");
+        $r="UPDATE `historique` SET prices=$value WHERE product_name='$nom' AND  TIMEDIFF(CURTIME(), `date`) < '00:10'";
+        var_dump($r);
+        $sth->execute();
+    }
 }
