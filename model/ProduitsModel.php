@@ -35,25 +35,25 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
-    public function addProd($nom, $prix, $stock, $promo, $push, $short, $long, $tags)
+    public function addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat)
     {
-        $sth = $this -> _connexion->prepare('INSERT INTO products (name, price, date, stock, promo, mis_avant, short_descr, long_descr, tags) VALUES (?, ?, NOW, ?, ?, ?, ?, ?, ?)');
-        $sth -> execute(array($nom, $prix, $stock, $promo, $push, $short, $long, $tags));
-    }
-
-    public function push()
-    {
-        $sth = $this -> _connexion->prepare('INSERT INTO products VALUES mis_avant = 1');
-        $sth -> execute();
-        $push = $sth->fetchall(PDO::FETCH_ASSOC);
+        $sth = $this -> _connexion->prepare('INSERT INTO products (name, price, date, stock, promo, image, mis_avant, short_descr, long_descr, tags, id_categorie, id_souscategorie) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $sth -> execute(array($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat));
     }
 
     public function stock()
     {
-        $sth = $this -> _connexion->prepare('SELECT name, stock, FROM products');
+        $sth = $this -> _connexion->prepare('SELECT id, name, stock FROM products');
         $sth->execute();
         $visu = $sth->fetchall(PDO::FETCH_ASSOC);
         return $visu;
+    }
+
+    public function upstock($params, $value)
+    {
+        $sth = $this -> _connexion->prepare('UPDATE products SET stock= stock + '.$value.' WHERE id=?');
+        $sth -> execute(array($params));
+        $up = $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
     public function getLowStock()

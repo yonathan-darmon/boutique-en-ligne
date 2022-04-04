@@ -71,16 +71,15 @@ if ($params[0] == 'produits') {
 
         } elseif ($params[1] == 'historique_des_commandes') {
             Profil::histo();
-        } elseif ($params[1] == 'adresse'){
+        } elseif ($params[1] == 'adresse') {
             Profil::modifAdresse($params[1]);
-        }
-        else {
+        } else {
             header('location:' . path . 'profil');
         }
     } else {
         Profil::index();
     }
-} elseif($params[0] == 'panier') {
+} elseif ($params[0] == 'panier') {
     Panier::index();
 } elseif ($params[0] == 'contact') {
     Contact::index();
@@ -89,8 +88,23 @@ if ($params[0] == 'produits') {
 } elseif ($params[0] == 'admin') {
     if (isset($params[1])) {
         if ($params[1] == 'stock') {
+            if (isset($params[2])) {
+                Admin::adStock($params[2]);
+            }
             Admin::Stock();
-        }else{
+        } elseif ($params[1] == 'user') {
+            if (isset($params[2])) {
+                Admin::manageuser($params[2]);
+
+            }
+            Admin::user();
+        } elseif ($params[1] == 'article') {
+            Admin::articles();
+        } elseif ($params[1] == 'vente') {
+            Admin::ventes();
+        } elseif ($params[1] == 'categorie') {
+            Admin::categories();
+        } else {
             Admin::index();
         }
 
