@@ -16,6 +16,7 @@
         <h3>Quantité</h3>
         <form method="post">
             <input type="number" name="quantity" value="<?=$value['quantity'];?>">
+            <input type="hidden" name="id" value="<?=$value['id']?>">
             <input type="submit" name="modifquantity" value="ajouter">
         </form>
         <h3>Total</h3>

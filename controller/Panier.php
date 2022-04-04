@@ -22,7 +22,7 @@
             //modifier la quantité du panier
             if(isset($_POST['modifquantity'])){
                 $quantity = htmlspecialchars($_POST['quantity']);
-                $model->update('quantity', $quantity, $panier[0]['id']);
+                $model->update('quantity', $quantity, $_POST['id']);
                 header("Refresh:0");
             }
 
