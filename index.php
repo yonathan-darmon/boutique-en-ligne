@@ -43,7 +43,7 @@ if ($params[0] == 'produits') {
             Produits::selectBySc($params[1]);
         } elseif (count($cate) > 0) {
             Produits::selectByCat($params[1]);
-        } else {
+        }else {
             Produits::index();
         }
 

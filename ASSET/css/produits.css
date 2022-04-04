@@ -88,3 +88,7 @@
 .card:hover .short{
     display: block;
 }
+
+.hidden {
+    display: none;
+}
