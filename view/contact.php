@@ -1,6 +1,9 @@
 <?php 
 
 ?>
+
+<h2>Contactez nous</h2>
+
 <div id="contact">
     <div class="infos">
         <h3>Téléphone:</h3>
@@ -16,10 +19,15 @@
         <h1>Formulaire</h1>
             <form method="post" action="">
                 <input type="text" name="prenom" placeholder=" Prénom" required/>
+                <br></br>
                 <input type="text" name="nom" placeholder=" Nom" required/>
+                <br></br>
                 <input type="email" name="mail" placeholder=" E-mail" required/>
+                <br></br>
                 <input type="text" name="objet" placeholder=" Objet"/>
-                <textarea name="message" placeholder=" Message" required></textarea>
+                <br></br>
+                <textarea name="message"  rows="5" cols="33" placeholder=" Message" required></textarea>
+                <br></br>
                 <input type="submit" name="send" value="Envoyer" />
             </form>
     </div>
