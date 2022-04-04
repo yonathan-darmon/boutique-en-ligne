@@ -1,0 +1,45 @@
+h2{
+    display: flex;
+    justify-content: center;
+    text-decoration: overline;
+    margin-top: 15px;
+}
+
+.infos{
+    margin-top: 15px;
+}
+.infos h3{
+    margin-left: 30%;
+}
+.infos p{
+    margin-left: 30%; 
+}
+iframe{
+    margin-top: 15px;
+}
+
+#contact{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.formu{
+    margin-top: 15px;
+}
+.formu form{
+    margin-top: 15px;
+}
+textarea{
+    resize: none;
+    padding: 4px;
+}
+form input{
+    width: 270px;
+    padding: 4px;
+}
+form input[type=submit]{
+    border: none;
+    background: #D7DBAF;
+    padding: 5px;
+    cursor: pointer;
+}
