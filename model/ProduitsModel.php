@@ -62,4 +62,12 @@ class ProduitsModel extends Model
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
+
+    public function searchBar($value)
+    {
+        $sth = $this-> _connexion->prepare("SELECT * FROM products WHERE tags LIKE '%".$value."%'");
+        $sth -> execute();
+        $test = $sth->fetchall(PDO::FETCH_ASSOC);
+        return($test);
+    }
 }

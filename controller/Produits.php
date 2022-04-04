@@ -15,7 +15,12 @@ class Produits extends Controller
         $categorie = $modelcat->getALL();
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
-        $produits = $model->getALL();
+      $search="";
+        if(isset($_POST['search'])) {
+            $search = $model->searchBar($_POST['input-search']);
+            if($produits = $search); 
+        } else ($produits = $model->getALL());
+
         $pages = count($produits) / 6;
         $pages = ceil($pages);
         if (isset ($_POST['achat'])) {
@@ -35,7 +40,7 @@ class Produits extends Controller
             $panier = new PanierModel();
             $panier->delete($_SESSION['id']);
         }
-        self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages'));
+        self::render('produits', compact('produits', 'categorie', 'scategorie', 'pages', 'search'));
 
     }
 

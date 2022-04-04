@@ -6,4 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href="http://localhost/boutique_en_ligne/produits/"+filtre.value
     })
 
+    // var search = document.querySelector('.btnSearch');
+    // var titre = document.getElementsByClassName('.titre');
+    // var titre2 = document.getElementsByClassName('.hidden');
+    // search.addEventListener('click', (e) => {
+    //     titre.toggle('hidden');
+    //     titre2.toggle('hidden');
+    // })
+
 })
