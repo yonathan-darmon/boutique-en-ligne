@@ -27,7 +27,6 @@ class Panier extends Controller
 
         //fonction pour pouvoir payer
         if (isset($_POST['button'])) {
-            //header("Refresh:0");
             //require 'vendor/autoload.php';
 
 
@@ -62,7 +61,6 @@ class Panier extends Controller
             $name = implode(';', $nomachat);
             $commandes = $commandemodel->insert($name, $price, $paiement, $_SESSION['id']);
             $prod = $model->getProdByPanier($_SESSION['id']);
-            var_dump($prod);
             $historiquemodel = new historiquemodel();
 
             //insert les données dans la table historique
@@ -83,6 +81,8 @@ class Panier extends Controller
             $mod = new paniermodel();
             $pan = $mod->delete($_SESSION['id']);
             $histo = $historiquemodel->getOne('id_user', $_SESSION['id']);
+            header("Refresh:0");
+
 
         }
         self::render('panier', compact('panier', 'paniertotal'));
