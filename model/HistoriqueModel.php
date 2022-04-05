@@ -28,4 +28,11 @@ class HistoriqueModel extends Model
         var_dump($r);
         $sth->execute();
     }
+
+    public function sumPay($id)
+    {
+        $sth=$this->_connexion->prepare('SELECT SUM(prices) FROM historique WHERE id_user=?');
+        $sth->execute(array($id));
+        return $sth->fetch();
+    }
 }

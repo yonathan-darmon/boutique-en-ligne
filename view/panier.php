@@ -1,7 +1,7 @@
 <div class="panier">
     <?php
         if(empty($panier)){
-            echo '<p>votre panier est vide</p>';
+            echo '<p id="vide">votre panier est vide</p>';
         }
     ?>
 <?php if(isset($panier)):?>
@@ -61,15 +61,11 @@
             <div id="card-elements"></div><!--formulaire des informations de la carte-->
             <div id="card-errors" role="alert"></div><!--erreur pour la carte-->
             <br>
-            <input id="card-button" type="submit" name="button" value="Proceder au paiement" onClick="Message()">
+            <input id="card-button" type="submit" name="button" value="Proceder au paiement">
         </div>
     </form>
 
     <!--alert pour le paiement-->
-    <script>
-        function Message() {
-            alert("Merci pour votre achat ! \n Vous allez recevoir un mail de confirmation.");
-        }
-    </script>
+
     
 </body>
