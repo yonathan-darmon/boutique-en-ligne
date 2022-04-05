@@ -1,23 +1,54 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require_once('ASSET/PHPMailer-6.6.0/src/Exception.php');
+require_once('ASSET/PHPMailer-6.6.0/src/PHPMailer.php');
+require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
+
 class Panier extends Controller
 {
+    public static function sendReceipt($email, $user, $commande, $prix)
+    {
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->Mailer = 'smtp';
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
+        $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
+        $mail->Password = 'Coucousalutbonjour';
+        $mail->setFrom('pop.cult.e.ure.boutique@gmail.com', "Boutique Ligne");
+        $mail->addAddress($email);
+        $mail->Subject = 'Merci pour votre achat!';
+        $mail->WordWrap = 70;
+        $mail->isHTML(true);
+        $mail->CharSet = 'utf-8';
+        $mail->Body = '<p style="font-size: 32px; color: Blue;">Votre dernier Achat</p>' . ' ' . '<p style="font-size: 52px; color: Red;">' . $user . '</p>' . '<h3 style="font-size: 20px;">Nous espérons que vous serez satisfait par les produits que vous avez acheter! <br> Les produits : ' . $commande . ' pour ' . $prix . '€</p>';
+        $mail->send();
+    }
+
     public static function index()
     {
         //if(isset($_SESSION['id'])){
         $model = new paniermodel();
         $panier = $model->getProdByPanier($_SESSION['id']);
         $user = new UtilisateursModel();
+        $mail = $user->getSpecific('email', $_SESSION['id']);
+        $log = $user->getSpecific('login', $_SESSION['id']);
         $idreward = $user->getSpecific('id_reward', $_SESSION['id']);
-        var_dump($idreward[0]);
-        if ($idreward[0]==2){
-            $rabais=0.05;
-        }elseif ($idreward[0]==3){
-            $rabais=0.10;
-        }elseif ($idreward[0]==4){
-            $rabais=0.15;
-        }elseif($idreward[0]==1){
-            $rabais=1;
+        if ($idreward[0] == 2) {
+            $rabais = 0.05;
+        } elseif ($idreward[0] == 3) {
+            $rabais = 0.10;
+        } elseif ($idreward[0] == 4) {
+            $rabais = 0.15;
+        } elseif ($idreward[0] == 1) {
+            $rabais = 1;
         }
         //}
 
@@ -62,6 +93,8 @@ class Panier extends Controller
 
                 //insert les données dans la table commandes
                 $nomachat = [];
+                $commandemodel = new CommandesModel();
+
                 foreach ($panier as $value) {
                     array_push($nomachat, $value['name']);
 
@@ -70,7 +103,6 @@ class Panier extends Controller
                 //$nomachat = $panier[0]['name']."-".$panier[1]['name'];
                 $price = $paniertotal[0]['SUM((`price`)*quantity)'];
                 $paiement = $_POST['paiment'];
-                $commandemodel = new CommandesModel();
                 $name = implode(';', $nomachat);
                 $commandes = $commandemodel->insert($name, $price, $paiement, $_SESSION['id']);
                 $prod = $model->getProdByPanier($_SESSION['id']);
@@ -98,22 +130,25 @@ class Panier extends Controller
 
                 if ($reward[0] < 300) {
                     $user->update('id_reward', 1, $_SESSION['id']);
-                } elseif ($reward[0] < 500 && $reward[0] > 300  ) {
+                } elseif ($reward[0] < 500 && $reward[0] > 300) {
                     $user->update('id_reward', 2, $_SESSION['id']);
-                } elseif ($reward[0] < 1000 && $reward[0]> 500  ) {
+                } elseif ($reward[0] < 1000 && $reward[0] > 500) {
                     $user->update('id_reward', 3, $_SESSION['id']);
                 } elseif ($reward[0] > 1000) {
                     $user->update('id_reward', 4, $_SESSION['id']);
 
                 }
-                 header("Refresh:0");
+                $commandes = $commandemodel->getOrder($_SESSION['id']);
+
+                self::sendReceipt($mail[0], $log[0], $commandes[0]['achat'], $commandes[0]['price']);
+                header("Refresh:0");
 
 
             } else {
 
             }
         }
-        self::render('panier', compact('panier', 'paniertotal','rabais'));
+        self::render('panier', compact('panier', 'paniertotal', 'rabais'));
     }
 }
 
