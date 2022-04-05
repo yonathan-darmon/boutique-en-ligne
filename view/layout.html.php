@@ -44,13 +44,14 @@ $params = explode('/', $_GET['p']);
                             <li><a href="<?= path ?>inscription">Inscription</a></li>
                             <?php else:?>
                             <li><a href="<?= path ?>profil">Profil</a></li>
-                            <?php endif;?>
 
                             <?php if($_SESSION['droit']==2):?>
                             <li><a href="<?=path?>admin">Page admin</a></li>
                             <?php endif;?>
+                            <?php endif;?>
 
-                        <li><a href="<?= path ?>produits">Shop</a></li>
+
+                            <li><a href="<?= path ?>produits">Shop</a></li>
                         <li><a href="<?= path ?>histoire">Qui sommes-nous ?</a></li>
                         <li><a href="<?= path ?>contact">Nous contacter</a></li>
                         <?php if(isset($_SESSION['id'])):?>
