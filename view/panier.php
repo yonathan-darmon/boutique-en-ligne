@@ -7,7 +7,6 @@
     ?>
 <?php if(isset($panier)):?>
     <?php foreach($panier as $value):?>
-        <?php //var_dump($panier) ?>
     <div class="panier2">
         <img src="<?=path?>ASSET/images/<?=$value['image']?>" alt="">
         <h3>Nom</h3>

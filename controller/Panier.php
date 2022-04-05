@@ -126,7 +126,6 @@ class Panier extends Controller
                 $pan = $model->delete($_SESSION['id']);
                 $histo = $historiquemodel->getOne('id_user', $_SESSION['id']);
                 $reward = $historiquemodel->sumPay($_SESSION['id']);
-                var_dump($reward);
 
                 if ($reward[0] < 300) {
                     $user->update('id_reward', 1, $_SESSION['id']);
@@ -141,7 +140,7 @@ class Panier extends Controller
                 $commandes = $commandemodel->getOrder($_SESSION['id']);
 
                 self::sendReceipt($mail[0], $log[0], $commandes[0]['achat'], $commandes[0]['price']);
-                header("Refresh:0");
+                header("location:profil/historique_des_commandes");
 
 
             } else {
