@@ -44,9 +44,10 @@ $params = explode('/', $_GET['p']);
                             <li><a href="<?= path ?>inscription">Inscription</a></li>
                             <?php else:?>
                             <li><a href="<?= path ?>profil">Profil</a></li>
+                            <?php endif;?>
+
                             <?php if($_SESSION['droit']==2):?>
                             <li><a href="<?=path?>admin">Page admin</a></li>
-                            <?php endif;?>
                             <?php endif;?>
 
                         <li><a href="<?= path ?>produits">Shop</a></li>
@@ -60,12 +61,13 @@ $params = explode('/', $_GET['p']);
             </ul>
             <div class="image"><img src="<?= path ?>ASSET/images/culte-ure.png"
                                     onmouseover="this.src='<?= path ?>ASSET/images/culte-ure-hover.png';"
-                                    onmouseout="this.src='<?= path ?>ASSET/images/culte-ure.png';"></img></div>
+                                    onmouseout="this.src='<?= path ?>ASSET/images/culte-ure.png';"></div>
             <div class="icon">
             <a href="<?=path?>produits"><i class="fa-solid fa-magnifying-glass"></i></a>
             <?php if (isset($_SESSION['id'])):?>
             <a href="<?=path?>profil"><i class="fa-solid fa-user"></i></a>
             <a href="<?=path?>panier"><i class="fa-solid fa-basket-shopping"></i></a>
+                <?php endif;?>
             </div>
         </nav>
     </header>
@@ -99,7 +101,7 @@ $params = explode('/', $_GET['p']);
 
             <div class="logo"><img src="<?= path ?>ASSET/images/culte-ure.png"
                     onmouseover="this.src='<?= path ?>ASSET/images/culte-ure-hover.png';"
-                    onmouseout="this.src='<?= path ?>ASSET/images/culte-ure.png';"></img></div>
+                    onmouseout="this.src='<?= path ?>ASSET/images/culte-ure.png';"></div>
 
         </div>
     </footer>
