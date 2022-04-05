@@ -51,6 +51,8 @@ if ($params[0] == 'produits') {
         Produits::index();
 
     }
+} elseif ($params[0] == 'histoire')  {
+    Histoire::index();
 } elseif ($params[0] == 'connexion') {
     Connexion::index();
 } elseif ($params[0] == 'inscription') {
