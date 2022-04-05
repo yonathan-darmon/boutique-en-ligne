@@ -7,7 +7,18 @@ class Panier extends Controller
         //if(isset($_SESSION['id'])){
         $model = new paniermodel();
         $panier = $model->getProdByPanier($_SESSION['id']);
-        var_dump($panier);
+        $user = new UtilisateursModel();
+        $idreward = $user->getSpecific('id_reward', $_SESSION['id']);
+        var_dump($idreward[0]);
+        if ($idreward[0]==2){
+            $rabais=0.05;
+        }elseif ($idreward[0]==3){
+            $rabais=0.10;
+        }elseif ($idreward[0]==4){
+            $rabais=0.15;
+        }elseif($idreward[0]==1){
+            $rabais=1;
+        }
         //}
 
         //prix total du panier
@@ -84,14 +95,25 @@ class Panier extends Controller
                 $histo = $historiquemodel->getOne('id_user', $_SESSION['id']);
                 $reward = $historiquemodel->sumPay($_SESSION['id']);
                 var_dump($reward);
-                // header("Refresh:0");
+
+                if ($reward[0] < 300) {
+                    $user->update('id_reward', 1, $_SESSION['id']);
+                } elseif ($reward[0] < 500 && $reward[0] > 300  ) {
+                    $user->update('id_reward', 2, $_SESSION['id']);
+                } elseif ($reward[0] < 1000 && $reward[0]> 500  ) {
+                    $user->update('id_reward', 3, $_SESSION['id']);
+                } elseif ($reward[0] > 1000) {
+                    $user->update('id_reward', 4, $_SESSION['id']);
+
+                }
+                 header("Refresh:0");
 
 
-            }else{
+            } else {
 
             }
         }
-        self::render('panier', compact('panier', 'paniertotal'));
+        self::render('panier', compact('panier', 'paniertotal','rabais'));
     }
 }
 

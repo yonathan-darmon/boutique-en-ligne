@@ -1,5 +1,6 @@
 <div class="panier">
     <?php
+    var_dump($rabais);
         if(empty($panier)){
             echo '<p id="vide">votre panier est vide</p>';
         }
@@ -33,6 +34,19 @@
 <div id="container1">
 <div class="paiement">
         <h2>Total panier</h2>
+    <?php if(!empty($panier)):?>
+
+        <?php foreach($paniertotal as $value):?>
+            <form method="post">
+                <input type="text" name="prix" disabled="disabled" value="<?php
+                $value = implode(',', $value);
+                echo $value-($value*$rabais);
+                ?>">€
+                <br></br>
+                <br></br>
+            </form>
+        <?php endforeach;?>
+    <?php else:?>
         <?php foreach($paniertotal as $value):?>
             <form method="post">
                 <input type="text" name="prix" disabled="disabled" value="<?php
@@ -43,7 +57,8 @@
                 <br></br>
             </form>
         <?php endforeach;?>
-      
+    <?php endif;?>
+
 </div>
         </div>
 <body>

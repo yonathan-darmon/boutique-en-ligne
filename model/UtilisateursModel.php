@@ -28,6 +28,7 @@ class UtilisateursModel extends Model
         return $sth->fetch();
     }
 
+
     public function updatePassword($value, $mail)
     {
         $sth = $this->_connexion->prepare('UPDATE `user` SET `password` = ? WHERE `email`= ?');
