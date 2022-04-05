@@ -1,0 +1,51 @@
+h1{
+    margin-left: 15%;
+    margin-top: 40px;
+}
+i{
+    font-size: 25px;
+}
+p{
+    font-size: 20px;
+    margin-top: 15px;
+}
+#annee1{
+    display: flex;
+}
+.boitedroite{
+    margin-left: 45%;
+    margin-bottom: -90px;
+}
+.droite{
+    display: flex;
+}
+.droite i{
+    margin-left: -28%;
+}
+.droite h2{
+    font-size: 25px;
+}
+
+#annee2{
+    display: flex;
+}
+.boitegauche{
+    margin-top: 0;
+    margin-left: 15%;
+}
+.gauche{
+    display: flex;
+}
+.gauche i{
+    margin-left: 140%;
+}
+.gauche h2{
+    font-size: 25px;
+}
+
+.bar{
+    width: 0;
+    height: 200px;
+    border: 1px solid black;
+    margin-left: 39%;
+}

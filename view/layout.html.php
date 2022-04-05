@@ -46,7 +46,7 @@ $params = explode('/', $_GET['p']);
                         <?php endif;?>
 
                         <li><a href="<?= path ?>produits">Shop</a></li>
-                        <li><a href="<?= path ?>">Qui sommes-nous ?</a></li>
+                        <li><a href="<?= path ?>histoire">Qui sommes-nous ?</a></li>
                         <li><a href="<?= path ?>contact">Nous contacter</a></li>
                         <?php if(isset($_SESSION['id'])):?>
                         <li><a href="<?=path?>deco">deconnexion</a></li>
