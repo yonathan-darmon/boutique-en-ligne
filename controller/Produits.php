@@ -19,7 +19,7 @@ class Produits extends Controller
         if(isset($_POST['search'])) {
             $search = $model->searchBar($_POST['input-search']);
             if($produits = $search); 
-        } else ($produits = $model->getALL());
+        } else ($produits = $model->getProdByDate());
 
         $pages = count($produits) / 6;
         $pages = ceil($pages);
