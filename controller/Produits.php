@@ -15,8 +15,8 @@ class Produits extends Controller
         $categorie = $modelcat->getALL();
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
-      $search="";
-        if(isset($_POST['search'])) {
+        $search = "";
+        if (isset($_POST['search'])) {
             $search = $model->searchBar($_POST['input-search']);
             if($produits = $search); 
         } else ($produits = $model->getProdByDate());
