@@ -1,42 +1,92 @@
-/* Main accueil */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-body {
-    height: 100%;
-  }
 
-.wrapper {
-    height: 100%;
-    font-family: Helvetica, sans-serif;
-    line-height: 1.5;
-    word-spacing: 2px;
-    letter-spacing: 0.5px;
+#cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto;
+  perspective: 1000px;
+}
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; 
+  animation: rotate360 60s infinite forwards linear;
+}
+.carousel__face { 
+  position: absolute;
+  width: 300px;
+  height: 187px;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  background-size: cover;
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+  display: flex;
+}
+
+
+
+.carousel__face:nth-child(1) {
+  background-image: url("https://img.search.brave.com/GlvwEOtwBkAjtxqmjREEXYHXJyWfefO4o-88VyPamb0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/d2ViY29udGVudGRl/dmVsb3BtZW50LmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OS8wNi9tYXJ2ZWwu/anBn");
+  transform: rotateY(  0deg) translateZ(430px); }
+.carousel__face:nth-child(2) { 
+  background-image: url("https://img.search.brave.com/R-xOjjYyB5GUKvY6Yn33g8q4KACxbfKb3E0XTnsnpiY/rs:fit:1200:1000:1/g:ce/aHR0cDovL2ltYWdl/cy40ZXZlci5ldS9k/YXRhL2Rvd25sb2Fk/L2FydC9maWxtLWV0/LXNlcmllL2hhcnJ5/LXBvdHRlciwtbG9n/by0xNzIyMDguanBn/P25vLWxvZ28");
+    transform: rotateY( 40deg) translateZ(430px); }
+.carousel__face:nth-child(3) {
+  background-image: url("https://img.search.brave.com/QzCReS--j-mM9lvnOz6bOXHFlM3DTnXyBbFRVRvMXPQ/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/ZG93bmxvYWRjbGlw/YXJ0Lm5ldC9sYXJn/ZS9kcmFnb24tYmFs/bC1sb2dvLXBuZy1m/aWxlLnBuZw");
+  transform: rotateY( 80deg) translateZ(430px); }
+.carousel__face:nth-child(4) {
+  background-image: url("https://img.search.brave.com/LvbvfdHOcqe6PBT58o2Iwp00msVoq9Es2m0gyZjO7b8/rs:fit:1024:768:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDE5Mzcw/MzUucG5n");
+  transform: rotateY(120deg) translateZ(430px); }
+.carousel__face:nth-child(5) { 
+  background-image: url("https://img.search.brave.com/uxjohsEpSXu9-OkqWv1x-uJPwiY1zHHhFckUsvTZiNY/rs:fit:1200:1157:1/g:ce/aHR0cHM6Ly9sb2dv/ZGl4LmNvbS9sb2dv/LzEyODk3NzguanBn");
+ transform: rotateY(160deg) translateZ(430px); }
+.carousel__face:nth-child(6) { 
+  background-image: url("https://img.search.brave.com/VZxFV5m-kyfj5N5vPwhVVMlUa9q2TpWSZppzmXW4iGk/rs:fit:1200:1200:1/g:ce/aHR0cDovL3d3dy5j/bGlwYXJ0YmVzdC5j/b20vY2xpcGFydHMv/UlRkLzZBOS9SVGQ2/QTk4TGMucG5n");
+ transform: rotateY(200deg) translateZ(430px); }
+ .carousel__face:nth-child(7) { 
+  background-image: url("https://img.search.brave.com/095bZSwHru4d9JIz-_c_mt9RMDq1gsv8wAGkLUpxrw4/rs:fit:1200:900:1/g:ce/aHR0cHM6Ly92aWdu/ZXR0ZS53aWtpYS5u/b2Nvb2tpZS5uZXQv/bGVhZ3Vlb2ZsZWdl/bmRzL2ltYWdlcy8w/LzAzL0FyY2FuZV9T/ZXJpZXNfTG9nby5q/cGcvcmV2aXNpb24v/bGF0ZXN0P2NiPTIw/MTkxMDE2MDgwNDE4");
+ transform: rotateY(240deg) translateZ(430px); }
+ .carousel__face:nth-child(8) { 
+  background-image: url("https://img.search.brave.com/ai2DRy6YSGp4tk7qfR24B3fcgdpqixQQx6PILbohcz8/rs:fit:1200:800:1/g:ce/aHR0cHM6Ly93d3cu/cGl4aWxhcnQuY29t/L2ltYWdlcy9hcnQv/NjBjYzMwMTEwZDM0/NjY0LnBuZw");
+ transform: rotateY(280deg) translateZ(430px); }
+ .carousel__face:nth-child(9) { 
+  background-image: url("https://img.search.brave.com/QGoHTdpQ_3Rkby54sYI0oVTGqBwhr2BrCmdTigGLbb8/rs:fit:800:679:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzEyLzg3/LzIzLzEyODcyM2Uy/ZDI3NTVlMDA5MTVh/MDhjMzM0NTg1OTRj/LmpwZw");
+ transform: rotateY(320deg) translateZ(430px); }
+
+
+
+@keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
   }
-  .fixed {
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 100%;
-    width: 100%;
-    color: #eeeeee;
-    text-align: center;
-    display: table;
+  to {
+    transform: rotateY(-360deg);
   }
-  .fixed h3 {
-    display: table-cell;
-    vertical-align: middle;
-  }
-  .scroll {
-    background-color: #ffe0f6;
-    padding: 10px 70px;
-    color: #666666;
-  }
-  .one {
-    background-image: url("Logo.png");
-  }
- .two {
-    background-image: url("Culte-ure.png");
-  }
-.three {
-    background-image: url("Culte-ure-hover.png");
-  }
+}
+
+.bloc-pres {
+  border: 5px solid #D7DBAF;
+  border-radius: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 1%;
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Audiowide', cursive;
+}
+
+.bloc-pres:hover {
+  background-color: black;
+  border: black;
+  color: #D7DBAF;
+}
