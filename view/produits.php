@@ -34,7 +34,7 @@
     <div class="productlist">
         <h1 class="titre">Découvrez notre collection</h1>
         <div class="cards">
-            <?php foreach ($prod as $value): ?>
+            <?php            foreach ($prod as $value): ?>
                 <div class="card">
                     <div class="contener">
                         <a href="<?= path ?>article/<?= $value['id'] ?>"> <img

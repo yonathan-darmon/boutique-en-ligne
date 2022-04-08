@@ -75,7 +75,7 @@ class ProduitsModel extends Model
 
     public function getArticleForProduct($limit, $articles)
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM products ORDER BY DATE DESC LIMIT ' . $limit . ',' . $articles);
+        $sth = $this->_connexion->prepare('SELECT * FROM products  LIMIT ' . $limit . ',' . $articles);
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
 
@@ -83,7 +83,7 @@ class ProduitsModel extends Model
 
     public function getArticleForProductSc($value,$limit,$articles)
     {
-        $sth = $this->_connexion->prepare("SELECT * FROM products INNER JOIN sous_categories ON products.id_souscategorie=sous_categories.id WHERE sous_categories.name=? LIMIT $limit,$articles");
+        $sth = $this->_connexion->prepare("SELECT products.* FROM products INNER JOIN sous_categories ON products.id_souscategorie=sous_categories.id WHERE sous_categories.name=? LIMIT $limit,$articles");
         $sth->execute(array($value));
         return $sth->fetchall(PDO::FETCH_ASSOC);
 
