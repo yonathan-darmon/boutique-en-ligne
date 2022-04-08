@@ -38,8 +38,6 @@
                 <div class="contener">
                     <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
                             src="<?= path ?>ASSET/images/<?= $value['image'] ?>" alt="">
-                            <!-- <img src="<?= path ?>ASSET/images/<?=$value['image2']?>" alt="">
-                            <img src="<?= path ?>ASSET/images/<?=$value['image3']?>" alt=""> -->
                         <h2><?= $value['name']; ?></h2>
                     </a>
                     <h3><?= $value['price']; ?> €</h3>

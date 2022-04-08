@@ -102,28 +102,38 @@
 }
 
 .bloc {
-
   background-color: #D7DBAF;
   opacity: 0.75;
   font-family: 'Press Start 2P', cursive;
 }
+
 .bloc h1{
   text-align: center;
   padding: 25px;
 }
+
 .bloc img {
   padding-bottom: 10px;
   width: 100%;
+}
 
-}
-.bloc h3 {
-}
 .bloc p{
   padding-bottom: 25px;
 }
-.sousbloc{
+
+.sousbloc {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
+  gap: 4%;
+  grid-template-columns: 300px 300px 300px 300px 300px;
+  padding-left: 70px;
+}
+
+.sousbloc h3 {
+  text-align: center;
+}
+
+.sousbloc p {
+  text-align: center;
 }
 
 .parallax-effect {
@@ -136,38 +146,38 @@
 }
 
 .bloc1 {
-  display: grid;
-  grid-template-columns: 80px 80px 80px 80px 80px 80px;
-  grid-gap: 250px;
-  height: 55vh;  
   background-color: #D7DBAF;
   opacity: 0.75;
-  font-size: 36px;
-  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.bloc1 h1{
+  text-align: center;
+  padding: 25px;
 }
 
 .bloc1 img {
-  width: 400px;
-  height: 400px;
-  margin-top: 80px;
-  padding: 50px;
+  padding-bottom: 10px;
+  width: 100%;
 }
-.carte{
 
+.bloc1 p{
+  padding-bottom: 25px;
+}
+
+.carte{
   padding-left: 25px;
 }
 
-.bloc1 h3 {
-  margin-left: 175%;
-  font-size: 15px;
-}
 .cardcontent{
+  margin-top: 15px;
   line-height: 1.6;
   width: 100%;
   height: auto;
 }
-.bloc1 p {
-  margin-left: 175%;
+
+.cardimage img:hover {
+  box-shadow: 2px 2px 2px 2px white;
 }
 
 .parallax-effect1 {
@@ -180,31 +190,23 @@
 }
 
 .bloc2 {
-  display: grid;
-  grid-template-columns: 80px 80px 80px 80px 80px 80px;
-  grid-gap: 250px;
-  height: 50vh;  
   background-color: #D7DBAF;
   opacity: 0.75;
-  font-size: 36px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.bloc2 h1{
   text-align: center;
-  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+  padding: 25px;
 }
 
 .bloc2 img {
-  width: 400px;
-  height: 400px;
-  margin-top: 80px;
-  padding: 50px;
+  padding-bottom: 10px;
+  width: 100%;
 }
 
-.bloc2 h3 {
-  margin-left: 175%;
-  font-size: 15px;
-}
-
-.bloc2 p {
-  margin-left: 175%;
+.bloc2 p{
+  padding-bottom: 25px;
 }
 
 .parallax-effect2 {

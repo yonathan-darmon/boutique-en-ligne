@@ -84,6 +84,8 @@
     max-width: 150px;
     min-height: 100px;
     display: block;
+    text-decoration: none;
+    color: black;
 }
 .contener{
     position: relative;
