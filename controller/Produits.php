@@ -10,6 +10,8 @@ class Produits extends Controller
 
     public static function index()
     {
+        $params = explode('/', $_GET['p']);
+
         $modelcat = new CategorieModel();
         $modelsc = new SouscategorieModel();
         $categorie = $modelcat->getALL();
@@ -21,8 +23,15 @@ class Produits extends Controller
             if($produits = $search); 
         } else ($produits = $model->getProdByDate());
 
-        $pages = count($produits) / 6;
+        $pages = count($produits[0]) / 6;
         $pages = ceil($pages);
+        
+        if(isset($params[2])){
+            $page = $params[2];
+        } else{
+            $page = 1;
+        }
+        $nbpage = 6*($page - 1);
         if (isset ($_POST['achat'])) {
             if (isset($_SESSION['id'])) {
                 $produit = $model->getOne('id', $_POST['hidden']);
@@ -45,7 +54,8 @@ class Produits extends Controller
     }
 
     public static function selectBySc($cat)
-    {
+    {$params = explode('/', $_GET['p']);
+
 
         $modelcat = new CategorieModel();
         $modelsc = new SouscategorieModel();
@@ -53,7 +63,7 @@ class Produits extends Controller
         $scategorie = $modelsc->getALL();
         $model = new Produitsmodel();
         $produits = $model->getProdBySc($cat);
-        $pages = count($produits) / 6;
+        $pages = count($produits[0]) / 6;
         $pages = ceil($pages);
         if (isset ($_POST['achat'])) {
             if (isset($_SESSION['id'])) {
@@ -74,14 +84,15 @@ class Produits extends Controller
 
     public
     static function selectByCat($cat)
-    {
+    {$params = explode('/', $_GET['p']);
+
         $modelcat = new CategorieModel();
         $modelsc = new SouscategorieModel();
         $model = new ProduitsModel();
         $produits = $model->getProdByCat($cat);
         $categorie = $modelcat->getALL();
         $scategorie = $modelsc->getALL();
-        $pages = count($produits) / 6;
+        $pages = count($produits[0]) / 6;
         $pages = ceil($pages);
         if (isset ($_POST['achat'])) {
             if (isset($_SESSION['id'])) {

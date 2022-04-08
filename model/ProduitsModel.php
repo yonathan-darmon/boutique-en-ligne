@@ -10,7 +10,7 @@ class ProduitsModel extends Model
 
     public function getProdByCat($value)
     {
-        $sth = $this->_connexion->prepare('SELECT products.* FROM  ' . $this->table . ' INNER JOIN categories ON products.id_categorie=categories.id WHERE categories.name_categories = ?');
+        $sth = $this->_connexion->prepare('SELECT products.* FROM  ' . $this->table . ' INNER JOIN categories ON products.id_categorie=categories.id WHERE categories.name_categories = ? LIMIT 6 ');
         $sth->execute(array($value));
         $products = $sth->fetchall(PDO::FETCH_ASSOC);
         return $products;
@@ -25,7 +25,6 @@ class ProduitsModel extends Model
         return $products;
 
     }
-
 
     public function getProdByDate()
     {
@@ -65,7 +64,7 @@ class ProduitsModel extends Model
 
     public function searchBar($value)
     {
-        $sth = $this-> _connexion->prepare("SELECT * FROM products WHERE tags LIKE '%".$value."%'");
+        $sth = $this-> _connexion->prepare("SELECT * FROM products WHERE tags LIKE '%".$value."%' LIMIT 6");
         $sth -> execute();
         $test = $sth->fetchall(PDO::FETCH_ASSOC);
         return($test);

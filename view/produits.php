@@ -1,17 +1,18 @@
 <div class="souscat">
-    <div class="categorie"><a href="<?= path ?>produits/disney"><img src="<?= path ?>ASSET/images/Disney.png"
+    <div class="categorie"><a href="<?= path ?>produits/disney/1"><img src="<?= path ?>ASSET/images/Disney.png"
                 alt="sous categorie Disney"></a></div>
-    <div class="categorie"><a href="<?= path ?>produits/harry_potter"><img src="<?= path ?>ASSET/images/HP.png"
+    <div class="categorie"><a href="<?= path ?>produits/harry_potter/1"><img src="<?= path ?>ASSET/images/HP.png"
                 alt="sous categorie Harry Potter"></a></div>
-    <div class="categorie"><a href="<?= path ?>produits/marvel"><img src="<?= path ?>ASSET/images/Marvel.png"
+    <div class="categorie"><a href="<?= path ?>produits/marvel/1"><img src="<?= path ?>ASSET/images/Marvel.png"
                 alt="sous categorie Marvel"></a></div>
-    <div class="categorie"><a href="<?= path ?>produits/starwars"><img src="<?= path ?>ASSET/images/Star Wars.png"
+    <div class="categorie"><a href="<?= path ?>produits/starwars/1"><img src="<?= path ?>ASSET/images/Star Wars.png"
                 alt="sous categorie Star wars"></a></div>
-    <div class="categorie"><a href="<?= path ?>produits/dc"><img src="<?= path ?>ASSET/images/DC.png"
+    <div class="categorie"><a href="<?= path ?>produits/dc/1"><img src="<?= path ?>ASSET/images/DC.png"
                 alt="sous categorie DC Comics"></a></div>
 </div>
 <div class="box">
     <div class="research">
+        <p id="pagin" class='hidden'><?=$_SERVER['REQUEST_URI'];?></p>
         <form action="" name="select" method="post">
             <select name="filtre" id="filtre">
                 <?php foreach ($categorie as $value): ?>
@@ -29,7 +30,7 @@
     }
     ?>
     <?php if (!isset($produit)): ?>
-
+        
     <div class="productlist">
         <h1 class="titre">Découvrez notre collection</h1>
         <div class="cards">
@@ -54,9 +55,10 @@
         </div>
         <div class="page">
             <?php
+            $params = explode('/', $_GET['p']);
                 for ($i = 1; $i <= $pages; $i++): ?>
-            <a href="<?= path ?>produits"><?= $i ?></a>&nbsp
-            <?php endfor; ?>
+            <a id ="pagination" href="<?= path?>produits/<?php if(isset($params[1])){echo $params[1];}?>/<?=$i?>"><?= $i ?></a>
+            <?php endfor; ?> 
             <?php
                 $params = explode('/', $_GET['p']);
                 if (isset($params[1])):?>
