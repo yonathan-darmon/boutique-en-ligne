@@ -1,6 +1,5 @@
 <?php
 $params = explode('/', $_GET['p']);
-var_dump($params);
 ?>
 <script src="https://js.stripe.com/v3/"></script>
 <script src="scripts.js"></script>
