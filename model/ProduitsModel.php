@@ -26,10 +26,23 @@ class ProduitsModel extends Model
 
     }
 
+    public function promoProd()
+    {
+        $sth = $this->_connexion -> prepare('SELECT * FROM products WHERE promo != 0');
+        $sth -> execute();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+    }
+
+    public function pushProd()
+    {
+        $sth = $this->_connexion -> prepare('SELECT * FROM products WHERE mis_avant = 1');
+        $sth -> execute();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+    }
 
     public function getProdByDate()
     {
-        $sth = $this->_connexion->prepare('SELECT * FROM ' . $this->table . ' ORDER BY DATE DESC LIMIT 6 ');
+        $sth = $this->_connexion->prepare('SELECT * FROM ' . $this->table . ' ORDER BY DATE DESC LIMIT 5 ');
         $sth->execute();
         $prodate = $sth->fetchall(PDO::FETCH_ASSOC);
         return $prodate;

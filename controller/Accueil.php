@@ -8,7 +8,9 @@ class Accueil extends Controller {
     {
         $prod = new ProduitsModel;
         $produit = $prod -> getProdByDate();
-        self::render('accueil', compact('produit'));
+        $promo = $prod -> promoProd();
+        $avant = $prod -> pushProd();
+        self::render('accueil', compact('produit', 'promo', 'avant'));
 
     }
 }

@@ -90,3 +90,125 @@
   border: black;
   color: #D7DBAF;
 }
+
+#cont {
+  display: flex;
+  flex-direction: column;
+}
+
+#cont h1 {
+  text-align: center;
+}
+
+.bloc {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px 80px 80px;
+  grid-gap: 250px;
+  margin-top: 35%;
+  height: 55vh;
+  background-color: #D7DBAF;
+  opacity: 0.75;
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+}
+
+.bloc img {
+  width: 400px;
+  height: 400px;
+  margin-top: 80px;
+  padding: 50px;
+}
+
+.bloc h3 {
+  margin-left: 175%;
+  font-size: 15px;
+}
+
+.bloc p {
+  margin-left: 175%;
+}
+
+
+.parallax-effect {
+  background-image: url("https://img.search.brave.com/PMfoWKWHNMn1fb5nVfrNro_xdBrIbKZphzV96jmcfdE/rs:fit:880:495:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaGl0ZWsuZnIv/aW1nL3VwX20vNjkx/NDA1MjMwL3Rha2Fo/YW5maWd1cmluZXBv/cG1pc2VlbnNjZW5l/MjQuanBn");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bloc1 {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px 80px 80px;
+  grid-gap: 250px;
+  height: 55vh;  
+  background-color: #D7DBAF;
+  opacity: 0.75;
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+}
+
+.bloc1 img {
+  width: 400px;
+  height: 400px;
+  margin-top: 80px;
+  padding: 50px;
+}
+
+.bloc1 h3 {
+  margin-left: 175%;
+  font-size: 15px;
+}
+
+.bloc1 p {
+  margin-left: 175%;
+}
+
+.parallax-effect1 {
+  background-image: url("https://img.search.brave.com/dyYMHeR5AfrzZjGNro7hZ9V397F9y-S0m5L6ZvdZBx8/rs:fit:600:459:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzU4LzYw/LzljLzU4NjA5YzMz/MGE0ZmZlMmU2ZTEx/MTU3OWFmMDBmOGRm/LmpwZw");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bloc2 {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px 80px 80px;
+  grid-gap: 250px;
+  height: 50vh;  
+  background-color: #D7DBAF;
+  opacity: 0.75;
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+}
+
+.bloc2 img {
+  width: 400px;
+  height: 400px;
+  margin-top: 80px;
+  padding: 50px;
+}
+
+.bloc2 h3 {
+  margin-left: 175%;
+  font-size: 15px;
+}
+
+.bloc2 p {
+  margin-left: 175%;
+}
+
+.parallax-effect2 {
+  background-image: url("https://img.search.brave.com/ddu2u6ptKkqRX2qfnSbkolm6hZRyfIgRIu83iPwr79w/rs:fit:1024:688:1/g:ce/aHR0cHM6Ly9maWd1/cmluZXMtcG9wLmNv/bS9tZWRpYS9pbWcv/ZmVhdHVyZS9yaWRl/cy5qcGc");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
