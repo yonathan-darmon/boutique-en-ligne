@@ -56,6 +56,7 @@
         <div class="page">
             <?php
             $params = explode('/', $_GET['p']);
+
             for ($i = 1; $i <= $nombreDePages; $i++): ?>
                 <a id="pagination" href="<?= path ?>produits/<?php if (isset($params[1]) && !is_numeric($params[1])) {
                     echo $params[1] . '/' . $i;
@@ -70,22 +71,21 @@
 
 
     <?php if (isset($produit)): ?>
-    <div class="popup">
-        <h1>Vous avez ajouté ce produit au panier</h1>
-        <h2><?= $produit[0]['name'] ?></h2>
-        <a href="<?= path ?>panier">Aller au panier</a>
-        <a href="<?= path ?>produits">Continuer vos achats</a>
-    </div>
+        <div class="popup">
+            <h1>Vous avez ajouté ce produit au panier</h1>
+            <h2><?= $produit[0]['name'] ?></h2>
+            <a href="<?= path ?>panier">Aller au panier</a>
+            <a href="<?= path ?>produits">Continuer vos achats</a>
+        </div>
     <?php endif; ?>
+    <?php if (!isset($params[1])): ?>
+        <div class="search-box">
 
-
-    <div class="search-box">
-       
-        <form method="POST" action="">
-        <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
-            <input type="submit" name="search" value="Chercher" class="btnSearch">
-        </form>
-    </div>
-
+            <form method="POST" action="">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
+                <input type="submit" name="search" value="Chercher" class="btnSearch">
+            </form>
+        </div>
+    <?php endif; ?>
 </div>
