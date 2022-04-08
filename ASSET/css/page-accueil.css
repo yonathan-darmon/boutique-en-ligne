@@ -8,14 +8,15 @@
 }
 
 .container {
-  /* position: relative; */
+   position: relative;
   width: 320px;
+  min-height: 350px;
   margin: 100px auto 0 auto;
   perspective: 1000px;
 }
 
 .carousel {
-  /* position: absolute; */
+   position: absolute;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d; 
@@ -101,34 +102,29 @@
 }
 
 .bloc {
-  display: grid;
-  grid-template-columns: 80px 80px 80px 80px 80px 80px;
-  grid-gap: 250px;
-  margin-top: 35%;
-  height: 55vh;
+
   background-color: #D7DBAF;
   opacity: 0.75;
-  font-size: 36px;
+  font-family: 'Press Start 2P', cursive;
+}
+.bloc h1{
   text-align: center;
-  font-family: 'Press Start 2P', cursive;  font-size: 14px;
+  padding: 25px;
 }
-
 .bloc img {
-  width: 400px;
-  height: 400px;
-  margin-top: 80px;
-  padding: 50px;
-}
+  padding-bottom: 10px;
+  width: 100%;
 
+}
 .bloc h3 {
-  margin-left: 175%;
-  font-size: 15px;
 }
-
-.bloc p {
-  margin-left: 175%;
+.bloc p{
+  padding-bottom: 25px;
 }
-
+.sousbloc{
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+}
 
 .parallax-effect {
   background-image: url("https://img.search.brave.com/PMfoWKWHNMn1fb5nVfrNro_xdBrIbKZphzV96jmcfdE/rs:fit:880:495:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaGl0ZWsuZnIv/aW1nL3VwX20vNjkx/NDA1MjMwL3Rha2Fo/YW5maWd1cmluZXBv/cG1pc2VlbnNjZW5l/MjQuanBn");
@@ -147,7 +143,6 @@
   background-color: #D7DBAF;
   opacity: 0.75;
   font-size: 36px;
-  text-align: center;
   font-family: 'Press Start 2P', cursive;  font-size: 14px;
 }
 
@@ -157,12 +152,20 @@
   margin-top: 80px;
   padding: 50px;
 }
+.carte{
+
+  padding-left: 25px;
+}
 
 .bloc1 h3 {
   margin-left: 175%;
   font-size: 15px;
 }
-
+.cardcontent{
+  line-height: 1.6;
+  width: 100%;
+  height: auto;
+}
 .bloc1 p {
   margin-left: 175%;
 }
