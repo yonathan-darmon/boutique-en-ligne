@@ -1,6 +1,8 @@
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
+/* Style des deux containers */
 #containe {
     display: flex;
     flex-direction: column;
@@ -14,12 +16,14 @@
     margin-top: 15px;
 }
 
+/* Disposition des trois images */
 .pics {
     display: flex;
     justify-content: center;
     padding: 55px;
 }
 
+/* Style des trois images */
 .pics img {
     width: 15vw;
     height: 30vh;
@@ -28,6 +32,27 @@
     margin: 3%;
 }
 
+/* Style description produit */
+.descr {
+    margin-top: 50px;
+}
+
+.descr h1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.descr p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.descr span {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/*Prix*/
 .infos-prod {
     text-align: center;
     border: 2px solid black;
@@ -36,6 +61,7 @@
     margin-left: 45%;
 }
 
+/* Style du bouton d'ajout au panier */
 .bouttonpanier input {
     text-align: center;
     border: 2px solid black;
@@ -62,6 +88,7 @@
     color: white;
 }
 
+/*Système de notation */
 .rate {
     display: flex;
     flex-direction: column;
@@ -82,33 +109,17 @@
     padding: 15px;
 }
 
-a{
+a {
     text-decoration: none;
     color: goldenrod;
 }
-textarea{
-    resize: none;
+
+.stars {
+    margin-left: 10%;
+    margin-top: 15px;
 }
 
-.descr {
-    margin-top: 50px;
-}
-
-.descr h1 {
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-.descr p {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.descr span {
-    font-weight: bold;
-    font-size: 20px;
-}
-
+/* Style des commentaires */
 .comm h1 {
     text-align: center;
     margin-bottom: 5px;
@@ -122,4 +133,59 @@ textarea{
 .comm h2 {
     text-align: center;
     margin-bottom: 5px;
+}
+
+/* Style zone de commentaire */
+textarea {
+    resize: none;
+}
+
+                    /* Début des Medias Queries pour le responsive */
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+        .pics img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .descr {
+            margin-top: 0px;
+        }
+
+        .descr h1 {
+            margin-top: 0px;
+            padding-bottom: 25px;
+            font-size: 66px;
+        }
+
+        .descr span {
+            font-size: 28px;
+        }
+
+        .descr p {
+            font-size: 20px;
+        }
+
+        .bouttonpanier form input {
+            width: 480px;
+            height: 80px;
+            border-radius: 50px;
+            margin-left: 18%;
+            margin-bottom: 15px;
+            background-color: #D7DBAF;
+        }
+
+        .rate {
+            margin-left: 10%;
+        }
+
+        .stars {
+            margin-left: 20%;
+            margin-top: 25px;
+        }
+}
+
+/* Tab devices */
+@media screen and (min-width: 768px) and (max-width: 1599px) {
+
 }
