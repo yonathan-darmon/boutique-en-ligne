@@ -1,3 +1,5 @@
+<!-- Bandeau avec les logos  -->
+
 <div class="souscat">
     <div class="categorie"><a href="<?= path ?>produits/disney"><img src="<?= path ?>ASSET/images/Disney.png"
                 alt="sous categorie Disney"></a></div>
@@ -10,18 +12,30 @@
     <div class="categorie"><a href="<?= path ?>produits/dc"><img src="<?= path ?>ASSET/images/DC.png"
                 alt="sous categorie DC Comics"></a></div>
 </div>
+
+<!-- Boite shopping -->
 <div class="box">
+<!-- Filtre par catégories -->
     <div class="research">
         <form action="" name="select" method="post">
             <select name="filtre" id="filtre">
-                <?php foreach ($categorie as $value): ?>
-                <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option>
+                <?php foreach ($categorie as $value): ?> <!-- Recherche les catégories en bdd -->
+                <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option> <!-- Affiche les catégories -->
                 <?php endforeach; ?>
             </select>
             <input type="submit" name="choix" id="choix" value="Filtrez">
         </form>
-
     </div>
+
+    <!-- SearchBar -->
+    <div class="search-box">
+        <form method="POST" action="">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
+            <input type="submit" name="search" value="Chercher" class="btnSearch">
+        </form>
+    </div>
+
     <?php
     if (isset($error1)) {
         echo $error1;
@@ -30,10 +44,11 @@
     ?>
     <?php if (!isset($produit)): ?>
 
+<!-- Contient la liste d'articles + pagination -->
     <div class="productlist">
         <h1 class="titre">Découvrez notre collection</h1>
         <div class="cards">
-            <?php foreach ($produits as $value): ?>
+            <?php foreach ($produits as $value): ?> <!-- Recherche les produits en bdd -->
             <div class="card">
                 <div class="contener">
                     <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
@@ -50,6 +65,8 @@
             </div>
             <?php endforeach; ?>
         </div>
+
+        <!-- Pagination -->
         <div class="page">
             <?php
                 for ($i = 1; $i <= $pages; $i++): ?>
@@ -62,9 +79,9 @@
             <?php endif; ?>
         </div>
     </div>
-    <!-- <h2 class="hidden">Résultats pour: <?= $_POST['input-search']?></h2> -->
     <?php endif; ?>
 
+    <!-- PopUp d'ajout au panier -->
     <?php if (isset($produit)): ?>
     <div class="popup">
         <h1>Vous avez ajouté ce produit au panier</h1>
@@ -73,15 +90,4 @@
         <a href="<?= path ?>produits">Continuer vos achats</a>
     </div>
     <?php endif; ?>
-
-
-    <div class="search-box">
-       
-        <form method="POST" action="">
-        <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
-            <input type="submit" name="search" value="Chercher" class="btnSearch">
-        </form>
-    </div>
-
 </div>
