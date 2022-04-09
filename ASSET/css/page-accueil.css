@@ -1,3 +1,4 @@
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
@@ -8,20 +9,22 @@
 }
 
 .container {
-   position: relative;
+  position: relative;
   width: 320px;
   min-height: 350px;
   margin: 100px auto 0 auto;
   perspective: 1000px;
 }
 
+/* Début de l'animation */
 .carousel {
-   position: absolute;
+  position: absolute;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d; 
   animation: rotate360 60s infinite forwards linear;
 }
+
 .carousel__face { 
   position: absolute;
   width: 300px;
@@ -35,7 +38,7 @@
 }
 
 
-
+/* Contient les images des cartes de l'animation */
 .carousel__face:nth-child(1) {
   background-image: url("https://img.search.brave.com/GlvwEOtwBkAjtxqmjREEXYHXJyWfefO4o-88VyPamb0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/d2ViY29udGVudGRl/dmVsb3BtZW50LmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OS8wNi9tYXJ2ZWwu/anBn");
   transform: rotateY(  0deg) translateZ(430px); }
@@ -75,6 +78,7 @@
   }
 }
 
+/* Style du bloc de présenatation */
 .bloc-pres {
   border: 5px solid #D7DBAF;
   border-radius: 50%;
@@ -92,22 +96,15 @@
   color: #D7DBAF;
 }
 
-#cont {
-  display: flex;
-  flex-direction: column;
-}
-
-#cont h1 {
-  text-align: center;
-}
-
+              /* Début du style pour les blocs contenant les articles */
+/* 1er bloc */
 .bloc {
   background-color: #D7DBAF;
   opacity: 0.75;
   font-family: 'Press Start 2P', cursive;
 }
 
-.bloc h1{
+.bloc h1 {
   text-align: center;
   padding: 25px;
 }
@@ -117,10 +114,11 @@
   width: 100%;
 }
 
-.bloc p{
+.bloc p {
   padding-bottom: 25px;
 }
 
+/* Sous bloc pour créer le grid pour les cartes */
 .sousbloc {
   display: grid;
   gap: 4%;
@@ -136,15 +134,7 @@
   text-align: center;
 }
 
-.parallax-effect {
-  background-image: url("https://img.search.brave.com/PMfoWKWHNMn1fb5nVfrNro_xdBrIbKZphzV96jmcfdE/rs:fit:880:495:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaGl0ZWsuZnIv/aW1nL3VwX20vNjkx/NDA1MjMwL3Rha2Fo/YW5maWd1cmluZXBv/cG1pc2VlbnNjZW5l/MjQuanBn");
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
+/* 2eme bloc */
 .bloc1 {
   background-color: #D7DBAF;
   opacity: 0.75;
@@ -165,7 +155,29 @@
   padding-bottom: 25px;
 }
 
-.carte{
+/* 3eme bloc */
+.bloc2 {
+  background-color: #D7DBAF;
+  opacity: 0.75;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.bloc2 h1 {
+  text-align: center;
+  padding: 25px;
+}
+
+.bloc2 img {
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.bloc2 p {
+  padding-bottom: 25px;
+}
+
+/* Style des cartes contenant les articles */
+.carte {
   padding-left: 25px;
 }
 
@@ -180,6 +192,16 @@
   box-shadow: 2px 2px 2px 2px white;
 }
 
+/* Crée l'effet parallax et contient les images */
+.parallax-effect {
+  background-image: url("https://img.search.brave.com/PMfoWKWHNMn1fb5nVfrNro_xdBrIbKZphzV96jmcfdE/rs:fit:880:495:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaGl0ZWsuZnIv/aW1nL3VwX20vNjkx/NDA1MjMwL3Rha2Fo/YW5maWd1cmluZXBv/cG1pc2VlbnNjZW5l/MjQuanBn");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .parallax-effect1 {
   background-image: url("https://img.search.brave.com/dyYMHeR5AfrzZjGNro7hZ9V397F9y-S0m5L6ZvdZBx8/rs:fit:600:459:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzU4LzYw/LzljLzU4NjA5YzMz/MGE0ZmZlMmU2ZTEx/MTU3OWFmMDBmOGRm/LmpwZw");
   min-height: 500px;
@@ -189,26 +211,6 @@
   background-size: cover;
 }
 
-.bloc2 {
-  background-color: #D7DBAF;
-  opacity: 0.75;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.bloc2 h1{
-  text-align: center;
-  padding: 25px;
-}
-
-.bloc2 img {
-  padding-bottom: 10px;
-  width: 100%;
-}
-
-.bloc2 p{
-  padding-bottom: 25px;
-}
-
 .parallax-effect2 {
   background-image: url("https://img.search.brave.com/ddu2u6ptKkqRX2qfnSbkolm6hZRyfIgRIu83iPwr79w/rs:fit:1024:688:1/g:ce/aHR0cHM6Ly9maWd1/cmluZXMtcG9wLmNv/bS9tZWRpYS9pbWcv/ZmVhdHVyZS9yaWRl/cy5qcGc");
   min-height: 500px;
@@ -216,4 +218,137 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Caché pour responsive.
+Apparait sur petit devices */
+
+.resp {
+display: none; 
+}
+
+                    /* Début des Medias Queries pour le responsive */
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+
+#cont .bloc-pres {
+  border: none;
+  border-radius: 0px;
+  text-align: center;
+}
+
+#cont .container {
+  display: none;
+  visibility: hidden;
+}
+
+.bloc {
+  display: none;
+}
+
+.bloc1 {
+  display: none;
+}
+
+.bloc2 {
+  display: none;
+}
+
+.carte {
+  display: none;
+}
+
+.parallax-effect {
+  display: none;
+}
+
+.parallax-effect1{
+  display: none;
+}
+
+.parallax-effect2 {
+  display: none;
+}
+
+.resp {
+  display: block;
+  clear: both;
+}
+
+.resp img {
+  width: 100%;
+}
+
+.resp button {
+  width: 120px;
+  height: 70px;
+  background-color: #D7DBAF;
+  border: 1px dashed black;
+  border-radius: 20px;
+  margin-left: 40%;
+  margin-top: 35px;
+}
+
+    }
+
+
+/* Tab devices */
+@media screen and (min-width: 768px) and (max-width: 1599px) {
+  #cont .bloc-pres {
+    border: none;
+    border-radius: 0px;
+    text-align: center;
+  }
+  
+  #cont .container {
+    display: none;
+    visibility: hidden;
+  }
+  
+  .bloc {
+    display: none;
+  }
+  
+  .bloc1 {
+    display: none;
+  }
+  
+  .bloc2 {
+    display: none;
+  }
+  
+  .carte {
+    display: none;
+  }
+  
+  .parallax-effect {
+    display: none;
+  }
+  
+  .parallax-effect1{
+    display: none;
+  }
+  
+  .parallax-effect2 {
+    display: none;
+  }
+  
+  .resp {
+    display: block;
+    clear: both;
+  }
+  
+  .resp img {
+    width: 100%;
+  }
+  
+  .resp button {
+    width: 120px;
+    height: 70px;
+    background-color: #D7DBAF;
+    border: 1px dashed black;
+    border-radius: 20px;
+    margin-left: 40%;
+    margin-top: 35px;
+  }
 }
