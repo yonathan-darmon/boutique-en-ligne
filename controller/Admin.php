@@ -80,12 +80,12 @@ class Admin extends Controller
         $short = $_POST['short'];
         $long = $_POST['long'];
         $tags = $_POST['tags'];
-        $getcat = $cat->getOne('id_categorie', 'name_categories');
+        $getcat = $cat->getOne('id', $_POST['cat']);
         $cats = $getcat[0]['id'];
-        $getsouscat = $cat2->getOne('id_categorie', 'name');
+        $getsouscat = $cat2->getOne('id',$_POST['souscat']);
         $sousCat = $getsouscat[0]['id'];
         $add = new ProduitsModel();
-        $add->addProd($nom, $prix, $stock, $promo, $image, $image2, $image3, $push, $short, $long, $tags, $cat, $sousCat);
+        $add->addProd($nom, $prix, $stock, $promo, $image, $image2, $image3, $push, $short, $long, $tags, $cats, $sousCat);
         }
     
         self::renderAdmin('adminarticles', compact('catego', 'souscateg'));

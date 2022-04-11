@@ -95,10 +95,10 @@ class ProduitsModel extends Model
         return $sth->fetchall(PDO::FETCH_ASSOC);
 
     }
-    public function addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat) // Requète pour ajouter des produits
+    public function addProd($nom, $prix, $stock, $promo, $image, $image2, $image3, $push, $short, $long, $tags, $cat, $sousCat) // Requète pour ajouter des produits
     {
-        $sth = $this->_connexion->prepare('INSERT INTO products (name, price, date, stock, promo, image, mis_avant, short_descr, long_descr, tags, id_categorie, id_souscategorie) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $sth->execute(array($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat));
+         $sth = $this->_connexion->prepare('INSERT INTO products (name, price, date, stock, promo, image, image2, image3, mis_avant, short_descr, long_descr, tags, id_categorie, id_souscategorie) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+         $sth->execute(array($nom, $prix, $stock, $promo, $image, $image2, $image3, $push, $short, $long, $tags, $cat, $sousCat));
     }
 
     public function stock() // Requète pour afficher les stocks
