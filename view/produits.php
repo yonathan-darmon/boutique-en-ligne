@@ -16,13 +16,13 @@
 
 <!-- Boite shopping -->
 <div class="box">
-<!-- Filtre par catégories -->
+    <!-- Filtre par catégories -->
     <div class="research">
         <p id="pagin" class='hidden'><?= $_SERVER['REQUEST_URI']; ?></p>
         <form action="" name="select" method="post">
             <select name="filtre" id="filtre">
                 <?php foreach ($categorie as $value): ?> <!-- Recherche les catégories en bdd -->
-                <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option> <!-- Affiche les catégories -->
+                    <option value="<?= $value['name_categories']; ?>"><?= $value['name_categories']; ?></option> <!-- Affiche les catégories -->
                 <?php endforeach; ?>
             </select>
             <input type="submit" name="choix" id="choix" value="Filtrez">
@@ -30,13 +30,19 @@
     </div>
 
     <!-- SearchBar -->
-    <div class="search-box">
-        <form method="POST" action="">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
-            <input type="submit" name="search" value="Chercher" class="btnSearch">
-        </form>
-    </div>
+    <?php $params = explode('/', $_GET['p']); ?>
+    <?php if (!isset($params[1])): ?>
+
+
+        <div class="search-box">
+            <form method="POST" action="">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
+                <input type="submit" name="search" value="Chercher" class="btnSearch">
+            </form>
+        </div>
+    <?php endif; ?>
+
 
     <?php
     if (isset($error1)) {
@@ -44,40 +50,46 @@
         header('Refresh:3; url=' . path . 'connexion');
     }
     ?>
+    <?php if (!isset($produit)): ?>
+        <!-- Contient la liste d'articles + pagination -->
+        <div class="productlist">
+            <h1 class="titre">Découvrez notre collection</h1>
+            <div class="cards">
+                <?php foreach ($prod as $value): ?> <!-- Recherche les produits en bdd -->
+                    <div class="card">
+                        <div class="contener">
+                            <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
+                                        src="<?= path ?>ASSET/images/<?= $value['image'] ?>" alt="">
+                                <h2><?= $value['name']; ?></h2>
+                            </a>
+                            <h3><?= $value['price']; ?> €</h3>
+                            <p class="short"><?= $value['short_descr'] ?></p>
 
-<!-- Contient la liste d'articles + pagination -->
-    <div class="productlist">
-        <h1 class="titre">Découvrez notre collection</h1>
-        <div class="cards">
-            <?php foreach ($produits as $value): ?> <!-- Recherche les produits en bdd -->
-            <div class="card">
-                <div class="contener">
-                    <a href="<?= path ?>article/<?= $value['id'] ?>"> <img
-                            src="<?= path ?>ASSET/images/<?= $value['image'] ?>" alt="">
-                        <h2><?= $value['name']; ?></h2>
-                    </a>
-                    <h3><?= $value['price']; ?> €</h3>
-                    <p class="short"><?=$value['short_descr']?></p>
-                </div>
-            <?php endforeach; ?>
+                        </div>
+                        <form action="#" method="post" name="pan">
+                            <input type="hidden" name="hidden" value="<?= $value['id'] ?>">
+                            <input type="submit" name="achat" value="Acheter">
+                        </form>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Pagination -->
+            <div class="page">
+                <?php
+
+                for ($i = 1; $i <= $nombreDePages; $i++): ?>
+                    <a id="pagination"
+                       href="<?= path ?>produits/<?php if (isset($params[1]) && !is_numeric($params[1])) {
+                           echo $params[1] . '/' . $i;
+                       } else {
+                           echo $i;
+                       } ?>"><?= $i ?></a>
+                <?php endfor; ?>
+                <a href="<?= path ?>produits"> Retour sur tout les produits</a>
+            </div>
         </div>
-
-        <!-- Pagination -->
-        <div class="page">
-            <?php
-            $params = explode('/', $_GET['p']);
-
-            for ($i = 1; $i <= $nombreDePages; $i++): ?>
-                <a id="pagination" href="<?= path ?>produits/<?php if (isset($params[1]) && !is_numeric($params[1])) {
-                    echo $params[1] . '/' . $i;
-                } else {
-                    echo $i;
-                } ?>"><?= $i ?></a>
-            <?php endfor; ?>
-            <a href="<?= path ?>produits"> Retour sur tout les produits</a>
-        </div>
-    </div>
-
+    <?php endif; ?>
     <!-- PopUp d'ajout au panier -->
     <?php if (isset($produit)): ?>
         <div class="popup">
@@ -85,16 +97,6 @@
             <h2><?= $produit[0]['name'] ?></h2>
             <a href="<?= path ?>panier">Aller au panier</a>
             <a href="<?= path ?>produits">Continuer vos achats</a>
-        </div>
-    <?php endif; ?>
-    <?php if (!isset($params[1])): ?>
-        <div class="search-box">
-
-            <form method="POST" action="">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" class="input-search" name="input-search" placeholder="Rechercher un produit">
-                <input type="submit" name="search" value="Chercher" class="btnSearch">
-            </form>
         </div>
     <?php endif; ?>
 </div>

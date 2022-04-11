@@ -126,8 +126,6 @@ class ProduitsModel extends Model
     public function totalPageSearch($value)
     {
         $sth = $this->_connexion->prepare('SELECT COUNT(*) FROM products WHERE tags LIKE "%' . $value .'%"');
-        $r='SELECT COUNT(*) FROM products WHERE tags LIKE %' . $value . '%';
-        var_dump($r);
         $sth->execute();
         return$sth->fetch();
     }
