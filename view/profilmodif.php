@@ -3,9 +3,10 @@
     <?php
 
     if (!empty($error)) {
-        echo $error[0];
+        echo '<p class="errors">'.$error[0].'</p>';
     } elseif (!empty($success)) {
-        echo $success[0];
+        echo '<p class="success">'.$success[0].'</p>';
+        header('Refresh:2,URL=profil');
     }
     if ($params != 'adresse') {
         ?>

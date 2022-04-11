@@ -3,6 +3,7 @@
 <?php endif;?>
 <?php if (!empty($success)): ?>
     <p class="success"><?= $success[0] ?></p>
+<?php header("Refresh:2;URL=connexion");?>
 <?php endif; ?>
 <h1 class="titre">Mot de passe oublié</h1>
 <div class="box">

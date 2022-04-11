@@ -51,7 +51,6 @@ class Connexion extends Controller
                 $mail = $user->getOne('email', $_POST['email']);
                 if (!empty($mail)) {
                     $mdp = uniqid();
-                    echo $mdp;
                     $hashedpassword = password_hash($mdp, PASSWORD_DEFAULT);
                     $user->updatePassword($hashedpassword, $_POST['email']);
                     self::sendMailForget($mdp);
