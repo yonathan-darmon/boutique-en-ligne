@@ -27,20 +27,13 @@ p{
     font-size: 25px;
 }
 
-/*bar*/
-.bar{
-    width: 0;
-    height: 200px;
-    border: 1px solid black;
-    margin-left: 39%;
-}
 
 /*annee2*/
 #annee2{
     display: flex;
 }
 .boitegauche{
-    margin-top: 0;
+    margin-top: 15%;
     margin-left: 15%;
 }
 .gauche{
@@ -55,9 +48,6 @@ p{
 
 /*media queries portable*/
 @media screen and (max-width: 450px){
-    .bar{
-        display: none;
-    }
 
     .droite i{
         display: none;
@@ -81,9 +71,6 @@ p{
     .droite i{
         margin-left: -15%;
     }
-    .bar{
-        display: none;
-    }
 
     .gauche i{
         margin-left: 55%;
@@ -99,9 +86,6 @@ p{
     .droite i{
         margin-left: -15%;
     }
-    .bar{
-        display: none;
-    }
 
     .gauche i{
         margin-left: 55%;
@@ -111,5 +95,18 @@ p{
     .boitegauche{
         margin-top: 20%;
         margin-left: 13%;
+    }
+}
+
+/*media quieries pc*/
+@media screen and (max-width: 1440px){
+    .droite i{
+        margin-left: -25%;
+    }
+
+    .gauche i{
+        margin-left: 115%;
+        display: flex;
+        justify-content: center;
     }
 }

@@ -17,7 +17,6 @@
     </div>
 </div>
 
-<div class="bar"></div>
 
 <div id="annee2">
     <div class="boitegauche">
