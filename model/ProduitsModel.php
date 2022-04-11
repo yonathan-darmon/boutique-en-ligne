@@ -10,7 +10,7 @@ class ProduitsModel extends Model
 
     public function getProdByCat($value)
     {
-        $sth = $this->_connexion->prepare('SELECT products.* FROM  ' . $this->table . ' INNER JOIN categories ON products.id_categorie=categories.id WHERE categories.name_categories = ?');
+        $sth = $this->_connexion->prepare('SELECT products.* FROM  ' . $this->table . ' INNER JOIN categories ON products.id_categorie=categories.id WHERE categories.name_categories = ? LIMIT 6 ');
         $sth->execute(array($value));
         $products = $sth->fetchall(PDO::FETCH_ASSOC);
         return $products;
@@ -48,15 +48,62 @@ class ProduitsModel extends Model
         return $prodate;
     }
 
+    public function nombreTotalArticles()
+    {
+        $sth = $this->_connexion->prepare('SELECT COUNT(*) AS nb_article FROM products');
+        $sth->execute();
+        return $sth->fetch();
+
+    }
+
+    public function nombreTotalArticleSC($sc)
+    {
+        $sth = $this->_connexion->prepare('SELECT COUNT(*) FROM  ' . $this->table . ' INNER JOIN sous_categories ON products.id_souscategorie=sous_categories.id WHERE sous_categories.name= ?');
+        $sth->execute(array($sc));
+        return $sth->fetch();
+
+    }
+
+    public function nombreTotalArticleCat($cat)
+    {
+        $sth = $this->_connexion->prepare('SELECT COUNT(*) FROM  ' . $this->table . ' INNER JOIN categories ON products.id_categorie=categories.id WHERE categories.name_categories= ?');
+        $sth->execute(array($cat));
+        return $sth->fetch();
+
+
+    }
+
+    public function getArticleForProduct($limit, $articles)
+    {
+        $sth = $this->_connexion->prepare('SELECT * FROM products  LIMIT ' . $limit . ',' . $articles);
+        $sth->execute();
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+
+    }
+
+    public function getArticleForProductSc($value,$limit,$articles)
+    {
+        $sth = $this->_connexion->prepare("SELECT products.* FROM products INNER JOIN sous_categories ON products.id_souscategorie=sous_categories.id WHERE sous_categories.name=? LIMIT $limit,$articles");
+        $sth->execute(array($value));
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+
+    }
+    public function getArticleForProductCat($value,$limit,$articles)
+    {
+        $sth = $this->_connexion->prepare("SELECT * FROM products INNER JOIN categories ON products.id_categorie=categories.id WHERE categories.name_categories=? LIMIT $limit,$articles");
+        $sth->execute(array($value));
+        return $sth->fetchall(PDO::FETCH_ASSOC);
+
+    }
     public function addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat)
     {
-        $sth = $this -> _connexion->prepare('INSERT INTO products (name, price, date, stock, promo, image, mis_avant, short_descr, long_descr, tags, id_categorie, id_souscategorie) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $sth -> execute(array($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat));
+        $sth = $this->_connexion->prepare('INSERT INTO products (name, price, date, stock, promo, image, mis_avant, short_descr, long_descr, tags, id_categorie, id_souscategorie) VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $sth->execute(array($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat));
     }
 
     public function stock()
     {
-        $sth = $this -> _connexion->prepare('SELECT id, name, stock FROM products');
+        $sth = $this->_connexion->prepare('SELECT id, name, stock FROM products');
         $sth->execute();
         $visu = $sth->fetchall(PDO::FETCH_ASSOC);
         return $visu;
@@ -64,23 +111,32 @@ class ProduitsModel extends Model
 
     public function upstock($params, $value)
     {
-        $sth = $this -> _connexion->prepare('UPDATE products SET stock= stock + '.$value.' WHERE id=?');
-        $sth -> execute(array($params));
+        $sth = $this->_connexion->prepare('UPDATE products SET stock= stock + ' . $value . ' WHERE id=?');
+        $sth->execute(array($params));
         $up = $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
     public function getLowStock()
     {
-        $sth=$this->_connexion->prepare('SELECT name FROM '.$this->table.' WHERE stock <=10');
+        $sth = $this->_connexion->prepare('SELECT name FROM ' . $this->table . ' WHERE stock <=10');
         $sth->execute();
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
+    public function totalPageSearch($value)
+    {
+        $sth = $this->_connexion->prepare('SELECT COUNT(*) FROM products WHERE tags LIKE "%' . $value .'%"');
+        $r='SELECT COUNT(*) FROM products WHERE tags LIKE %' . $value . '%';
+        var_dump($r);
+        $sth->execute();
+        return$sth->fetch();
+    }
+
     public function searchBar($value)
     {
-        $sth = $this-> _connexion->prepare("SELECT * FROM products WHERE tags LIKE '%".$value."%'");
-        $sth -> execute();
+        $sth = $this->_connexion->prepare("SELECT * FROM products WHERE tags LIKE '%" . $value . "%' LIMIT 6");
+        $sth->execute();
         $test = $sth->fetchall(PDO::FETCH_ASSOC);
-        return($test);
+        return ($test);
     }
 }

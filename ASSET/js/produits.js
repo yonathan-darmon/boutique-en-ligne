@@ -13,5 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     //     titre.toggle('hidden');
     //     titre2.toggle('hidden');
     // })
-
 })

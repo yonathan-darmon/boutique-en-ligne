@@ -33,9 +33,9 @@ class Article extends Controller
 
             if (isset($_POST['valider'])) {
                 $commentverify = htmlspecialchars($_POST['commentaire']);
-                $idproduct = $produit[0]['price'];
+                $idproduct = $produit[0]['id'];
                 $rating = $_POST['rating'];
-                $commentaire->insert($commentverify, $rating, $idproduct, $actualid);
+                $commentaire->insert($commentverify, $rating, $idproduct, $_SESSION['id']);
             }
 
             self::render('article', compact('produit', 'comments', 'commentsaverage'));
