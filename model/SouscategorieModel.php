@@ -6,9 +6,9 @@ class SouscategorieModel extends Model{
         $this->getConnection();
     }
 
-    public function addSousCat($nameSC) // Requète pour ajouter une sous catégorie
+    public function addSousCat($nameSC,$idcat) // Requète pour ajouter une sous catégorie
     {
         $sth = $this->_connexion->prepare('INSERT INTO sous_categories (name, id_categories) VALUES (?, ?)');
-        $sth -> execute(array($nameSC));
+        $sth -> execute(array($nameSC,$idcat));
     }
 }
