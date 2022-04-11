@@ -1,6 +1,12 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+
 .box{
     display: flex;
     justify-content: space-evenly;
+    font-family: 'Audiowide', cursive;
 }
 form{
     display: flex;
@@ -15,6 +21,7 @@ form input{
 }
 form a{
     color: #0c88b4;
+    font-family: 'Audiowide', cursive;
 }
 
 .formconnect{
@@ -29,6 +36,7 @@ form a{
     min-height: 45px;
     border-radius: 30px;
     font-size: 20px;
+    font-family: 'Audiowide', cursive;
 }
 #connect:hover{
     background: green;
@@ -72,3 +80,10 @@ form a{
     }
 }
 
+                    /* Début des Medias Queries pour le responsive */
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+    .box img {
+        display: none;
+    }
+}
