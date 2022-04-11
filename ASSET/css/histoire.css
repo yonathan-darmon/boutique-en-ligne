@@ -9,6 +9,7 @@ p{
     font-size: 20px;
     margin-top: 15px;
 }
+/*anne1*/
 #annee1{
     display: flex;
 }
@@ -26,26 +27,86 @@ p{
     font-size: 25px;
 }
 
+
+/*annee2*/
 #annee2{
     display: flex;
 }
 .boitegauche{
-    margin-top: 0;
+    margin-top: 15%;
     margin-left: 15%;
 }
 .gauche{
     display: flex;
 }
 .gauche i{
-    margin-left: 140%;
+    margin-left: 139%;
 }
 .gauche h2{
     font-size: 25px;
 }
 
-.bar{
-    width: 0;
-    height: 200px;
-    border: 1px solid black;
-    margin-left: 39%;
+/*media queries portable*/
+@media screen and (max-width: 450px){
+
+    .droite i{
+        display: none;
+    }
+    .boitedroite{
+        margin-left: 15%;
+        margin-top: 5%;
+    }
+
+    .gauche i {
+        display: none;
+    }
+    .boitegauche{
+        margin-top: 27%;
+        margin-left: 15%;
+    }
+}
+
+/*media quieries tablette*/
+@media screen and (min-width: 767px) and (max-width: 991px){
+    .droite i{
+        margin-left: -15%;
+    }
+
+    .gauche i{
+        margin-left: 55%;
+        display: flex;
+        justify-content: center;
+    }
+    .boitegauche{
+        margin-top: 20%;
+        margin-left: 15%;
+    }
+}
+@media screen and (width: 768px){
+    .droite i{
+        margin-left: -15%;
+    }
+
+    .gauche i{
+        margin-left: 55%;
+        display: flex;
+        justify-content: center;
+    }
+    .boitegauche{
+        margin-top: 20%;
+        margin-left: 13%;
+    }
+}
+
+/*media quieries pc*/
+@media screen and (max-width: 1440px){
+    .droite i{
+        margin-left: -25%;
+    }
+
+    .gauche i{
+        margin-left: 115%;
+        display: flex;
+        justify-content: center;
+    }
 }
