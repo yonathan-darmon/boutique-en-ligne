@@ -8,6 +8,8 @@
     <input type="text" name="stock" placeholder="Quantité à ajouter" required>
     <input type="text" name="promo" placeholder="Promo" required>
     <input type="text" name="image" placeholder="Image" required>
+    <input type="text" name="image2" placeholder="Image 2" required>
+    <input type="text" name="image3" placeholder="Image 3" required>
     <input type="text" name="push" placeholder="Mis en avant" required>
     <input type="text" name="short" placeholder="Description courte" required>
     <input type="text" name="long" placeholder="Description longue" required>
