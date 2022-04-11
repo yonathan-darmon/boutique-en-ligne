@@ -14,7 +14,7 @@ $params = explode('/', $_GET['p']);
     <link rel="stylesheet" type="text/css" href="<?= path ?>ASSET/css/<?php if ($params[0]!="") {
         echo $params[0];
     } else {
-        echo 'page-accueil';
+        echo 'accueil';
     } ?>.css">
     <link rel="stylesheet" href="<?= path ?>ASSET/css/header.css">
     <link rel="stylesheet" href="<?= path ?>ASSET/css/footer.css">
