@@ -177,10 +177,6 @@
                     /* Début des Medias Queries pour le responsive */
 /* Mobile devices */
 @media screen and (max-width: 767px) {
-    header {
-        display: none;
-    }
-
     .souscat {
         display: none;
     }
@@ -188,7 +184,7 @@
     .box {
         display: flex;
         flex-direction: column;
-        margin-top: 25px;
+        margin-top: 125px;
     }
 
     .research {
@@ -219,6 +215,12 @@
 
     .page {
         margin-left: 45%;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
     }
 }
 
