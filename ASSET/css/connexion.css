@@ -2,13 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-
-.box{
+/* Paramétrage de la boite contenant l'image et le formulaire */
+.box {
     display: flex;
     justify-content: space-evenly;
     font-family: 'Audiowide', cursive;
 }
-form{
+
+/* Style du formulaire */
+form {
     display: flex;
     flex-direction: column;
     margin-right: auto;
@@ -16,21 +18,25 @@ form{
     margin-top: 15px;
     margin-bottom: 25px;
 }
-form input{
+
+form input {
     border-radius: 5px;
 }
-form a{
+
+form a {
     color: #0c88b4;
     font-family: 'Audiowide', cursive;
 }
 
-.formconnect{
+.formconnect {
     margin-top: 55px;
 }
-.imageconnect{
+
+.imageconnect {
     margin-top: 3%;
 }
-#connect{
+
+#connect {
     background: black;
     color: white;
     min-height: 45px;
@@ -38,10 +44,13 @@ form a{
     font-size: 20px;
     font-family: 'Audiowide', cursive;
 }
-#connect:hover{
+
+#connect:hover {
     background: green;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+/* Messages d'erreur et de succès de connexion */
 .errors {
     background-color: red;
     color: white;
@@ -60,6 +69,7 @@ form a{
     outro 2s ease-in-out 2s 1 normal forwards;
 }
 
+/* Animation messages */
 @keyframes entrance {
     0% {
         opacity: 0;
