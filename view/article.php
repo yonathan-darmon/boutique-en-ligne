@@ -39,7 +39,7 @@
         <?php foreach ($commentsaverage as $value): ?> <!-- Note l'article -->
         <?php
         $value = implode(',', $value);
-        echo $value;
+        echo "$value / 5";
         ?>
         <?php endforeach; ?>
     </div>
