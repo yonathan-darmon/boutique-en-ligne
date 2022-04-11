@@ -4,7 +4,7 @@ class Accueil extends Controller {
     {
 
     }
-    public static function index()
+    public static function index() // Permet de chercher & générer les produits sur la page d'accueil
     {
         $prod = new ProduitsModel;
         $produit = $prod -> getProdByDate();

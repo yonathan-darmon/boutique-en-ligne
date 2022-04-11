@@ -1,4 +1,5 @@
 <?php
+//Fait appel à PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -10,7 +11,7 @@ require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
 class Inscription extends Controller
 {
 
-    public static function sendMailWelcome(){
+    public static function sendMailWelcome(){ //Envoi un mail de bienvenue
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Mailer = 'smtp';
@@ -32,7 +33,7 @@ class Inscription extends Controller
     }
 
     
-    public static function Register()
+    public static function Register()//Fonction d'inscription
     {
         $success = [];
         if (isset($_POST['valider'])) {

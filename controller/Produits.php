@@ -18,7 +18,7 @@ class Produits extends Controller
         $categorie = $modelcat->getALL();
         $scategorie = $modelsc->getALL();
         $search = "";
-        if (isset($_POST['search'])) {
+        if (isset($_POST['search'])) { //Paramètres barre de recherche
             $nombreDePagesSearch=$model->totalPageSearch($_POST['input-search']);
             $nombreDePages=ceil($nombreDePagesSearch[0]/$nombreArticlePages);
             $search = $model->searchBar($_POST['input-search']);
@@ -46,7 +46,7 @@ class Produits extends Controller
             }
         }
 
-        if (isset ($_POST['achat'])) {
+        if (isset ($_POST['achat'])) { //Ajout de produit dans panier 
             if (isset($_SESSION['id'])) {
                 $produit = $model->getOne('id', $_POST['hidden']);
                 $panier = new PanierModel();
@@ -59,7 +59,7 @@ class Produits extends Controller
             }
         }
 
-        if (isset($_POST['delete'])) {
+        if (isset($_POST['delete'])) { //Supprime le panier 
             $panier = new PanierModel();
             $panier->delete($_SESSION['id']);
         }
@@ -67,7 +67,7 @@ class Produits extends Controller
 
     }
 
-    public static function selectBySc($cat)
+    public static function selectBySc($cat) // Filtre produits par sous catégories
     {
         $params = explode('/', $_GET['p']);
         $nombreArticlePages = 6;
@@ -98,7 +98,7 @@ class Produits extends Controller
 
         }
 
-        if (isset ($_POST['achat'])) {
+        if (isset ($_POST['achat'])) { // Achat de produit
             if (isset($_SESSION['id'])) {
                 $produit = $model->getOne('id', $_POST['hidden']);
                 $panier = new PanierModel();
@@ -116,7 +116,7 @@ class Produits extends Controller
     }
 
     public
-    static function selectByCat($cat)
+    static function selectByCat($cat) // Filtre produits par catégories
     {
         $params = explode('/', $_GET['p']);
         $nombreArticlePages = 6;

@@ -7,7 +7,7 @@ class Contact extends Controller {
 
     }
 
-    public static function index()
+    public static function index() //Envoi de mail 
     {
         self::sendmail();
         self::render('contact');

@@ -8,7 +8,7 @@ class Profil extends Controller
 
     public static function index()
     {
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['id'])) { // Vérifie la classe de rewards
             $user = new UtilisateursModel();
             $utilisateur = $user->getOne('id', $_SESSION['id']);
             $reward = $user->getReward($_SESSION['id']);
@@ -18,7 +18,7 @@ class Profil extends Controller
         }
     }
 
-    public static function modif($params)
+    public static function modif($params) // Modifie le profil
     {
         if (isset($_SESSION['id'])) {
             $success = [];
@@ -40,7 +40,7 @@ class Profil extends Controller
         }
     }
 
-    public static function modifAdresse($params)
+    public static function modifAdresse($params) // Modifie l'adresse
     {
         if (isset($_SESSION['id'])) {
             $error = [];
@@ -70,7 +70,7 @@ class Profil extends Controller
         }
     }
 
-    public static function modifPassword($params)
+    public static function modifPassword($params) // Modifie le mdp
     {
         if (isset($_SESSION['id'])) {
             $error = [];
@@ -91,7 +91,7 @@ class Profil extends Controller
 
     }
 
-    public static function histo()
+    public static function histo() // Historique de commande
     {
         if (isset($_SESSION['id'])) {
             $histo = new HistoriqueModel();

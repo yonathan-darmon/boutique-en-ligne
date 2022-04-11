@@ -142,14 +142,23 @@ textarea {
 
                     /* Début des Medias Queries pour le responsive */
 /* Mobile devices */
-@media screen and (max-width: 425) {
+@media screen and (max-width: 425px) {
+        header {
+            width: 100%;
+        }
+
+        .pics {
+            margin-left: 30%;
+        }
+
         .pics img {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
         }
 
         .descr {
             margin-top: 0px;
+            margin-left: 10%;
         }
 
         .descr h1 {
@@ -160,19 +169,33 @@ textarea {
 
         .descr span {
             font-size: 28px;
+            margin-left: 15%;
         }
 
         .descr p {
             font-size: 20px;
+            margin-left: 25%;
+        }
+
+        .infos-prod {
+            margin-left: 65%;
+        }
+
+        .bouttonpanier {
+            left: 0%;
+        }
+
+        .bouttonpanier form {
+            left: 0px;
         }
 
         .bouttonpanier form input {
             width: 480px;
             height: 80px;
             border-radius: 50px;
-            margin-left: 18%;
             margin-bottom: 15px;
             background-color: #D7DBAF;
+            margin-left: 1px;
         }
 
         .rate {
@@ -183,9 +206,10 @@ textarea {
             margin-left: 20%;
             margin-top: 25px;
         }
-}
 
-/* Tab devices */
-@media screen and (min-width: 768px) and (max-width: 1599px) {
-
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 }

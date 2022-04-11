@@ -1,4 +1,6 @@
 <?php
+
+// Initialisation de PHPMailer
 require_once('ASSET/PHPMailer-6.6.0/src/Exception.php');
 require_once('ASSET/PHPMailer-6.6.0/src/PHPMailer.php');
 require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
@@ -10,7 +12,7 @@ use PHPMailer\PHPMailer\Exception;
 class Connexion extends Controller
 {
 
-    public static function index()
+    public static function index() // Paramètres de connexion
     {
         $errors = [];
         $success = [];
@@ -39,7 +41,7 @@ class Connexion extends Controller
 
     }
 
-    public static function reset()
+    public static function reset() // Mot de passe oublié
     {
         $error = [];
         $success = [];
@@ -66,7 +68,7 @@ class Connexion extends Controller
     }
 
 
-    public static function sendMailForget($mdp)
+    public static function sendMailForget($mdp) // Envoi de mail pour mot de passe oublié
     {
         $mail = new PHPMailer();
         $mail->isSMTP();

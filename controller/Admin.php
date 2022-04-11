@@ -7,7 +7,7 @@ class Admin extends Controller
 
     }
 
-    public static function index()
+    public static function index() // Permet à l'admin de gérer les utilisateurs & les stocks
     {
         $user = new UtilisateursModel();
         $utilisateur = count($user->getALL());
@@ -18,7 +18,7 @@ class Admin extends Controller
         self::renderAdmin('admin', compact('utilisateur', 'produit', 'stocklow'));
     }
 
-    public static function stock()
+    public static function stock() // Affiche les stocks pour l'admin
     {
         $stock = new ProduitsModel();
         $rendstock = ($stock->stock());
@@ -26,7 +26,7 @@ class Admin extends Controller
         self::renderAdmin('adminstock', compact('rendstock'));
     }
 
-    public static function adStock()
+    public static function adStock() // Permet à l'admin de modifier du stock
     {
         $params = explode('/', $_GET['p']);
         $stock = new ProduitsModel();
@@ -40,14 +40,14 @@ class Admin extends Controller
         }
     }
 
-    public static function user()
+    public static function user() // Affiche les utilisateurs pour l'admin
     {
         $user = new UtilisateursModel();
         $utilisateur = ($user->getALL());
         self::renderAdmin('adminuser', compact('utilisateur'));
     }
 
-    public static function manageUser()
+    public static function manageUser() // Permet à l'admin de gérer les droits d'utilisateurs
     {
         $params = explode('/', $_GET['p']);
         $user = new UtilisateursModel();
@@ -61,7 +61,7 @@ class Admin extends Controller
         self::renderAdmin('manageuser', compact('utilis','droit'));
     }
 
-    public static function articles()
+    public static function articles() // Permet à l'admin d'ajouter du stock
     {
         $cat = new CategorieModel();
         $cat2 = new SouscategorieModel();
@@ -89,14 +89,14 @@ class Admin extends Controller
         self::renderAdmin('adminarticles', compact('catego', 'souscateg'));
     }
 
-    public static function ventes()
+    public static function ventes() // Affiche les ventes
     {
         $product = new HistoriqueModel();
         $produit = ($product->getALL());
         self::renderAdmin('adminventes', compact('produit'));
     }
 
-    public static function categories()
+    public static function categories() // Permet à l'admin d'ajouter des catégories et sous catégories
     {
         
         $cat = new CategorieModel();

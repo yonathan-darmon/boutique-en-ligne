@@ -1,11 +1,14 @@
 <?php if (isset($error1)): ?>
-    <div class="error"><?= $error1 ?></div>
+<div class="error"><?= $error1 ?></div>
 <?php endif; ?>
+
 <?php if (!empty($success)): ?>
-    <div class="reussi"><?= $success[0] ?></div>
+<div class="reussi"><?= $success[0] ?></div>
 <?php header('Refresh:3;url='.path.'connexion');?>
+
 <?php else: ?>
 <h1 class="titre">Inscription</h1>
+<!-- Boite contenant le formulaire d'inscription -->
 <div class="box">
     <form action="#" method="post">
         <label for="login">Login</label>
@@ -30,4 +33,3 @@
     <img class="imageinscri" src="<?=path?>ASSET/images/lapin-removebg-preview.png" alt="">
 </div>
 <?php endif; ?>
-

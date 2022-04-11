@@ -1,5 +1,5 @@
 <?php
-
+// Fait appel à PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -10,7 +10,7 @@ require_once('ASSET/PHPMailer-6.6.0/src/SMTP.php');
 
 class Panier extends Controller
 {
-    public static function sendReceipt($email, $user, $commande, $prix)
+    public static function sendReceipt($email, $user, $commande, $prix) //Envoi d'un reçu de commande
     {
         $mail = new PHPMailer();
         $mail->isSMTP();
@@ -32,7 +32,7 @@ class Panier extends Controller
         $mail->send();
     }
 
-    public static function index()
+    public static function index() //Check du panier & application des réduction rewards
     {
         //if(isset($_SESSION['id'])){
         $model = new paniermodel();

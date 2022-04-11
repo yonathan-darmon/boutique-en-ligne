@@ -1,34 +1,45 @@
-.titre{
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.titre {
     margin-top: 25px;
 }
-.box{
+
+.box {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 50px;
 }
-form{
+
+form {
     margin-top: 50px;
     display: grid;
     grid-template-columns: 250px 150px;
     grid-gap: 25px;
 }
-form label{
+
+form label {
     font-size: 20px;
 }
+
 form input {
     border-radius: 5px;
 }
-#valider{
+
+#valider {
     background: black;
     color: white;
     min-height: 45px;
     border-radius: 30px;
     font-size: 20px;
 }
-#valider:hover{
+
+#valider:hover {
     background: green;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 .error {
     background-color: red;
     color: white;
@@ -65,4 +76,29 @@ form input {
     100% {
         opacity: 0;
     }
+}
+
+                    /* Début des Medias Queries pour le responsive */
+/* Mobile devices */
+@media screen and (max-width: 425px) {
+        .imageinscri {
+            display: none;
+        }
+
+        .titre {
+            text-align: center;
+            font-size: 36px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        footer {
+            bottom: 0;
+            width: 100%;
+            position: fixed;
+        }
 }

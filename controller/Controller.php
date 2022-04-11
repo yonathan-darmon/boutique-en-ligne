@@ -1,6 +1,6 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\PHPMailer; // Fait appel à PHPMailer
 
 class Controller
 {
@@ -11,13 +11,13 @@ class Controller
     {
     }
 
-    public function loadModel(string $model)
+    public function loadModel(string $model) // Paramètre les models
 
     {
         $this->$model = new $model();
     }
 
-    public static function render($fichier, $data = [])
+    public static function render($fichier, $data = []) // Paramètre le render pour les view
     {
         extract($data);
         ob_start();
@@ -29,13 +29,8 @@ class Controller
     public static function sendmail()
     {
         if (isset($_POST['send'])) {
-
-
-            //Create a new PHPMailer instance
-            $mail = new PHPMailer();
-
-            //Tell PHPMailer to use SMTP
-            $mail->isSMTP();
+            $mail = new PHPMailer(); //Instancie PHPMailer
+            $mail->isSMTP(); //Dis à PHPMailer d'utiliser SMTP
 
             //Enable SMTP debugging
             //SMTP::DEBUG_OFF = off (for production use)
@@ -43,45 +38,42 @@ class Controller
             //SMTP::DEBUG_SERVER = client and server messages
             //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
-            //Set the hostname of the mail server
+            //Paramètres du serveur
             $mail->Mailer = 'smtp';
             $mail->Host = 'smtp.gmail.com';
 
 
-            //Set the SMTP port number: 587 for SMTP+STARTTLS
+            //Paramètre le numéro de port SMTP: 587 pour SMTP+STARTTLS
             $mail->Port = 587;
 
-            //Set the encryption mechanism to use: STARTTLS (explicit TLS on port 587)
+            //Paramètre le méchanisme d'encryptage: STARTTLS
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
-            //Whether to use SMTP authentication
+            //Authentification SMTP
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = 'tls';
 
-            //Username to use for SMTP authentication - use full email address for gmail
+            //Adresse mail à utiliser pour SMTP
             $mail->Username = 'pop.cult.e.ure.boutique@gmail.com';
 
-            //Password to use for SMTP authentication
+            //Mot de passe à utiliser pour SMTP
             $mail->Password = 'Coucousalutbonjour';
 
-            //Set who the message is to be sent from
+            //Paramètre envoyeur
             $email = $_POST['mail'];
             $mail->setFrom($email, "$_POST[prenom], $_POST[nom]");
 
-            //Set an alternative reply-to address
-            //$mail->addReplyTo('replyto@example.com', 'First Last');
-
-            //Set who the message is to be sent to
+            //Paramètre destinataire
             $mail->addAddress('pop.cult.e.ure.boutique@gmail.com', 'Boutique Ligne');
 
-            //Set the subject line
+            //Objet du mail
             $mail->Subject = $_POST['objet'];
 
             //Read an HTML message body from an external file, convert referenced images to embedded,
             //convert HTML into a basic plain-text alternative body
             //$mail->msgHTML(file_get_contents('contents.html'), __DIR__);
 
-            //Config body mail
+            //Configuration du corps du mail
             $mail->WordWrap = 70;
             $mail->CharSet = 'utf-8';
             $mail->Body = $_POST['message'];
@@ -90,7 +82,7 @@ class Controller
             //Attach an image file
             //$mail->addAttachment('images/phpmailer_mini.png');
 
-            //send the message, check for errors
+            //Envoi du message et check les erreurs
             if (!$mail->send()) {
                 echo 'Oups, essayez de nouveau !' . $mail->ErrorInfo;
             } else {
@@ -104,7 +96,7 @@ class Controller
         }
     }
 
-    public static function mailwelcome()
+    public static function mailwelcome() //Envoi d'un mail de bienvenue
     {
 
         if (isset($_POST['valider'])) {
@@ -129,7 +121,7 @@ class Controller
         }
     }
 
-    public static function disconnect($id)
+    public static function disconnect($id) //Supprime le panier après commande
     {
         $panier = new PanierModel();
         $panier->delete($id);
