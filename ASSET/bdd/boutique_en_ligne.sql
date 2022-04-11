@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 07 avr. 2022 à 08:27
+-- Généré le : ven. 08 avr. 2022 à 14:31
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -310,8 +310,8 @@ INSERT INTO `sous_categories` (`id`, `name`, `id_categorie`) VALUES
 (1, 'harry_potter', 1),
 (2, 'Marvel', 4),
 (3, 'Disney', 5),
-(4, 'DC-Comics', 4),
-(5, 'Star-Wars', 2),
+(4, 'dc', 4),
+(5, 'StarWars', 2),
 (6, 'Dragon-Ball', 3),
 (7, 'One-Piece', 3);
 

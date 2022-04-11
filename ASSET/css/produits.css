@@ -1,3 +1,8 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+/* Style pour le bandeau avec les logos */
 .souscat {
     background: black;
     display: flex;
@@ -10,10 +15,8 @@
 .souscat img:hover {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-.titre{
-    text-align: center;
-    margin-top: 50px;
-}
+
+/* Effet sidebar */
 .box {
     display: flex;
 }
@@ -32,7 +35,6 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
-
 }
 
 .research form select {
@@ -41,29 +43,46 @@
     background: black;
     color: white;
     font-size: 20px;
+    font-family: 'Audiowide', cursive;
 }
-.research input{
+.research input {
     width: 150px;
     min-height: 25px;
     font-size: 20px;
     border-radius: 10px;
+    font-family: 'Audiowide', cursive;
 }
+
 .research input:hover{
-    background: green;
+    background: #D7DBAF;
+    font-family: 'Audiowide', cursive;
 }
 
-
+/* Affichage des cartes contenant les produits */
 .productlist {
     width: 70%;
+    font-family: 'Audiowide', cursive;
 }
-.cards{
-    display: flex;
+
+.titre {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Pour afficher les cartes en grid */
+.cards {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    gap: 50px;
     justify-content: space-evenly;
     margin-top: 25px;
+    font-family: 'Audiowide', cursive;
 }
+
 .card img {
     width: 100%;
 }
+
 .short{
     display: none;
     position: absolute;
@@ -73,22 +92,137 @@
     bottom: 20%;
     font-size: 1.5rem;
 }
+
+/* Affiche le nom et numéro du produit */
+.card:hover .short {
+    display: block;
+}
+
+/* Pagination */
 .page {
     margin-top: 50px;
     text-align: center;
     margin-bottom: 50px;
 }
-.card a{
+
+/* Style des cartes */
+.card a {
     max-width: 150px;
+    min-height: 100px;
     display: block;
+    text-decoration: none;
+    color: black;
 }
-.contener{
+
+.card form input[type="submit"] {
+    border: 2px solid yellow;
+    border-radius: 20px;
+    width: 75px;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+
+.card form input[type="submit"]:hover {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 75px;
+    height: 30px;
+    color: yellow;
+}
+
+.contener {
     position: relative;
-}
-.card:hover .short{
-    display: block;
 }
 
 .hidden {
     display: none;
+}
+
+/* Style SearchBar */
+.input-search {
+    margin-top: 20px;
+    width: 300px;
+    height: 25px;
+    border-radius: 15px;
+}
+
+.input-search::placeholder {
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+}
+
+.btnSearch {
+    margin-top: 15px;
+    margin-left: 38%;
+    border: 2px solid yellow;
+    border-radius: 20px;
+    width: 75px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-family: 'Audiowide', cursive;
+}
+
+.btnSearch:hover {
+    margin-top: 15px;
+    margin-left: 38%;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 75px;
+    height: 30px;
+    color: yellow;
+}
+
+                    /* Début des Medias Queries pour le responsive */
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+    header {
+        display: none;
+    }
+
+    .souscat {
+        display: none;
+    }
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+    }
+
+    .research {
+        border: none;
+        margin-left: 40%;
+    }
+
+    .research form {
+        width: 100%;
+    }
+
+    .research form select {
+        width: 300px;
+        text-align: center;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .productlist h1 {
+        margin-left: 40%;
+    }
+
+    .cards {
+        margin-left: 50%;
+    }
+
+    .page {
+        margin-left: 45%;
+    }
+}
+
+/* Tab devices */
+@media screen and (min-width: 768px) and (max-width: 1599px) {
+
 }

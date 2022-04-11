@@ -1,8 +1,7 @@
 <?php
 $params = explode('/', $_GET['p']);
 ?>
-<script src="https://js.stripe.com/v3/"></script>
-<script src="scripts.js"></script>
+
 
 
 <!DOCTYPE html>
@@ -12,7 +11,7 @@ $params = explode('/', $_GET['p']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="<?= path ?>ASSET/css/<?php if (isset($params[0])) {
+    <link rel="stylesheet" type="text/css" href="<?= path ?>ASSET/css/<?php if ($params[0]!="") {
         echo $params[0];
     } else {
         echo 'page-accueil';
@@ -22,6 +21,8 @@ $params = explode('/', $_GET['p']);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="scripts.js"></script>
     <script src="<?=path?>ASSET/js/<?php if (isset($params[0])) {
         echo $params[0];
     } else {
