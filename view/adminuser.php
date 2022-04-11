@@ -1,3 +1,4 @@
+<!-- Permet de gérer les utilisateurs -->
 <h1>Gérer les utilisateurs</h1>
 <table>
 <tr>
@@ -9,7 +10,7 @@
             <th>Reward</th>
             <th>Droits</th>
  </tr>
- <?php foreach ($utilisateur as $value):?>
+ <?php foreach ($utilisateur as $value):?> <!-- Recherche les utilisateurs -->
     <tr>
 <td><?=$value['id']?></td>
 <td><?=$value['login']?></td>

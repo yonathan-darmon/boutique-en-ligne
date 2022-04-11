@@ -1,3 +1,4 @@
+<!-- Gestion des droits users -->
 <?php foreach($utilis as $value)?>
 <p><?=$value['id']?></p>
 <h1><?=$value['login']?></h1>

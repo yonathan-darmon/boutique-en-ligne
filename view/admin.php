@@ -3,10 +3,10 @@
 <div class="boite1">
     <p class="inscrit">Nombre d'utilisateurs inscrit sur le site : <b> <?=$utilisateur?></b> </p>
     <p class="produitvendu"> Nombre de Produit vendu depuis la création du site :<b> <?=$produit?></b></p>
-    <?php if (!empty($stocklow)):?>
+    <?php if (!empty($stocklow)):?> 
     <p class="Alerte">Ces produits ont des stock faibles : </p>
     <ul>
-        <?php foreach ($stocklow as $value):?>
+        <?php foreach ($stocklow as $value):?> <!-- Affiche les produits dont le stock est faible --> 
         <li><?=$value['name']?></li>
         <?php endforeach;?>
     </ul>

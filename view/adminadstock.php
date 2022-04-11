@@ -1,4 +1,4 @@
-
+<!-- Ajoute du stock --> 
 <?php foreach($addstock as $value):?>
 <p><?=$value['id']?></p>
 <h1><?=$value['name']?></h1>

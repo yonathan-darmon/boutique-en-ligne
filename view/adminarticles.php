@@ -1,6 +1,7 @@
 <?php
 
 ?>
+<!-- Ajoute des articles -->
 <form action="" method="POST">
     <input type="text" name="nom" placeholder="Nom du produit" required>
     <input type="text" name="price" placeholder="Prix du produit" required>

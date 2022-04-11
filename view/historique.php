@@ -1,5 +1,5 @@
 <?php
-if(empty($historique)):;
+if(empty($historique)):; // Vérifie les commandes
 ?>
 <h1>Vous n'avez pas encore de commandes</h1>
 <?php else:?>
@@ -7,7 +7,7 @@ if(empty($historique)):;
 <table>
     <thead>
     <tr>
-    <?php foreach ($historique[0] as $key => $value):?>
+    <?php foreach ($historique[0] as $key => $value):?> <!-- Affiche l'historique de commande -->
     <th> <?=$key;?> </th>
     <?php endforeach;?>
 

@@ -1,3 +1,4 @@
+<!-- Permet de visualiser les ventes -->
 <h1>Visualisation des ventes</h1>
 <table>
 <tr>
@@ -7,7 +8,7 @@
             <th>Prix</th>
             <th>Moyen de paiement</th>
  </tr>
- <?php foreach ($produit as $value):?>
+ <?php foreach ($produit as $value):?> <!-- Visualisation des ventes par produits -->
     <tr>
 <td><?=$value['id']?></td>
 <td><?=$value['product_name']?></td>
