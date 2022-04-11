@@ -1,12 +1,11 @@
 <div class="panier">
     <?php
-    var_dump($rabais);
-        if(empty($panier)){
+        if(empty($panier)){ // Vérifie le panier 
             echo '<p id="vide">votre panier est vide</p>';
         }
     ?>
 <?php if(isset($panier)):?>
-    <?php foreach($panier as $value):?>
+    <?php foreach($panier as $value):?> <!-- Affiche le panier -->
     <div class="panier2">
         <img src="<?=path?>ASSET/images/<?=$value['image']?>" alt="">
         <h3>Nom</h3>

@@ -1,8 +1,9 @@
+<!-- Ajoute une catégorie --> 
 <form action="" method="POST">
     <input type="text" name="nom" placeholder="Nom de Catégorie" required>
     <input type="submit" name="add" value="Ajouter">
 </form>
-
+<!-- Ajoute une sous catégorie -->
 <form action="" method="POST">
     <input type="text" name="nom" placeholder="Nom de Sous-Catégorie" required>
     <select name="id_cat">

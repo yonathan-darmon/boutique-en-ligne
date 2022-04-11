@@ -1,6 +1,4 @@
-<?php foreach ($utilisateur
-
-as $value): ?>
+<?php foreach ($utilisateur as $value): ?>
 <img class="image" src="<?=path?>ASSET/images/5111rgoIUOS._AC_SY550_.jpg" alt="figurine saint Seyia">
 <div class="boite1">
     <div class="value">
