@@ -15,7 +15,7 @@
             <input type="text" name="login">
             <label for="password">Votre Mot de passe</label>
             <input type="password" name="password">
-            <input id="connect" type="submit" value="se connecter" name="connect">
+            <input id="connect" type="submit" value="Se connecter" name="connect">
             <a href="<?= path ?>inscription">Pas encore inscrit? C'est par ici!</a>
             <a href="<?= path ?>oubli"> Mot de passe oublié</a>
         </form>

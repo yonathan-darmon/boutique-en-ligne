@@ -86,4 +86,47 @@ form a{
     .box img {
         display: none;
     }
+
+    .box {
+        margin-top: 250px;
+        margin-bottom: 10px;
+    }
+
+    .box h1 {
+        font-size: 56px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .box form {
+        width: 500px;
+    }
+
+    .box form label {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    #connect {
+        margin-top: 20px;
+    }
+
+    form a {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    form input[type="text"] {
+        height: 40px;
+    }
+
+    form input[type="password"] {
+        height: 40px;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 }
