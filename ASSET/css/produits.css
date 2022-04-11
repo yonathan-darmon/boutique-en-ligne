@@ -176,7 +176,7 @@
 
                     /* Début des Medias Queries pour le responsive */
 /* Mobile devices */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 425px) {
     .souscat {
         display: none;
     }

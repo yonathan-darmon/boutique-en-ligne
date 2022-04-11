@@ -142,7 +142,7 @@ textarea {
 
                     /* Début des Medias Queries pour le responsive */
 /* Mobile devices */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 425) {
         .pics img {
             width: 200px;
             height: 200px;
