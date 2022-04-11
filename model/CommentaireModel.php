@@ -3,7 +3,7 @@ class CommentaireModel extends Model
 {
     public function __construct()
     {
-        $this->table="comments";
+        $this->table="comments"; // Connexion à la bdd
         $this->getConnection();
     }
 
