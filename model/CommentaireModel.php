@@ -13,10 +13,10 @@ class CommentaireModel extends Model
         $sth->execute(array($comment, $approuval, $id_product, $id_user));
     }
 
-    public function average()
+    public function average($id)
     {
-        $sth = $this->_connexion->prepare('SELECT AVG(`approuval`) FROM `comments` WHERE id_product=1');
-        $sth->execute();
+        $sth = $this->_connexion->prepare('SELECT AVG(`approuval`) FROM `comments` WHERE id_product= '.$id.' ' );
+        $sth->execute(array());
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
 }   
