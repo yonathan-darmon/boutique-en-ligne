@@ -16,7 +16,7 @@ class Model
     public $table;
     public $id;
 
-    public function getConnection()
+    public function getConnection() //vérifie connection en bdd
     {
         if ($this->_connexion === null) {
             try {
@@ -29,7 +29,7 @@ class Model
         return $this->_connexion;
     }
 
-    public function getALL()
+    public function getALL() // Récupère tous les produits
     {
         $sth = $this->_connexion->prepare('SELECT * FROM ' . $this->table);
         $sth->execute();
@@ -37,7 +37,7 @@ class Model
         return $sth->fetchall(PDO::FETCH_ASSOC);
     }
 
-    public function getOne($key, $value)
+    public function getOne($key, $value) // Récupère un seul produit
     {
         $sth = $this->_connexion->prepare('SELECT * FROM  ' . $this->table . '  WHERE ' . $key . ' = ?');
         $sth->execute(array($value));
@@ -53,13 +53,13 @@ class Model
 
     }
 
-    public function update($params, $value, $id)
+    public function update($params, $value, $id) //Ajout de catégroie & stock
     {
         $sth = $this->_connexion->prepare("UPDATE $this->table SET $params=? WHERE id=$id ");
         $sth->execute(array($value));
     }
 
-    public function deleteId($params,$id)
+    public function deleteId($params,$id) // Supprime user
     {
         $sth=$this->_connexion->prepare('DELETE FROM'.$this->table.' WHERE'. $params.'='.$id);
         $sth->execute();
