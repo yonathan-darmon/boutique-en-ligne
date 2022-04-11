@@ -229,7 +229,7 @@ display: none;
 
                     /* Début des Medias Queries pour le responsive */
 /* Mobile devices */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 425px) {
 
 #cont .bloc-pres {
   border: none;
@@ -293,7 +293,7 @@ display: none;
 
 
 /* Tab devices */
-@media screen and (min-width: 768px) and (max-width: 1599px) {
+@media screen and (min-width: 425px) and (max-width: 700px) {
   #cont .bloc-pres {
     border: none;
     border-radius: 0px;
