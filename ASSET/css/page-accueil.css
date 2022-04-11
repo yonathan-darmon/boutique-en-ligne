@@ -138,7 +138,7 @@
 .sousbloc {
     display: grid;
     gap: 4%;
-    grid-template-columns: 300px 300px 300px 300px 300px;
+    grid-template-columns: 200px 200px 200px 200px 200px;
     padding-left: 70px;
 }
 
