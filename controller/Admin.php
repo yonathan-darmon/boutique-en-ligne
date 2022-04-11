@@ -74,6 +74,8 @@ class Admin extends Controller
         $stock = $_POST['stock'];
         $promo = $_POST['promo'];
         $image = $_POST['image'];
+        $image2 = $_POST['image2'];
+        $image3 = $_POST['image3'];
         $push = $_POST['push'];
         $short = $_POST['short'];
         $long = $_POST['long'];
@@ -83,7 +85,7 @@ class Admin extends Controller
         $getsouscat = $cat2->getOne('id_categorie', 'name');
         $sousCat = $getsouscat[0]['id'];
         $add = new ProduitsModel();
-        $add->addProd($nom, $prix, $stock, $promo, $image, $push, $short, $long, $tags, $cat, $sousCat);
+        $add->addProd($nom, $prix, $stock, $promo, $image, $image2, $image3, $push, $short, $long, $tags, $cat, $sousCat);
         }
     
         self::renderAdmin('adminarticles', compact('catego', 'souscateg'));
