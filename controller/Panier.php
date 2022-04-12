@@ -48,7 +48,7 @@ class Panier extends Controller
         } elseif ($idreward[0] == 4) {
             $rabais = 0.15;
         } elseif ($idreward[0] == 1) {
-            $rabais = 1;
+            $rabais = 0;
         }
         //}
 
